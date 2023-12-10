@@ -3,17 +3,17 @@ export const FormControl = defineStore("form-control", {
   state: () => ({
     activForm: false,
     pageNumber: 1,
-    internetShop: Boolean,
-    landingPage: Boolean,
-    application: Boolean,
-    UXprototyping: Boolean,
-    service: Boolean,
-    UIUXdesign: Boolean,
-    identity: Boolean,
-    graphicDesign: Boolean,
-    designSupport: Boolean,
-    naming: Boolean,
-    illustration: Boolean,
+    // internetShop: Boolean,
+    // landingPage: Boolean,
+    // application: Boolean,
+    // UXprototyping: Boolean,
+    // service: Boolean,
+    // UIUXdesign: Boolean,
+    // identity: Boolean,
+    // graphicDesign: Boolean,
+    // designSupport: Boolean,
+    // naming: Boolean,
+    // illustration: Boolean,
     description: "",
     arrServises: [],
     email: "",
@@ -22,6 +22,7 @@ export const FormControl = defineStore("form-control", {
     name: "",
     workFormat: "",
     totalbudget: "",
+    wrong: false,
   }),
   getters: {
     getFormState() {
@@ -33,10 +34,48 @@ export const FormControl = defineStore("form-control", {
     getArrServises() {
       return this.arrServises;
     },
+    getWrong() {
+      return this.wrong;
+    },
   },
   actions: {
     changActivForm() {
       this.activForm = !this.activForm;
+    },
+    getInfo() {
+      const userInfo = {
+        formatInfo: {
+          budget: this.totalbudget,
+          format: this.workFormat,
+        },
+        servises: this.arrServises,
+        info: this.personInfo,
+      };
+    },
+
+    // this.getArrServises.length < 1 ||
+    // this.description === "" ||
+    // this.workFormat === "" ||
+    // this.totalbudget === "" ||
+    // Object.value(this.personInfo).length === 0
+
+    passInformation() {
+      const personInfo = {
+        name: this.name,
+        company: this.company,
+        phone: this.phoneNumber,
+        email: this.email,
+      };
+      Object.keys(personInfo).map(function (key) {
+        console.log(personInfo[key].values);
+      });
+      // this.getArrServises.length < 1 ||
+      // this.description === "" ||
+      // this.workFormat === "" ||
+      // this.totalbudget === "" ||
+      // Object.value(this.personInfo).length === 0
+      //   ? this.checkWrong()
+      //   : this.getInfo();
     },
     changePageForvard() {
       this.pageNumber += 1;
@@ -44,18 +83,21 @@ export const FormControl = defineStore("form-control", {
     changePageBack() {
       this.pageNumber -= 1;
     },
-    getInfo() {
-      const userInfo = {
-        servises: this.arrServises,
-        info: {
-          name: this.name,
-          company: this.company,
-          phone: this.phoneNumber,
-          email: this.email,
-        },
-      };
-      const obj = JSON.stringify(userInfo);
-      console.log(JSON.parse(obj));
+    checkWrong() {
+      this.wrong = true;
+      setTimeout(() => {
+        this.wrong = false;
+      }, 2000);
     },
+    // check() {
+    //   return (virif =
+    //     this.getArrServises.length < 1 ||
+    //     this.description === "" ||
+    //     this.workFormat === "" ||
+    //     this.totalbudget === "" ||
+    //     Object.value(this.personInfo).length === 0
+    //       ? () => this.checkWrong()
+    //       : () => true);
+    // },
   },
 });
