@@ -15,8 +15,8 @@
               <p>Какие услуги вам необходимы</p>
               <!-- зачем вторая кнопка закрыть -->
               <!-- <button class="close-form-mobile">
-              <img src="img/icons/icons.svg#x" alt="Закрыть" />
-            </button> -->
+                <img src="img/icons/icons.svg#x" alt="Закрыть" />
+              </button> -->
             </div>
             <div class="checkbox-container services">
               <div class="services-group">
@@ -133,151 +133,6 @@
             </div>
           </div>
 
-          <div
-            v-else-if="form.getPageNumber === 2"
-            data-num="2"
-            class="form form-2"
-          >
-            <div class="top">
-              <!-- возможно стот использовать радиокнопки -->
-              <p>Формат работы и сумма</p>
-              <button class="close-form-mobile">
-                <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
-              </button>
-            </div>
-            <p class="form-title">Формат работы:</p>
-            <div class="checkbox-container work-format">
-              <label>
-                <input
-                  v-model="form.workFormat"
-                  value="Выделенная команда"
-                  type="radio"
-                  name="team"
-                />
-                <p>Выделенная команда</p>
-              </label>
-              <label>
-                <input
-                  v-model="form.workFormat"
-                  value="Годовое сопровождение"
-                  type="radio"
-                  name="maintenancе"
-                />
-                <p>Годовое сопровождение</p>
-              </label>
-              <label>
-                <input
-                  v-model="form.workFormat"
-                  value="Проект под ключ"
-                  type="radio"
-                  name="turnkey-project"
-                />
-                <p>Проект под ключ</p>
-              </label>
-              <label>
-                <input
-                  v-model="form.workFormat"
-                  value="T&M по часам"
-                  type="radio"
-                  name="hourly"
-                />
-                <p>T&M по часам</p>
-              </label>
-              <!-- <label>
-                <input
-                  v-model="form.workFormat"
-                  value="Выделенная команда"
-                  type="checkbox"
-                  name="team"
-                />
-                <p>Выделенная команда</p>
-              </label>
-              <label>
-                <input
-                  v-model="form.workFormat"
-                  value="Годовое сопровождение"
-                  type="checkbox"
-                  name="maintenancе"
-                />
-                <p>Годовое сопровождение</p>
-              </label>
-              <label>
-                <input
-                  v-model="form.workFormat"
-                  value="Проект под ключ"
-                  type="checkbox"
-                  name="turnkey-project"
-                />
-                <p>Проект под ключ</p>
-              </label>
-              <label>
-                <input
-                  v-model="form.workFormat"
-                  value="T&M по часам"
-                  type="checkbox"
-                  name="hourly"
-                />
-                <p>T&M по часам</p>
-              </label> -->
-            </div>
-
-            <p class="form-title">Обсудим общий бюджет проекта:</p>
-            <div class="checkbox-container budget">
-              <label>
-                <input
-                  v-model="form.totalbudget"
-                  type="radio"
-                  value="менее 500 тыс. ₽"
-                  name="500k"
-                />
-                <p>менее 500 тыс. ₽</p>
-              </label>
-              <label>
-                <input
-                  v-model="form.totalbudget"
-                  type="radio"
-                  value="500 тыс - 1,5 млн ₽"
-                  name="1-5m"
-                />
-                <p>500 тыс - 1,5 млн ₽</p>
-              </label>
-              <label>
-                <input
-                  v-model="form.totalbudget"
-                  type="radio"
-                  value="1,5 млн - 3 млн ₽"
-                  name="3m"
-                />
-                <p>1,5 млн - 3 млн ₽</p>
-              </label>
-              <label>
-                <input
-                  v-model="form.totalbudget"
-                  type="radio"
-                  value="3 млн - 5 млн ₽"
-                  name="5m"
-                />
-                <p>3 млн - 5 млн ₽</p>
-              </label>
-              <!-- <label>
-                <input type="checkbox" name="500k" />
-                <p>менее 500 тыс. ₽</p>
-              </label>
-              <label>
-                <input type="checkbox" name="1-5m" />
-                <p>500 тыс - 1,5 млн ₽</p>
-              </label>
-              <label>
-                <input type="checkbox" name="3m" />
-                <p>1,5 млн - 3 млн ₽</p>
-              </label>
-              <label>
-                <input type="checkbox" name="5m" />
-                <p>3 млн - 5 млн ₽</p>
-              </label> -->
-            </div>
-          </div>
-
           <div v-else data-num="3" class="form form-3">
             <div class="top">
               <p>Пора знакомится</p>
@@ -300,12 +155,13 @@
               </div>
               <div class="input-wrapper">
                 <p class="input-title">Моя почта</p>
-                <input type="text" v-model="form.email" />
+                <input type="email" v-model="form.email" />
               </div>
             </div>
           </div>
         </transition>
       </form>
+
       <div class="navigation">
         <!--  -->
         <div class="btns-status">
@@ -318,9 +174,12 @@
               Назад
             </button>
             <button
-              v-if="form.getPageNumber <= 2"
+              v-if="form.getPageNumber === 1"
               @click="form.changePageForvard"
-              class="next-step"
+              :class="[
+                { 'next-step': !form.getWrong },
+                { wrong: form.getWrong },
+              ]"
             >
               Следующий шаг
             </button>
@@ -337,9 +196,10 @@
           </div>
           <!-- не заполненые поля -->
           <div class="wrong-status" v-if="form.getWrong">
-            Необходимо заполнить все поля, для успешной отправки
+            <p>Необходимо заполнить все поля, для успешной отправки</p>
           </div>
         </div>
+
         <div class="points">
           <span
             data-num="1"
@@ -351,14 +211,14 @@
             data-num="2"
             class="point point-2"
             :class="{ 'active-point': form.getPageNumber === 2 }"
-            @click="form.pageNumber = 2"
+            @click="form.changePageForvard"
           ></span>
-          <span
+          <!-- <span
             data-num="3"
             class="point point-3"
             :class="{ 'active-point': form.getPageNumber === 3 }"
             @click="form.pageNumber = 3"
-          ></span>
+          ></span> -->
         </div>
       </div>
 
@@ -422,6 +282,7 @@
             fill="#F5D6FC"
           />
         </g>
+
         <defs>
           <filter
             id="filter0_f_850_873"
@@ -465,9 +326,6 @@ const form = FormControl();
   transform: translateX(100px);
   opacity: 0;
 }
-.form-wrapper {
-  height: 79.63vh;
-}
 
 .next-step {
   background: #dbdbdb;
@@ -477,9 +335,11 @@ const form = FormControl();
   color: #ff404e;
 }
 .wrong-status {
+  display: flex;
+  align-items: center;
   margin-left: 40px;
   width: 256px;
-  height: 42.4px;
+  height: 42px;
   color: #ff404e;
   font-family: Onest;
   font-size: 16px;
@@ -494,8 +354,10 @@ const form = FormControl();
 .btns-status {
   display: flex;
 }
+</style>
+<!-- --------------------------------------------------------------------------------------- -->
 
-.dark-back .form-wrapper .form .checkbox-container label input[type="radio"] {
+<!-- /* .dark-back .form-wrapper .form .checkbox-container label input[type="radio"] {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   -webkit-appearance: none;
@@ -509,5 +371,153 @@ const form = FormControl();
   top: 0;
   left: 0;
   border-radius: 5px;
-}
-</style>
+} */ -->
+
+<!-- <div
+            v-else-if="form.getPageNumber === 2"
+            data-num="2"
+            class="form form-2"
+          >
+            <div class="top">
+              возможно стот использовать радиокнопки 
+              <p>Формат работы и сумма</p>
+              <button class="close-form-mobile">
+                <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
+              </button>
+            </div>
+            <p class="form-title">Формат работы:</p>
+            <div class="checkbox-container work-format">
+              <label>
+                <input
+                  v-model="form.workFormat"
+                  value="Выделенная команда"
+                  type="radio"
+                  name="team"
+                />
+                <p>Выделенная команда</p>
+              </label>
+              <label>
+                <input
+                  v-model="form.workFormat"
+                  value="Годовое сопровождение"
+                  type="radio"
+                  name="maintenancе"
+                />
+                <p>Годовое сопровождение</p>
+              </label>
+              <label>
+                <input
+                  v-model="form.workFormat"
+                  value="Проект под ключ"
+                  type="radio"
+                  name="turnkey-project"
+                />
+                <p>Проект под ключ</p>
+              </label>
+              <label>
+                <input
+                  v-model="form.workFormat"
+                  value="T&M по часам"
+                  type="radio"
+                  name="hourly"
+                />
+                <p>T&M по часам</p>
+              </label>
+            </div>
+
+            <p class="form-title">Обсудим общий бюджет проекта:</p>
+            <div class="checkbox-container budget">
+              <label>
+                <input
+                  v-model="form.totalbudget"
+                  type="radio"
+                  value="менее 500 тыс. ₽"
+                  name="500k"
+                />
+                <p>менее 500 тыс. ₽</p>
+              </label>
+              <label>
+                <input
+                  v-model="form.totalbudget"
+                  type="radio"
+                  value="500 тыс - 1,5 млн ₽"
+                  name="1-5m"
+                />
+                <p>500 тыс - 1,5 млн ₽</p>
+              </label>
+              <label>
+                <input
+                  v-model="form.totalbudget"
+                  type="radio"
+                  value="1,5 млн - 3 млн ₽"
+                  name="3m"
+                />
+                <p>1,5 млн - 3 млн ₽</p>
+              </label>
+              <label>
+                <input
+                  v-model="form.totalbudget"
+                  type="radio"
+                  value="3 млн - 5 млн ₽"
+                  name="5m"
+                />
+                <p>3 млн - 5 млн ₽</p>
+              </label>
+            </div>
+          </div>-->
+
+<!--  <label>
+  <input type="checkbox" name="500k" />
+  <p>менее 500 тыс. ₽</p>
+</label>
+<label>
+  <input type="checkbox" name="1-5m" />
+<p>500 тыс - 1,5 млн ₽</p>
+</label>
+<label>
+  <input type="checkbox" name="3m" />
+  <p>1,5 млн - 3 млн ₽</p>
+</label>
+<label>
+  <input type="checkbox" name="5m" />
+  <p>3 млн - 5 млн ₽</p>
+</label> 
+  -->
+
+<!--   <label>
+    <input
+      v-model="form.workFormat"
+      value="Выделенная команда"
+      type="checkbox"
+      name="team"
+    />
+    <p>Выделенная команда</p>
+  </label>
+  <label>
+    <input
+      v-model="form.workFormat"
+      value="Годовое сопровождение"
+      type="checkbox"
+      name="maintenancе"
+    />
+    <p>Годовое сопровождение</p>
+  </label>
+  <label>
+    <input
+      v-model="form.workFormat"
+      value="Проект под ключ"
+      type="checkbox"
+      name="turnkey-project"
+    />
+    <p>Проект под ключ</p>
+  </label>
+  <label>
+    <input
+      v-model="form.workFormat"
+      value="T&M по часам"
+      type="checkbox"
+      name="hourly"
+    />
+    <p>T&M по часам</p>
+  </label> 
+-->

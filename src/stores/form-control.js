@@ -3,25 +3,12 @@ export const FormControl = defineStore("form-control", {
   state: () => ({
     activForm: false,
     pageNumber: 1,
-    // internetShop: Boolean,
-    // landingPage: Boolean,
-    // application: Boolean,
-    // UXprototyping: Boolean,
-    // service: Boolean,
-    // UIUXdesign: Boolean,
-    // identity: Boolean,
-    // graphicDesign: Boolean,
-    // designSupport: Boolean,
-    // naming: Boolean,
-    // illustration: Boolean,
     description: "",
     arrServises: [],
     email: "",
     phoneNumber: "",
     company: "",
     name: "",
-    workFormat: "",
-    totalbudget: "",
     wrong: false,
   }),
   getters: {
@@ -44,41 +31,40 @@ export const FormControl = defineStore("form-control", {
     },
     getInfo() {
       const userInfo = {
-        formatInfo: {
-          budget: this.totalbudget,
-          format: this.workFormat,
-        },
         servises: this.arrServises,
-        info: this.personInfo,
+        description: this.description,
+        user: {
+          name: this.name,
+          phoneNumber: this.phoneNumber,
+          email: this.email,
+          company: this.company,
+        },
       };
+      this.arrServises = [];
+      this.description = "";
+      this.name = "";
+      this.phoneNumber = "";
+      this.company = "";
+      this.email = "";
+      let tmp = JSON.stringify(userInfo);
+      console.log(JSON.parse(tmp));
     },
-
-    // this.getArrServises.length < 1 ||
-    // this.description === "" ||
-    // this.workFormat === "" ||
-    // this.totalbudget === "" ||
-    // Object.value(this.personInfo).length === 0
-
     passInformation() {
-      const personInfo = {
-        name: this.name,
-        company: this.company,
-        phone: this.phoneNumber,
-        email: this.email,
-      };
-      Object.keys(personInfo).map(function (key) {
-        console.log(personInfo[key].values);
-      });
-      // this.getArrServises.length < 1 ||
-      // this.description === "" ||
-      // this.workFormat === "" ||
-      // this.totalbudget === "" ||
-      // Object.value(this.personInfo).length === 0
-      //   ? this.checkWrong()
-      //   : this.getInfo();
+      let reEmail = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%_]).{8,24}$/;
+      let rePhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      this.email === "" ||
+      reEmail.test(this.email) ||
+      this.phoneNumber === "" ||
+      rePhone.test(this.phoneNumber) ||
+      this.company === "" ||
+      this.name === ""
+        ? this.checkWrong()
+        : this.getInfo();
     },
     changePageForvard() {
-      this.pageNumber += 1;
+      this.getArrServises.length === 0 || this.description === ""
+        ? this.checkWrong()
+        : (this.pageNumber += 1);
     },
     changePageBack() {
       this.pageNumber -= 1;
@@ -89,15 +75,8 @@ export const FormControl = defineStore("form-control", {
         this.wrong = false;
       }, 2000);
     },
-    // check() {
-    //   return (virif =
-    //     this.getArrServises.length < 1 ||
-    //     this.description === "" ||
-    //     this.workFormat === "" ||
-    //     this.totalbudget === "" ||
-    //     Object.value(this.personInfo).length === 0
-    //       ? () => this.checkWrong()
-    //       : () => true);
-    // },
   },
 });
+
+// /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%_]).{8,24}$/
+// /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/
