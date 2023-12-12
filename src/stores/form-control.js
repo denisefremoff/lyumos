@@ -50,14 +50,15 @@ export const FormControl = defineStore("form-control", {
       console.log(JSON.parse(tmp));
     },
     passInformation() {
-      let reEmail = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%_]).{8,24}$/;
+      let reEmail =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       let rePhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
-      this.email === "" ||
-      reEmail.test(this.email) ||
-      this.phoneNumber === "" ||
-      rePhone.test(this.phoneNumber) ||
-      this.company === "" ||
-      this.name === ""
+      !rePhone.test(this.phoneNumber) ||
+      this.phoneNumber == "" ||
+      !reEmail.test(this.email.toLocaleLowerCase()) ||
+      this.email == "" ||
+      this.company == "" ||
+      this.name == ""
         ? this.checkWrong()
         : this.getInfo();
     },
@@ -78,5 +79,9 @@ export const FormControl = defineStore("form-control", {
   },
 });
 
-// /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%_]).{8,24}$/
-// /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/
+// this.email === "" ||
+// reEmail.test(this.email.toLocaleLowerCase()) ||
+// this.phoneNumber === "" ||
+// rePhone.test(this.phoneNumber) ||
+// this.company === "" ||
+// this.name === ""

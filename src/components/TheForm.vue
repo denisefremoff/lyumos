@@ -213,12 +213,6 @@
             :class="{ 'active-point': form.getPageNumber === 2 }"
             @click="form.changePageForvard"
           ></span>
-          <!-- <span
-            data-num="3"
-            class="point point-3"
-            :class="{ 'active-point': form.getPageNumber === 3 }"
-            @click="form.pageNumber = 3"
-          ></span> -->
         </div>
       </div>
 
@@ -356,6 +350,12 @@ const form = FormControl();
 }
 </style>
 <!-- --------------------------------------------------------------------------------------- -->
+<!--  <span
+            data-num="3"
+            class="point point-3"
+            :class="{ 'active-point': form.getPageNumber === 3 }"
+            @click="form.pageNumber = 3"
+          ></span> -->
 
 <!-- /* .dark-back .form-wrapper .form .checkbox-container label input[type="radio"] {
   -webkit-transition: 0.3s;

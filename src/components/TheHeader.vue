@@ -151,7 +151,7 @@ export default {
       <ul class="header__right-side">
         <li class="header__right-item">+7 (919) 123 45 67</li>
         <li>
-          <a class="btn-order"
+          <a class="btn-order" @click="form.changActivForm"
             >Заказать проект
             <IconOrderProject />
           </a>
