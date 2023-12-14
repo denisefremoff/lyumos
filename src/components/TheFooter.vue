@@ -122,16 +122,16 @@ export default {
       this.rightAbsoluteInactive = false;
     },
     handleResize() {
-      this.window.width = window.innerWidth;
-      console.log(this.window.width);
+      // this.window.width = window.innerWidth;
+      // console.log(this.window.width);
       //console.log(window.innerWidth);
       //this.window.height = window.innerHeight;
     },
   },
-  created() {
-    window.addEventListener("resize", this.handleResize);
-    this.handleResize();
-  },
+  // created() {
+  //   window.addEventListener("resize", this.handleResize);
+  //   this.handleResize();
+  // },
 };
 </script>
 
