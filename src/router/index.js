@@ -1,33 +1,50 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "@/views/HomeView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
+      path: "/",
+      name: "home",
+      component: HomeView,
+      meta: {
+        title: "Lyumos",
+      },
     },
     {
-      path: '/services',
-      name: 'services',
-      component: () => import('@/views/ServicesView.vue')
+      path: "/services",
+      name: "services",
+      component: () => import("@/views/ServicesView.vue"),
+      meta: {
+        title: "Services",
+      },
     },
     {
-      path: '/portfolio',
-      name: 'portfolio',
-      component: () => import('@/views/PortfolioView.vue')
+      path: "/portfolio",
+      name: "portfolio",
+      component: () => import("@/views/PortfolioView.vue"),
+      meta: {
+        title: "Portfolio",
+      },
     },
     {
-      path: '/services/development',
-      name: 'development',
-      component: () => import('@/views/DevelopmentView.vue'),
-    }
+      path: "/services/development",
+      name: "development",
+      component: () => import("@/views/DevelopmentView.vue"),
+      meta: {
+        title: "Development",
+      },
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
-    return savedPosition || { top: 0 }
-  }
-})
+    return savedPosition || { top: 0 };
+  },
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title}`;
+  next();
+});
+
+export default router;
