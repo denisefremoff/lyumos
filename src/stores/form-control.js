@@ -40,14 +40,14 @@ export const FormControl = defineStore("form-control", {
           company: this.company,
         },
       };
+      let tmp = JSON.stringify(userInfo);
+      console.log(JSON.parse(tmp));
       this.arrServises = [];
       this.description = "";
       this.name = "";
       this.phoneNumber = "";
       this.company = "";
       this.email = "";
-      let tmp = JSON.stringify(userInfo);
-      console.log(JSON.parse(tmp));
     },
     passInformation() {
       let reEmail =
