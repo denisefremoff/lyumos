@@ -34,10 +34,10 @@ export default {
                 <div class="left-part">
                     <nav>
                         <ul>
-                            <li>О компании</li>
                             <li>
                                 <RouterLink to="/portfolio">Портфолио</RouterLink>
                             </li>
+                            <li>Контакты</li>
                             <li>
                                 <RouterLink to="/services">Услуги</RouterLink>
                             </li>
@@ -57,7 +57,6 @@ export default {
                                     </svg>
                                 </a>
                             </li>
-                            <li>Контакты</li>
                         </ul>
                     </nav>
 
@@ -81,10 +80,13 @@ export default {
                                 </svg>
                             </a>
                         </li>
-                        <li>Контакты</li>
-                        <li>О компании</li>
-                        <li>Портфолио</li>
-                        <li>Услуги</li>
+                        <li class="mobile_li">
+                            <RouterLink to="/portfolio">Портфолио</RouterLink>
+                        </li>
+                        <li class="mobile_li">Контакты</li>
+                        <li class="mobile_li">
+                            <RouterLink to="/services">Услуги</RouterLink>
+                        </li>
                     </ul>
                 </nav>
 
@@ -102,9 +104,9 @@ export default {
                 </button>
                 <div class="dropdown__links">
                     <a href="">ВКонтакте</a>
+                    <a href="">WhatsApp</a>
                     <a href="">Telegram</a>
-                    <a href="">Behance</a>
-                    <a href="">Dribbble</a>
+                    <a href="">TenChat</a>
                 </div>
             </div>
         </div>
@@ -352,10 +354,18 @@ export default {
 
 .header__left-item a,
 .header__logo a,
-.header .left-part nav ul li a {
+.header .left-part nav ul li a,
+.mobile_li a {
     text-decoration: none;
     color: #1E1E1E;
 }
+
+@media (max-width: 600px) {
+    .mobile_li a {
+        font-size: 28px;
+    }
+}
+
 
 .header__logo a img {
     display: -webkit-box;

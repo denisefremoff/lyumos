@@ -35,11 +35,10 @@ import { RouterLink } from 'vue-router'
       }">
         <nav @mouseenter="hoverLeftAbsolute" @mouseleave="noHover">
           <ul>
-            <li>О компании</li>
-            <li>Контакты</li>
             <li>
               <RouterLink to="/portfolio">Портфолио</RouterLink>
             </li>
+            <li>Контакты</li>
             <li>
               <RouterLink to="/services">Услуги</RouterLink>
             </li>
@@ -55,17 +54,24 @@ import { RouterLink } from 'vue-router'
         'inactive-right-side': leftAbsoluteActive,
       }">
         <div class="footer__contacts">
-          <p class="footer__phone">+7 (912) 345-67-89</p>
-          <p class="footer__mail">it@lumos.ru</p>
+          <a href="tel:+79123456789" class="footer__phone">+7 (912) 345-67-89</a>
+          <a href="mailto:it@lumos.ru" class="footer__mail">it@lumos.ru</a>
         </div>
         <div class="footer__links">
-          <a href="">ВКонтакте</a>
-          <a href="">Telegram</a>
-          <a href="">Behance</a>
-          <a href="">Dribbble</a>
+          <a href="#">ВКонтакте</a>
+          <a href="#">WhatsApp</a>
+          <a href="#">Telegram</a>
+          <a href="#">TenChat</a>
         </div>
       </div>
     </div>
+
+    <div class="footer_tel_rights">
+      <p>+7 (912) 345-67-89</p>
+      <p>IT-компания lumos.ru, 2023 © Все права защищены</p>
+    </div>
+
+
   </footer>
 </template>
 
@@ -102,5 +108,10 @@ export default {
 .footer__left-side li a {
   text-decoration: none;
   color: #1e1e1e;
+  transition: 0.3s;
+}
+
+.footer__left-side li a:hover {
+  opacity: 0.7;
 }
 </style>
