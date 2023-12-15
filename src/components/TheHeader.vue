@@ -37,7 +37,9 @@ export default {
                             <li>
                                 <RouterLink to="/portfolio">Портфолио</RouterLink>
                             </li>
-                            <li>Контакты</li>
+                            <li>
+                                <RouterLink to="/contacts">Контакты</RouterLink>
+                            </li>
                             <li>
                                 <RouterLink to="/services">Услуги</RouterLink>
                             </li>
@@ -61,9 +63,9 @@ export default {
                     </nav>
 
                     <div class="right-contacts">
-                        <p>+7 (912) 345-67-89</p>
+                        <a href="tel:+79123456789">+7 (912) 345-67-89</a>
                         <span class="dropdown__divider"></span>
-                        <p>it@lumos.ru</p>
+                        <a href="mailto:it@lumos.ru">it@lumos.ru</a>
                     </div>
                 </div>
             </div>
@@ -83,7 +85,9 @@ export default {
                         <li class="mobile_li">
                             <RouterLink to="/portfolio">Портфолио</RouterLink>
                         </li>
-                        <li class="mobile_li">Контакты</li>
+                        <li class="mobile_li">
+                            <RouterLink to="/contacts">Контакты</RouterLink>
+                        </li>
                         <li class="mobile_li">
                             <RouterLink to="/services">Услуги</RouterLink>
                         </li>
@@ -91,8 +95,8 @@ export default {
                 </nav>
 
                 <div class="left-mobile-contacts">
-                    <p>+7 (912) 345-67-89</p>
-                    <p>it@lumos.ru</p>
+                    <a href="tel:+79123456789">+7 (912) 345-67-89</a>
+                    <a href="mailto:it@lumos.ru">it@lumos.ru</a>
                 </div>
 
                 <p class="left-mobile-rights">IT-компания lumos.ru, 2023 © Все права защищены</p>
@@ -103,10 +107,10 @@ export default {
                     <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть">
                 </button>
                 <div class="dropdown__links">
-                    <a href="">ВКонтакте</a>
-                    <a href="">WhatsApp</a>
-                    <a href="">Telegram</a>
-                    <a href="">TenChat</a>
+                    <a href="#" target="_blank">ВКонтакте</a>
+                    <a href="#" target="_blank">WhatsApp</a>
+                    <a href="#" target="_blank">Telegram</a>
+                    <a href="#" target="_blank">TenChat</a>
                 </div>
             </div>
         </div>
@@ -133,7 +137,9 @@ export default {
                 </RouterLink>
             </div>
             <ul class="header__right-side">
-                <li class="header__right-item">+7 (919) 123 45 67</li>
+                <li class="header__right-item">
+                    <a href="tel:+79123456789">+7 (912) 345-67-89</a>
+                </li>
                 <li>
                     <a class="btn-order">Заказать проект
                         <IconOrderProject />

@@ -38,7 +38,9 @@ import { RouterLink } from 'vue-router'
             <li>
               <RouterLink to="/portfolio">Портфолио</RouterLink>
             </li>
-            <li>Контакты</li>
+            <li>
+              <RouterLink to="/contacts">Контакты</RouterLink>
+            </li>
             <li>
               <RouterLink to="/services">Услуги</RouterLink>
             </li>
@@ -58,16 +60,16 @@ import { RouterLink } from 'vue-router'
           <a href="mailto:it@lumos.ru" class="footer__mail">it@lumos.ru</a>
         </div>
         <div class="footer__links">
-          <a href="#">ВКонтакте</a>
-          <a href="#">WhatsApp</a>
-          <a href="#">Telegram</a>
-          <a href="#">TenChat</a>
+          <a href="#" target="_blank">ВКонтакте</a>
+          <a href="#" target="_blank">WhatsApp</a>
+          <a href="#" target="_blank">Telegram</a>
+          <a href="#" target="_blank">TenChat</a>
         </div>
       </div>
     </div>
 
     <div class="footer_tel_rights">
-      <p>+7 (912) 345-67-89</p>
+      <a href="tel:+79123456789">+7 (912) 345-67-89</a>
       <p>IT-компания lumos.ru, 2023 © Все права защищены</p>
     </div>
 
