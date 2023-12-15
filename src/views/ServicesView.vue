@@ -3,6 +3,11 @@ import TheHeader from '@/components/TheHeader.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import TheSpots from '@/components/TheSpots.vue';
 
+import SerApplications from '@/components/SerApplications.vue';
+
+
+import IconCard from '@/components/icons/IconCard.vue';
+
 import DevTurnkey from '@/components/DevTurnkey.vue';
 import DevAnalytics from '@/components/DevAnalytics.vue';
 import DevDocument from '@/components/DevDocument.vue';
@@ -23,7 +28,33 @@ import DevOrder from '@/components/DevOrder.vue';
           опирающегося на данные, аналитику и удобство использования.
         </h4>
 
-        <section class="key_development">
+        <section class="applications">
+          <div class="left_applications">
+            <h2>Разработка приложений для бизнеса</h2>
+            <p>
+              IT-решения для оптимизации работы компании, улучшения производительности и сокращения затрат
+            </p>
+            <div class="icon_left_applications">
+              <svg xmlns="http://www.w3.org/2000/svg" width="325" height="319" viewBox="0 0 325 319" fill="none">
+                <path
+                  d="M320.738 168.317L206.296 282.758C204.97 284.068 203.245 284.899 201.393 285.117C199.542 285.336 197.671 284.931 196.076 283.966C194.481 283.001 193.254 281.532 192.589 279.79C191.923 278.049 191.858 276.136 192.403 274.353L248.831 95.9661C249.261 94.5974 250.037 93.3628 251.083 92.3815C252.13 91.4002 253.412 90.7054 254.805 90.3642C256.199 90.023 257.657 90.047 259.038 90.4337C260.42 90.8205 261.678 91.5571 262.692 92.5722L320.738 150.618C323.043 152.986 324.333 156.162 324.333 159.467C324.333 162.773 323.043 165.948 320.738 168.317ZM118.815 36.1443L4.37369 150.618C2.068 152.986 0.777832 156.162 0.777832 159.467C0.777832 162.773 2.068 165.948 4.37369 168.317L62.4193 226.362C63.433 227.377 64.6915 228.114 66.073 228.501C67.4545 228.888 68.9124 228.912 70.3059 228.57C71.6994 228.229 72.9813 227.534 74.0279 226.553C75.0744 225.572 75.8503 224.337 76.2804 222.968L132.708 44.5816C133.265 42.7966 133.209 40.8766 132.548 39.1275C131.887 37.3783 130.659 35.9007 129.061 34.9301C127.463 33.9596 125.586 33.5518 123.729 33.7719C121.872 33.9919 120.142 34.8271 118.815 36.1443ZM212.957 0.777832H193.926C190.386 0.78934 186.941 1.9265 184.09 4.02483C181.239 6.12316 179.129 9.07393 178.066 12.4504L90.4587 288.912C89.54 291.828 89.4387 294.94 90.1657 297.91C90.8927 300.879 92.4203 303.593 94.5821 305.755L103.305 314.477C104.467 315.638 105.847 316.558 107.365 317.184C108.884 317.81 110.512 318.13 112.154 318.125H131.186C134.723 318.121 138.167 316.99 141.018 314.897C143.87 312.804 145.981 309.857 147.045 306.484L234.494 30.0226C235.415 27.1018 235.518 23.9842 234.791 21.009C234.064 18.0338 232.535 15.3149 230.371 13.1482L221.775 4.45723C219.439 2.11122 216.268 0.787921 212.957 0.777832Z"
+                  fill="url(#paint0_linear_2325_5076)" />
+                <defs>
+                  <linearGradient id="paint0_linear_2325_5076" x1="-197.675" y1="-200.764" x2="518.917" y2="515.797"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#F5D6FC" />
+                    <stop offset="1" stop-color="#FCD6D8" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="right_applications">
+            <SerApplications />
+          </div>
+        </section>
+
+        <!-- <section class="key_development">
           <h2>Разработка под ключ</h2>
           <div class="development">
             <DevTurnkey />
@@ -92,7 +123,7 @@ import DevOrder from '@/components/DevOrder.vue';
           <div class="right_ui_ux">
             <DevUiUx />
           </div>
-        </section>
+        </section> 
 
         <section class="working">
           <div class="left_working">
@@ -119,11 +150,10 @@ import DevOrder from '@/components/DevOrder.vue';
           <div class="right_working">
             <DevOrder />
           </div>
-        </section>
+        </section> -->
 
       </div>
     </div>
 
   </main>
-  <TheFooter />
-</template>
+  <TheFooter /></template>
