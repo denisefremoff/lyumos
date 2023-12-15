@@ -85,16 +85,23 @@ export default {
       leftAbsoluteInactive: false,
       rightAbsoluteActive: false,
       rightAbsoluteInactive: false,
+      window: {
+        width: 0,
+      },
     };
   },
   methods: {
     hoverLeftAbsolute() {
-      this.leftAbsoluteActive = true;
-      this.rightAbsoluteInactive = true;
+      this.window.width > 1023
+        ? ((this.leftAbsoluteActive = true),
+          (this.rightAbsoluteInactive = true))
+        : "";
     },
     hoverRightAbsolute() {
-      this.rightAbsoluteActive = true;
-      this.leftAbsoluteInactive = true;
+      this.window.width > 1023
+        ? ((this.rightAbsoluteActive = true),
+          (this.leftAbsoluteInactive = true))
+        : "";
     },
     noHover() {
       this.leftAbsoluteActive = false;
@@ -102,6 +109,13 @@ export default {
       this.rightAbsoluteActive = false;
       this.rightAbsoluteInactive = false;
     },
+    handleResize() {
+      this.window.width = window.innerWidth;
+    },
+  },
+  created() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
   },
 };
 </script>

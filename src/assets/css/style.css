@@ -3668,6 +3668,7 @@ main {
 
 .icon_left_applications {
   padding: 3.4114583vw 3.3854167vw;
+  margin-top: 9.0625000vw;
 }
 
 .icon_left_applications svg {
@@ -3677,6 +3678,38 @@ main {
 
 .right_applications {
   width: 48.3333333vw;
+  display: grid;
+  gap: 0.8333333vw;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'one one' 'two three' 'four four' 'five six' 'seven seven';
+}
+
+.right_applications a:nth-child(1) {
+  grid-area: one;
+}
+
+.right_applications a:nth-child(2) {
+  grid-area: two;
+}
+
+.right_applications a:nth-child(3) {
+  grid-area: three;
+}
+
+.right_applications a:nth-child(4) {
+  grid-area: four;
+}
+
+.right_applications a:nth-child(5) {
+  grid-area: five;
+}
+
+.right_applications a:nth-child(6) {
+  grid-area: six;
+}
+
+.right_applications a:nth-child(7) {
+  grid-area: seven;
 }
 
 .border_right_applications {
@@ -3756,6 +3789,8 @@ main {
 .border_right_applications:hover .box_right_applications svg path {
   d: path("M15.4029 0.5L45.0001 0.500008C45.8285 0.500009 46.5001 1.17158 46.5001 2.00001L46.5001 31.6517H43.5001L43.5001 5.62133L12.0608 37.0607L9.93945 34.9393L41.3788 3.50001L15.4029 3.5L15.4029 0.5Z");
 }
+
+
 
 
 
@@ -5527,6 +5562,13 @@ main {
     width: 25px;
     height: 25px;
     left: 7px;
+  }
+
+  .footer__left-side nav,
+  .footer__contacts,
+  .footer__links {
+    position: relative;
+    z-index: 5;
   }
 }
 
