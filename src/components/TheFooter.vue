@@ -108,12 +108,16 @@ export default {
   },
   methods: {
     hoverLeftAbsolute() {
-      this.leftAbsoluteActive = true;
-      this.rightAbsoluteInactive = true;
+      this.window.width > 1024
+        ? ((this.leftAbsoluteActive = true),
+          (this.rightAbsoluteInactive = true))
+        : "";
     },
     hoverRightAbsolute() {
-      this.rightAbsoluteActive = true;
-      this.leftAbsoluteInactive = true;
+      this.window.width > 1024
+        ? ((this.rightAbsoluteActive = true),
+          (this.leftAbsoluteInactive = true))
+        : "";
     },
     noHover() {
       this.leftAbsoluteActive = false;
@@ -122,16 +126,13 @@ export default {
       this.rightAbsoluteInactive = false;
     },
     handleResize() {
-      // this.window.width = window.innerWidth;
-      // console.log(this.window.width);
-      //console.log(window.innerWidth);
-      //this.window.height = window.innerHeight;
+      this.window.width = window.innerWidth;
     },
   },
-  // created() {
-  //   window.addEventListener("resize", this.handleResize);
-  //   this.handleResize();
-  // },
+  created() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+  },
 };
 </script>
 
