@@ -1,7 +1,6 @@
 <script setup>
 import { RouterLink } from "vue-router";
 </script>
-
 <template>
   <footer
     class="footer"
@@ -14,7 +13,7 @@ import { RouterLink } from "vue-router";
       <div
         @mouseenter="hoverLeftAbsolute"
         @mouseleave="noHover"
-        class="footer__left-absolute left-absolute-active"
+        class="footer__left-absolute"
         :class="{
           'left-absolute-active': leftAbsoluteActive,
           'left-absolute-inactive': leftAbsoluteInactive,
@@ -100,23 +99,16 @@ export default {
       leftAbsoluteInactive: false,
       rightAbsoluteActive: false,
       rightAbsoluteInactive: false,
-      window: {
-        width: 0,
-      },
     };
   },
   methods: {
     hoverLeftAbsolute() {
-      this.window.width > 1024
-        ? ((this.leftAbsoluteActive = true),
-          (this.rightAbsoluteInactive = true))
-        : "";
+      this.leftAbsoluteActive = true;
+      this.rightAbsoluteInactive = true;
     },
     hoverRightAbsolute() {
-      this.window.width > 1024
-        ? ((this.rightAbsoluteActive = true),
-          (this.leftAbsoluteInactive = true))
-        : "";
+      this.rightAbsoluteActive = true;
+      this.leftAbsoluteInactive = true;
     },
     noHover() {
       this.leftAbsoluteActive = false;
@@ -124,13 +116,6 @@ export default {
       this.rightAbsoluteActive = false;
       this.rightAbsoluteInactive = false;
     },
-    handleResize() {
-      this.window.width = window.innerWidth;
-    },
-  },
-  created() {
-    window.addEventListener("resize", this.handleResize);
-    this.handleResize();
   },
 };
 </script>
@@ -139,11 +124,5 @@ export default {
 .footer__left-side li a {
   text-decoration: none;
   color: #1e1e1e;
-}
-.left-absolute-active {
-  width: calc(70% - 24px);
-  margin-left: 0px;
-  -webkit-transition: 1s;
-  transition: 1s;
 }
 </style>
