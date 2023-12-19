@@ -289,7 +289,7 @@ section {
 .header .right-part .right-contacts a {
   font-size: 24px;
   text-decoration: none;
-  color: #1E1E1E;
+  color: #1e1e1e;
   transition: opacity 0.3s;
 }
 
@@ -955,7 +955,7 @@ section {
   font-size: 16px;
   line-height: 140%;
   text-decoration: none;
-  color: #1E1E1E;
+  color: #1e1e1e;
 }
 
 .header__right-side .btn-order {
@@ -2122,7 +2122,7 @@ main {
 .portfolio,
 .product_dev,
 .contacts {
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-family: Onest;
 }
 
@@ -3711,7 +3711,7 @@ main {
 }
 
 .contact_us a {
-  color: #1E1E1E;
+  color: #1e1e1e;
   text-decoration: none;
   font-size: 1.0416667vw;
   font-weight: 400;
@@ -3733,7 +3733,7 @@ main {
 }
 
 .left_applications h2 {
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-size: 2.5vw;
   font-weight: 500;
   line-height: 120%;
@@ -3762,7 +3762,7 @@ main {
   display: grid;
   gap: 0.8333333vw;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'one one' 'two three' 'four four' 'five six' 'seven seven';
+  grid-template-areas: "one one" "two three" "four four" "five six" "seven seven";
 }
 
 .right_applications a:nth-child(1) {
@@ -3797,7 +3797,7 @@ main {
   text-decoration: none;
   height: 16.6666667vw;
   border-radius: 12px;
-  border: 2px solid #DF40FF;
+  border: 2px solid #df40ff;
   position: relative;
   z-index: 5;
   transition: 0.3s;
@@ -3810,7 +3810,7 @@ main {
 .border_right_applications::before {
   content: "";
   border-radius: 12px;
-  background: linear-gradient(134deg, #F5D6FC -62.41%, #FCD6D8 161.2%);
+  background: linear-gradient(134deg, #f5d6fc -62.41%, #fcd6d8 161.2%);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   position: absolute;
@@ -3834,7 +3834,7 @@ main {
 }
 
 .header_right_applications h6 {
-  color: #3C3C3C;
+  color: #3c3c3c;
   font-size: 1.6666667vw;
   font-weight: 500;
   line-height: 120%;
@@ -3849,7 +3849,7 @@ main {
 }
 
 .footer_right_applications p {
-  color: #3C3C3C;
+  color: #3c3c3c;
   font-size: 0.8333333vw;
   font-weight: 400;
   line-height: 140%;
@@ -3857,8 +3857,8 @@ main {
 }
 
 .footer_right_applications span {
-  color: #3C3C3C;
-  font-size: 1.2500000vw;
+  color: #3c3c3c;
+  font-size: 1.25vw;
   font-weight: 400;
   line-height: 130%;
 }
@@ -3868,34 +3868,10 @@ main {
 }
 
 .border_right_applications:hover .box_right_applications svg path {
-  d: path("M15.4029 0.5L45.0001 0.500008C45.8285 0.500009 46.5001 1.17158 46.5001 2.00001L46.5001 31.6517H43.5001L43.5001 5.62133L12.0608 37.0607L9.93945 34.9393L41.3788 3.50001L15.4029 3.5L15.4029 0.5Z");
+  d: path(
+    "M15.4029 0.5L45.0001 0.500008C45.8285 0.500009 46.5001 1.17158 46.5001 2.00001L46.5001 31.6517H43.5001L43.5001 5.62133L12.0608 37.0607L9.93945 34.9393L41.3788 3.50001L15.4029 3.5L15.4029 0.5Z"
+  );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media (min-width: 601px) {
   .dark-back form .form {
@@ -5677,7 +5653,7 @@ main {
     font-size: 28px;
     line-height: 36.4px;
     font-weight: 500;
-    color: #1E1E1E;
+    color: #1e1e1e;
     text-decoration: none;
     display: block;
   }
@@ -6104,7 +6080,7 @@ main {
   }
 
   .footer_tel_rights a {
-    color: #1E1E1E;
+    color: #1e1e1e;
     font-size: 28px;
     font-weight: 500;
     line-height: 130%;
