@@ -1,10 +1,6 @@
 <template>
-  <swiper
-    :slidesPerGroup="3"
-    :slides-per-view="3"
-    :space-between="12"
-    @swiper="onSwiper"
-  >
+  <!-- :slidesPerGroup="1" :slides-per-view="1" -->
+  <swiper :slides-per-view="2.5" :space-between="12">
     <swiper-slide
       v-for="(categoryLi, index) in dataPortfolio.categoryUl"
       :key="categoryLi.id"
@@ -39,10 +35,6 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 
 import { DataPortfolio } from "@/stores/data-portfolio.js";
 const dataPortfolio = DataPortfolio();
-
-const onSwiper = (swiper) => {
-  console.log(swiper);
-};
 </script>
 <script>
 export default {
@@ -87,47 +79,18 @@ export default {
 };
 </script>
 <style scoped>
-.swiper {
-  margin-left: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 0.8333333vw;
-
-  padding-top: 4.1666667vw;
-  width: 48.3333333vw;
-}
 .swiper-slide {
-  font-size: 1.4583333vw;
-  font-weight: 400;
-  line-height: 140%;
-  padding: 0.625vw;
-  border: 2px solid transparent;
-  position: relative;
-  z-index: 3;
-  column-gap: 0.8333333vw;
+  width: auto !important;
 }
-.swiper-slide span {
-  font-size: 1.0416667vw;
-  font-weight: 500;
-  line-height: 140%;
-  position: relative;
-  top: 1px;
+.swiper {
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  width: 530px;
 }
-.swiper-slide p {
-  border-radius: 100px;
-  background: #dbdbdb;
-  width: 1.7708333vw;
-  height: 1.7708333vw;
-  position: relative;
-  z-index: 3;
-}
-.swiper-slide:nth-child(2)::before {
+.swiper-slide:nth-child(2) li::before {
   content: "";
   background: linear-gradient(134deg, #f5d6fc -58.55%, #fcf2d3 158.08%);
-  border-radius: 6px;
+  border-radius: 3px;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -142,15 +105,239 @@ export default {
   opacity: 0;
 }
 
-/* .swiper-slide-active {
-  border-radius: 8px;
-  border: 2px solid #3c3c3c;
-} */
-@media (max-width: 530px) {
-  .swiper {
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    width: 2000px;
-  }
+.swiper-slide:nth-child(2) li:hover::before {
+  opacity: 1;
+}
+.swiper-slide:nth-child(2) p::before {
+  content: "";
+  border-radius: 100px;
+  background: linear-gradient(134deg, #ea8bfd -58.55%, #fddf83 158.08%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.swiper-slide:nth-child(2):hover p::before {
+  opacity: 1;
+}
+
+.swiper-slide:nth-child(3) li::before {
+  content: "";
+  background: #fcf2d3;
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 2px;
+  top: -2px;
+  right: 0;
+  bottom: 0;
+  left: -2px;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.swiper-slide:nth-child(3) li:hover::before {
+  opacity: 1;
+}
+
+.swiper-slide:nth-child(3) p::before {
+  content: "";
+  border-radius: 100px;
+  background: #fddf83;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.swiper-slide:nth-child(3):hover p::before {
+  opacity: 1;
+}
+
+.swiper-slide:nth-child(4) li::before {
+  content: "";
+  background: linear-gradient(
+    137deg,
+    #d3e1fc -63.86%,
+    #f5d6fc 49.56%,
+    #fcd6d8 162.99%
+  );
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 2px;
+  top: -2px;
+  right: 0;
+  bottom: 0;
+  left: -2px;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.swiper-slide:nth-child(4) li:hover::before {
+  opacity: 1;
+}
+
+.swiper-slide:nth-child(4) p::before {
+  content: "";
+  border-radius: 100px;
+  background: linear-gradient(
+    137deg,
+    #83acfd -63.86%,
+    #ea8bfd 49.56%,
+    #fd8b93 162.99%
+  );
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.swiper-slide:nth-child(4):hover p::before {
+  opacity: 1;
+}
+.swiper-slide:nth-child(5) li::before {
+  content: "";
+  background: linear-gradient(134deg, #f5d6fc -62.41%, #fcd6d8 161.2%);
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 2px;
+  top: -2px;
+  right: 0;
+  bottom: 0;
+  left: -2px;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.swiper-slide:nth-child(5) li:hover::before {
+  opacity: 1;
+}
+.swiper-slide:nth-child(5) p::before {
+  content: "";
+  border-radius: 100px;
+  background: linear-gradient(134deg, #ea8bfd -62.41%, #fd8b93 161.2%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.swiper-slide:nth-child(5):hover p::before {
+  opacity: 1;
+}
+/* Разработка продукта */
+.swiper-slide:nth-child(6) li::before {
+  content: "";
+  background: #dbdbdb;
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 2px;
+  top: -2px;
+  right: 0;
+  bottom: 0;
+  left: -2px;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.swiper-slide:nth-child(6) li:hover::before {
+  opacity: 1;
+}
+.swiper-slide:nth-child(6) p::before {
+  content: "";
+  border-radius: 100px;
+  background: #f5f5f5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.swiper-slide:nth-child(6):hover p::before {
+  opacity: 1;
+}
+/* UI/UX */
+.swiper-slide:nth-child(7) li::before {
+  content: "";
+  background: linear-gradient(135deg, #f5d6fc -18.38%, #d3e1fc 113.23%);
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 2px;
+  top: -2px;
+  right: 0;
+  bottom: 0;
+  left: -2px;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.swiper-slide:nth-child(7) li:hover::before {
+  opacity: 1;
+}
+.swiper-slide:nth-child(7) p::before {
+  content: "";
+  border-radius: 100px;
+  background: linear-gradient(135deg, #ea8bfd -18.38%, #83acfd 113.23%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.swiper-slide:nth-child(7):hover p::before {
+  opacity: 1;
 }
 </style>
