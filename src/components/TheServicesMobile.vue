@@ -1,6 +1,8 @@
 <template>
   <div v-for="SwData in swipe.swiperData" :key="SwData.id">
-    <div class="services__slide swiper-slide" :class="'slide-' + SwData.id">
+
+    <RouterLink :to="`/services/${SwData.url}`" class="services__slide swiper-slide" :class="'slide-' + SwData.id">
+
       <div class="bg_img_slide">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -19,10 +21,13 @@
       <p>
         {{ SwData.body }}
       </p>
-    </div>
+
+    </RouterLink>
+
   </div>
 </template>
 <script setup>
+import { RouterLink } from "vue-router";
 import IconCard from "@/components/icons/IconCard.vue";
 import { DataSwiper } from "@/stores/data-swiper.js";
 const swipe = DataSwiper();

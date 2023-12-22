@@ -17,7 +17,9 @@
       :modules="modules"
     >
       <swiper-slide v-for="SwData in swipe.swiperData" :key="SwData.id">
-        <div class="services__slide swiper-slide" :class="'slide-' + SwData.id">
+
+        <RouterLink :to="`/services/${SwData.url}`" class="services__slide swiper-slide" :class="'slide-' + SwData.id">
+
           <div class="bg_img_slide">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +40,9 @@
           <p>
             {{ SwData.body }}
           </p>
-        </div>
+
+        </RouterLink>
+
       </swiper-slide>
     </swiper>
     <div class="services__nav">
@@ -85,6 +89,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { RouterLink } from "vue-router";
 //swiper
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination } from "swiper/modules";
@@ -129,6 +134,8 @@ const swipe = DataSwiper();
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  text-decoration: none;
+  color: #3C3C3C;
 }
 .indicates {
   width: 16.40625vw;

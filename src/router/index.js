@@ -34,6 +34,24 @@ const router = createRouter({
       component: () => import("@/views/DevelopmentView.vue"),
       meta: { title: "Development" },
     },
+    {
+      path: "/services/mvp",
+      name: "mvp",
+      component: () => import("@/views/MvpView.vue"),
+      meta: { title: "Mvp" },
+    },
+    {
+      path: "/services/ii",
+      name: "ii",
+      component: () => import("@/views/IiView.vue"),
+      meta: { title: "Ii" },
+    },
+    {
+      path: "/services/modification",
+      name: "modification",
+      component: () => import("@/views/ModificationView.vue"),
+      meta: { title: "Modification" },
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     return savedPosition || { top: 0 };
