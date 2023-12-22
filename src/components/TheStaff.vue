@@ -15,6 +15,7 @@
           v-for="(switcher, index) in expertise.cart3.switchers"
           :key="switcher.id"
           @mouseenter="expertise.changeCart3(index)"
+          :class="{ expertise_active: switcher.id === expertise.pageCart3 + 1 }"
         >
           <p>{{ switcher.body }}</p>
         </li>
