@@ -7,24 +7,48 @@ import PorUl from "@/components/PorUl.vue";
 import PorPortfollo from "@/components/PorPortfollo.vue";
 import SwiperNav from "@/components/TheSwiperNavCategory.vue";
 </script>
+
 <script>
+// export default {
+//   data() {
+//     return {
+//       isMobile: window.innerWidth <= 530,
+//     };
+//   },
+//   mounted() {
+//     window.addEventListener('resize', this.handleResize);
+//   },
+//   beforeDestroy() {
+//     window.removeEventListener('resize', this.handleResize);
+//   },
+//   methods: {
+//     handleResize() {
+//       this.isMobile = window.innerWidth <= 530;
+//     },
+//   },
+// };
+
 export default {
   data() {
     return {
-      width: 0,
+      isMobile: false,
     };
   },
-  methods: {
-    handleResize() {
-      this.width = window.innerWidth;
-    },
+  mounted() {
+    this.checkScreenWidth();
+    window.addEventListener("resize", this.checkScreenWidth);
   },
-  created() {
-    window.addEventListener("resize", this.handleResize);
-    this.handleResize();
+  beforeDestroy() {
+    window.removeEventListener("resize", this.checkScreenWidth);
+  },
+  methods: {
+    checkScreenWidth() {
+      this.isMobile = window.innerWidth <= 530;
+    },
   },
 };
 </script>
+
 <template>
   <TheHeader />
   <main>
@@ -34,7 +58,7 @@ export default {
         <h1 class="title_portfolio">Портфолио</h1>
         <div class="nav_category">
           <ul>
-            <SwiperNav v-if="this.width < 529" />
+            <SwiperNav v-if="isMobile" />
             <PorUl v-else />
           </ul>
         </div>
@@ -46,12 +70,3 @@ export default {
   </main>
   <TheFooter />
 </template>
-<style scoped>
-@media (max-width: 530px) {
-  .nav_category ul {
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    width: 530px;
-  }
-}
-</style>
