@@ -6088,6 +6088,10 @@ main {
   .map {
     height: 360px;
   }
+
+  .wrapper-pl {
+    padding-right: 24px;
+  }
 }
 
 @media (max-width: 525px) {
@@ -6149,9 +6153,7 @@ main {
     padding-top: 90px;
   }
 
-  .wrapper-pl {
-    padding-right: 24px;
-  }
+  
 
   /* .description_product_dev {
     width: 100%;
