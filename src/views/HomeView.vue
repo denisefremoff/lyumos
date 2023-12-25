@@ -3,7 +3,7 @@ import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import IconPrimaryBtn from "@/components/icons/IconPrimaryBtn.vue";
 import { RouterLink } from "vue-router";
-import IconCard from "@/components/icons/IconCard.vue";
+// import IconCard from "@/components/icons/IconCard.vue";
 //swiper
 import TheSwiper from "@/components/TheSwiper.vue";
 
