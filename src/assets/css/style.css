@@ -197,8 +197,8 @@ section {
 .header__dropdown {
   height: 0;
   overflow: hidden;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4972,6 +4972,7 @@ main {
 
   .header .left-mobile-rights {
     margin-top: 20px;
+    padding-bottom: 20px;
     font-size: 12px;
     line-height: 15.6px;
     color: #595959;
@@ -5648,12 +5649,17 @@ main {
     align-items: center;
   }
 
-  .header .opened .right button {
+  .header .right button {
     width: 42px;
     height: 42px;
     position: absolute;
     top: 58px;
-    right: 24px;
+    right: 15px;
+    opacity: 0;
+  }
+
+  .header .opened .right button {
+    opacity: 1;
   }
 
   .header .left-mobile {
