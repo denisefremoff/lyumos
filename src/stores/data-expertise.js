@@ -58,15 +58,18 @@ export const DataExpertise = defineStore("data-expertise", {
         },
         {
           id: 2,
-          header: "WMS",
+          header: "WMS (Warehouse Management System)",
+          body: "Управление складом",
         },
         {
           id: 3,
-          header: "ERP",
+          header: "ERP (Enterprise Resource Planning)",
+          body: "Планирование ресурсов предприятия",
         },
         {
           id: 4,
-          header: "MES",
+          header: "MES (Manufacturing Execution System)",
+          body: "Контроль производственных операций на предприятии",
         },
       ],
       switchers: [
@@ -101,19 +104,23 @@ export const DataExpertise = defineStore("data-expertise", {
         },
         {
           id: 2,
-          header: "2",
+          header: "LMS (Learning Management System)",
+          body: "Управление обучением",
         },
         {
           id: 3,
-          header: "3",
+          header: "PM (Project Management System)",
+          body: "Проектная деятельность"
         },
         {
           id: 4,
-          header: "4",
+          header: "BPM (Business Process Management)",
+          body: "Управление бизнес-процессами"
         },
         {
           id: 5,
-          header: "4",
+          header: "OAS (Office Automation System)",
+          body: "Автоматизация офиса"
         },
       ],
       switchers: [
@@ -151,7 +158,8 @@ export const DataExpertise = defineStore("data-expertise", {
         },
         {
           id: 2,
-          header: "2",
+          header: "EDI (Electronic Data Interchange)",
+          body: "Обмен данными ЭДО"
         },
         {
           id: 3,

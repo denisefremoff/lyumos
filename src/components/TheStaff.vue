@@ -23,8 +23,9 @@
     </div>
   </div>
 </template>
+
 <script setup>
 import { DataExpertise } from "@/stores/data-expertise.js";
 const expertise = DataExpertise();
 </script>
-<style scoped></style>
+

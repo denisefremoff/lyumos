@@ -99,7 +99,7 @@ export default {
                     <a href="mailto:it@lumos.ru">it@lumos.ru</a>
                 </div>
 
-                <p class="left-mobile-rights">IT-компания lumos.ru, 2023 © Все права защищены</p>
+                <p class="left-mobile-rights lmr-601">IT-компания lumos.ru, 2023 © Все права защищены</p>
 
             </div>
             <div class="right">
@@ -113,6 +113,8 @@ export default {
                     <a href="#" target="_blank">TenChat</a>
                 </div>
             </div>
+
+            <p class="left-mobile-rights lmr-600">IT-компания lumos.ru, 2023 © Все права защищены</p>
         </div>
 
         <!--  -->
