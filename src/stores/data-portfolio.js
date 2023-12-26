@@ -2,18 +2,23 @@ import { defineStore } from "pinia";
 
 export const DataPortfolio = defineStore("data-portfolio", {
   state: () => ({
+    category: [],
     activeCategories: [0],
     dataPortfolio: {
       categoryUl: [],
     },
     categoryUl: [
       { id: 1, title: "Все" },
-      { id: 2, title: "Аналитика" },
-      { id: 3, title: "Разработка документации" },
-      { id: 4, title: "Разработка сайта" },
-      { id: 5, title: "Заказная разработка" },
-      { id: 6, title: "Разработка продукта" },
-      { id: 7, title: "UI/UX" },
+      { id: 2, title: "Аналитика", value: "Аналитика" },
+      {
+        id: 3,
+        title: "Разработка документации",
+        value: "Разработка документации",
+      },
+      { id: 4, title: "Разработка сайта", value: "Разработка сайта" },
+      { id: 5, title: "Заказная разработка", value: "Заказная разработка" },
+      { id: 6, title: "Разработка продукта", value: "Разработка продукта" },
+      { id: 7, title: "UI/UX", value: "UI/UX" },
     ],
 
     portfolioExamples: [
@@ -163,6 +168,41 @@ export const DataPortfolio = defineStore("data-portfolio", {
   }),
 
   getters: {
+    getCategory() {
+      return this.category
+        .map((value) => `"${value}"`)
+        .join(", ")
+        .slice(1, -1);
+
+      //this.category.map((value) => `"${value}"`).join(", ");.slice(1, -1);
+    },
+    filter() {
+      return this.category.length === 0 || this.category[0] === undefined
+        ? this.portfolioExamples
+        : this.portfolioExamples.filter((example) =>
+            example.categories.includes(this.getCategory)
+          );
+    },
+
+    // this.category
+    // .map((value) => `"${value}"`)
+    // .join(",")
+    // .slice(1, -1)
+    // this.portfolioExamples.filter((example) =>
+    //         example.categories.some((category) =>
+    //           this.getCategory().includes(category)
+    //         )
+    //       );
+    // filter() {
+    //     return this.portfolioExamples.filter((example) =>
+    //       example.categories.includes(
+    //         this.category
+    //           .map(value => "${value}")
+    //           .join(",")
+    //           .slice(1, -1)
+    //       )
+    //     );
+    //   }
     totalPortfolioCount() {
       return this.portfolioExamples.length;
     },
@@ -204,7 +244,7 @@ export const DataPortfolio = defineStore("data-portfolio", {
     },
   },
   actions: {
-    toggleActiveCategory(index) {
+    toggleActiveCategory(index, category) {
       if (index === 0) {
         this.clearActiveCategories();
       } else if (this.isActive(0)) {
@@ -215,8 +255,12 @@ export const DataPortfolio = defineStore("data-portfolio", {
 
       if (indexInArray === -1) {
         this.activeCategories.push(index);
+        if (index > 0) {
+          this.category.push(category);
+        }
       } else {
         this.activeCategories.splice(indexInArray, 1);
+        this.category.splice(indexInArray, 1);
       }
 
       if (this.activeCategories.length === 0) {
@@ -228,6 +272,7 @@ export const DataPortfolio = defineStore("data-portfolio", {
     },
     clearActiveCategories() {
       this.activeCategories = [];
+      this.category = [];
     },
   },
 });

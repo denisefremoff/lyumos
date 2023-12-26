@@ -1,5 +1,4 @@
 <template>
-  <!-- :slidesPerGroup="1" :slides-per-view="1" -->
   <swiper :slides-per-view="2.5" :space-between="12">
     <swiper-slide
       v-for="(categoryLi, index) in dataPortfolio.categoryUl"
@@ -7,7 +6,7 @@
     >
       <li
         :class="{ active_nav_category: dataPortfolio.isActive(index) }"
-        @click="dataPortfolio.toggleActiveCategory(index)"
+        @click="dataPortfolio.toggleActiveCategory(index, categoryLi.value)"
       >
         {{ categoryLi.title }}
         <p>

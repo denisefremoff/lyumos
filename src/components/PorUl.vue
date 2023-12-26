@@ -49,7 +49,7 @@ export default {
     v-for="(categoryLi, index) in dataPortfolio.categoryUl"
     :key="categoryLi.id"
     :class="{ active_nav_category: dataPortfolio.isActive(index) }"
-    @click="dataPortfolio.toggleActiveCategory(index)"
+    @click="dataPortfolio.toggleActiveCategory(index, categoryLi.value)"
   >
     {{ categoryLi.title }}
     <p>
