@@ -80,7 +80,7 @@ export default {
         <nav>
           <ul>
             <li>
-              <a class="btn-order"
+              <a class="btn-order" @click="form.changActivForm"
                 >Заказать проект
                 <svg
                   width="70"
