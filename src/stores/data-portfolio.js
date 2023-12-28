@@ -179,11 +179,18 @@ export const DataPortfolio = defineStore("data-portfolio", {
     filter() {
       return this.category.length === 0 || this.category[0] === undefined
         ? this.portfolioExamples
-        : this.portfolioExamples.filter((example) =>
-            example.categories.includes(this.getCategory)
-          );
+        : this.portfolioExamples.filter((example) => {
+            let ex = example.categories.split(", ");
+            ex.every((t) => includes(this.getCategory));
+          });
     },
 
+    // this.portfolioExamples.filter((example) =>
+    //         example.categories.some((el, index) => {
+    //           el === this.category[index];
+    //         })
+    //       );
+    // firstArray.toString() === secondArray.toString()
     // this.category
     // .map((value) => `"${value}"`)
     // .join(",")
