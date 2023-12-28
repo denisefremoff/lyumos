@@ -180,10 +180,13 @@ export const DataPortfolio = defineStore("data-portfolio", {
       return this.category.length === 0 || this.category[0] === undefined
         ? this.portfolioExamples
         : this.portfolioExamples.filter((example) => {
-            let ex = example.categories.split(", ");
-            ex.every((t) => includes(this.getCategory));
+            return example.categories.some((element) =>
+              this.category.includes(element)
+            );
           });
     },
+    //     let containsAll = array1.every(element => array2.includes(element));
+    // console.log(containsAll);
 
     // this.portfolioExamples.filter((example) =>
     //         example.categories.some((el, index) => {
