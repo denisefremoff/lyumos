@@ -173,18 +173,17 @@ export const DataPortfolio = defineStore("data-portfolio", {
         .map((value) => `"${value}"`)
         .join(", ")
         .slice(1, -1);
-
-      //this.category.map((value) => `"${value}"`).join(", ");.slice(1, -1);
     },
     filter() {
       return this.category.length === 0 || this.category[0] === undefined
         ? this.portfolioExamples
         : this.portfolioExamples.filter((example) => {
             return example.categories.some((element) =>
-              this.category.includes(element)
+              this.getCategory.includes(element)
             );
           });
     },
+    //this.category.map((value) => `"${value}"`).join(", ");.slice(1, -1);
     //     let containsAll = array1.every(element => array2.includes(element));
     // console.log(containsAll);
 
