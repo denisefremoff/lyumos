@@ -6,8 +6,6 @@ import { DataServices } from '@/stores/data-services.js';
 const dataServices = DataServices();
 </script>
 
-
-
 <template>
     <section class="applications" v-for="applicationSer in dataServices.applicationSers" :key="applicationSer.id">
         <div class="left_applications">

@@ -1,21 +1,18 @@
 <script setup>
 import { DataPortfolio } from '@/stores/data-portfolio.js';
+import IconCard from '@/components/icons/IconCard.vue';
 
 const dataPortfolio = DataPortfolio();
-
-
-
-
-
-
-
 
 </script>
 
 <template>
-    <div class="portfolio_example" v-for="portfolioExample in dataPortfolio.portfolioExamples" :key="portfolioExample.id">
+    <a href="#" class="portfolio_example" v-for="portfolioExample in dataPortfolio.portfolioExamples" :key="portfolioExample.id">
         <div class="portfolio_example_header">
             <img :src="portfolioExample.img" alt="Portfolio">
+            <div class="link_prod">
+                <IconCard />
+            </div>
         </div>
         <div class="portfolio_example_footer">
             <h6>{{ portfolioExample.title }}</h6>
@@ -25,7 +22,7 @@ const dataPortfolio = DataPortfolio();
                 </li>
             </ul>
         </div>
-    </div>
+    </a>
 </template>
 
 

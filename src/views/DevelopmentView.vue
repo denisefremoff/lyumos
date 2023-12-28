@@ -5,6 +5,7 @@ import TheSpotsFore from "@/components/TheSpotsFore.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import PageSteps from "@/components/PageSteps.vue";
 import TheExpertise from "@/components/TheExpertise.vue";
+import DevCase from "@/components/DevCase.vue";
 </script>
 
 <script>
@@ -127,134 +128,17 @@ export default {
           </p>-->
           <h3>Наша экспертность в автоматизации</h3>
           <TheExpertise />
-          <!-- <div class="expertise">
-                        <div class="type_expertise">
-                            <div class="type_expertise_header">
-                                <h5>Стратегия</h5>
-                                <div class="type_expertise_description">
 
-
-                                    <div class="description_1">
-                                        <h6>DSS (Decision Support System)</h6>
-                                        <p>Математические модели и статистические методы</p>
-                                    </div>
-
-                                     <div class="description_2">
-                                        <h6>EIS (Executive Information System)</h6>
-                                        <p>Мониторинг ключевых показателей</p>
-                                    </div>
-
-                                    <div class="description_3">
-                                        <h6>FIM (Financial Information Management)</h6>
-                                        <p>Бюджетирование и финансовый учет</p>
-                                    </div>
-
-
-                                    <div class="description_4">
-                                        <h6>CRM (Customer Relationship Management)</h6>
-                                        <p>Маркетинг и продажи</p>
-                                    </div> 
-
-
-
-
-                                </div>
-                            </div>
-                            <div class="type_expertise_footer">
-                                <ul>
-                                    <li class="expertise_active">
-                                        <p>DSS</p>
-                                    </li>
-                                    <li>
-                                        <p>EIS</p>
-                                    </li>
-                                    <li>
-                                        <p>FIM</p>
-                                    </li>
-                                    <li>
-                                        <p>CRM</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="type_expertise">
-                            <div class="type_expertise_header">
-                                <h5>Производство</h5>
-                                <h6>SCM (Supply Chain Management)</h6>
-                                <p>Поставки и логистика</p>
-                            </div>
-                            <div class="type_expertise_footer">
-                                <ul>
-                                    <li class="expertise_active">
-                                        <p>SCM</p>
-                                    </li>
-                                    <li>
-                                        <p>WMS</p>
-                                    </li>
-                                    <li>
-                                        <p>ERP</p>
-                                    </li>
-                                    <li>
-                                        <p>MES</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="type_expertise">
-                            <div class="type_expertise_header">
-                                <h5>Персонал</h5>
-                                <h6>HRM (Human Resource Management)</h6>
-                                <p>Управление персоналом</p>
-                            </div>
-                            <div class="type_expertise_footer">
-                                <ul>
-                                    <li class="expertise_active">
-                                        <p>HRM</p>
-                                    </li>
-                                    <li>
-                                        <p>LMS</p>
-                                    </li>
-                                    <li>
-                                        <p>PM</p>
-                                    </li>
-                                    <li>
-                                        <p>BPM</p>
-                                    </li>
-                                    <li>
-                                        <p>OAS</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="type_expertise">
-                            <div class="type_expertise_header">
-                                <h5>Информация</h5>
-                                <h6>ECM (Enterprise Content Management)</h6>
-                                <p>Прием и обработка документов</p>
-                            </div>
-                            <div class="type_expertise_footer">
-                                <ul>
-                                    <li class="expertise_active">
-                                        <p>ECM</p>
-                                    </li>
-                                    <li>
-                                        <p>EDI</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>-->
         </div>
 
         <section class="word_case">
           <h2>От слов к делу</h2>
           <h3>Кейсы</h3>
           <div class="cases">
-            <div class="case">
+
+            <DevCase />
+
+            <!-- <div class="case">
               <div class="left_case">
                 <div class="left_case_header">
                   <h4>Система автоматизации для Premium Pipe</h4>
@@ -348,9 +232,11 @@ export default {
               <div class="right_case">
                 <img src="@/assets/img/development_case.webp" alt="case" />
               </div>
-            </div>
+            </div> -->
+
           </div>
         </section>
+
       </div>
     </div>
   </main>
