@@ -10,6 +10,9 @@ export const FormControl = defineStore("form-control", {
     company: "",
     name: "",
     wrong: false,
+    emailPattern: "Шаблон почты mail@mail.com",
+    phonePattern: "Шаблон телефона +7 999 999 99 99",
+    response: "",
   }),
   getters: {
     getFormState() {
@@ -29,8 +32,9 @@ export const FormControl = defineStore("form-control", {
     changActivForm() {
       this.activForm = !this.activForm;
     },
-    getInfo() {
-      const userInfo = {
+    // отправка даных
+    async getInfo() {
+      const formData = {
         servises: this.arrServises,
         description: this.description,
         user: {
@@ -40,37 +44,64 @@ export const FormControl = defineStore("form-control", {
           company: this.company,
         },
       };
-      let tmp = JSON.stringify(userInfo);
-      console.log(JSON.parse(tmp));
-      this.arrServises = [];
-      this.description = "";
-      this.name = "";
-      this.phoneNumber = "";
-      this.company = "";
-      this.email = "";
+      try {
+        const resp = await fetch("", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: JSON.stringify(formData),
+        });
+        this.arrServises = [];
+        this.description = "";
+        this.name = "";
+        this.phoneNumber = "";
+        this.company = "";
+        this.email = "";
+      } catch (err) {
+        this.response = err.response.data.message;
+        this.wrongStyle();
+      }
     },
     passInformation() {
-      let reEmail =
+      //регулярные выражения
+      let regEmail =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      let rePhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
-      !rePhone.test(this.phoneNumber) ||
+      let regPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      //проверка на заполнение формы "пора познакомиться"
       this.phoneNumber == "" ||
-      !reEmail.test(this.email.toLocaleLowerCase()) ||
       this.email == "" ||
       this.company == "" ||
       this.name == ""
-        ? this.checkWrong()
+        ? this.checkWrongFields()
+        : !regEmail.test(this.email.toLocaleLowerCase()) ||
+          !regPhone.test(this.phoneNumber)
+        ? this.checkWrongValid()
         : this.getInfo();
     },
     changePageForvard() {
+      //проверка на заполнение формы "Какие услуги вам необходимы"
       this.getArrServises.length === 0 || this.description === ""
-        ? this.checkWrong()
-        : (this.pageNumber += 1);
+        ? this.checkWrongFields()
+        : (this.pageNumber += 1); //переход на на следующую форму
     },
+    //переход на предыдущую форму
     changePageBack() {
       this.pageNumber -= 1;
     },
-    checkWrong() {
+    //проверка корректности телефона и почты
+    checkWrongValid() {
+      this.response = 'Неверно заполнены поля "Мой телефон" или "Моя почта"';
+      this.wrongStyle();
+    },
+
+    checkWrongFields() {
+      this.response = "Необходимо заполнить все поля, для успешной отправки";
+      this.wrongStyle();
+    },
+    //смена стилей у кнопки при ошибках
+    wrongStyle() {
       this.wrong = true;
       setTimeout(() => {
         this.wrong = false;
@@ -78,10 +109,3 @@ export const FormControl = defineStore("form-control", {
     },
   },
 });
-
-// this.email === "" ||
-// reEmail.test(this.email.toLocaleLowerCase()) ||
-// this.phoneNumber === "" ||
-// rePhone.test(this.phoneNumber) ||
-// this.company === "" ||
-// this.name === ""

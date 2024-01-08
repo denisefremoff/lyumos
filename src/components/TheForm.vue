@@ -13,9 +13,8 @@
           >
             <div class="top">
               <p>Какие услуги вам необходимы</p>
-              <!-- зачем вторая кнопка "закрыть" -->
-              <button class="close-form-mobile">
-                <img src="img/icons/icons.svg#x" alt="Закрыть" />
+              <button @click="form.changActivForm" class="close-form-mobile">
+                <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
               </button>
             </div>
             <div class="checkbox-container services">
@@ -135,7 +134,7 @@
 
           <div v-else data-num="3" class="form form-3">
             <div class="top">
-              <p>Пора знакомится</p>
+              <p>Пора знакомиться</p>
               <button class="close-form-mobile">
                 <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
               </button>
@@ -143,19 +142,27 @@
             <div class="profile">
               <div class="input-wrapper">
                 <p class="input-title">Меня зовут</p>
-                <input type="text" v-model="form.name" />
+                <input type="text" v-model.trim="form.name" />
               </div>
               <div class="input-wrapper">
                 <p class="input-title">Я представляю компанию</p>
-                <input type="text" v-model="form.company" />
+                <input type="text" v-model.trim="form.company" />
               </div>
               <div class="input-wrapper">
                 <p class="input-title">Мой телефон</p>
-                <input type="text" v-model="form.phoneNumber" />
+                <input
+                  type="text"
+                  v-model.trim="form.phoneNumber"
+                  v-bind:title="form.phonePattern"
+                />
               </div>
               <div class="input-wrapper">
                 <p class="input-title">Моя почта</p>
-                <input type="email" v-model="form.email" />
+                <input
+                  type="email"
+                  v-bind:title="form.emailPattern"
+                  v-model.trim="form.email"
+                />
               </div>
             </div>
           </div>
@@ -183,20 +190,11 @@
             >
               Следующий шаг
             </button>
-            <button
-              v-else
-              @click="form.passInformation"
-              :class="[
-                { 'next-step': !form.getWrong },
-                { wrong: form.getWrong },
-              ]"
-            >
-              Отправить
-            </button>
+            <button v-else @click="form.passInformation">Отправить</button>
           </div>
-          <!-- не заполненые поля -->
+          <!-- незаполненные поля -->
           <div class="wrong-status" v-if="form.getWrong">
-            <p>Необходимо заполнить все поля, для успешной отправки</p>
+            <p>{{ form.response }}</p>
           </div>
         </div>
 
@@ -325,7 +323,7 @@ const form = FormControl();
   background: #dbdbdb;
 }
 .wrong {
-  background: #fcd6d8;
+  background-color: #fcd6d8;
   color: #ff404e;
 }
 .wrong-status {
