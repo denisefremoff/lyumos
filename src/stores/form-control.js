@@ -45,7 +45,7 @@ export const FormControl = defineStore("form-control", {
         },
       };
       try {
-        const resp = await fetch("", {
+        const resp = await fetch("email.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
