@@ -4,7 +4,7 @@
       <button @click="form.changActivForm" class="close-form">
         <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
       </button>
-      <form action="">
+      <form action="" autocomplete="off">
         <transition name="slide-fade">
           <div
             v-if="form.getPageNumber === 1"
@@ -128,6 +128,7 @@
                 v-model="form.description"
                 name="description"
                 placeholder="Введите сообщение..."
+                autocomplete="off"
               ></textarea>
             </div>
           </div>
@@ -142,11 +143,19 @@
             <div class="profile">
               <div class="input-wrapper">
                 <p class="input-title">Меня зовут</p>
-                <input type="text" v-model.trim="form.name" />
+                <input
+                  type="text"
+                  v-model.trim="form.name"
+                  autocomplete="off"
+                />
               </div>
               <div class="input-wrapper">
                 <p class="input-title">Я представляю компанию</p>
-                <input type="text" v-model.trim="form.company" />
+                <input
+                  type="text"
+                  v-model.trim="form.company"
+                  autocomplete="off"
+                />
               </div>
               <div class="input-wrapper">
                 <p class="input-title">Мой телефон</p>
@@ -154,6 +163,7 @@
                   type="text"
                   v-model.trim="form.phoneNumber"
                   v-bind:title="form.phonePattern"
+                  autocomplete="off"
                 />
               </div>
               <div class="input-wrapper">
@@ -162,6 +172,7 @@
                   type="email"
                   v-bind:title="form.emailPattern"
                   v-model.trim="form.email"
+                  autocomplete="off"
                 />
               </div>
             </div>
