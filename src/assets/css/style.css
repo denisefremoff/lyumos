@@ -2330,6 +2330,7 @@ main {
   flex-direction: column;
   text-decoration: none;
   color: #1E1E1E;
+  break-inside: avoid;
 }
 
 .portfolio_example:not(:last-child) {
