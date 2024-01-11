@@ -4,24 +4,18 @@ const dataPortfolio = DataPortfolio();
 </script>
 
 <template>
-  <li
-    v-for="(categoryLi, index) in dataPortfolio.categoryUl"
-    :key="categoryLi.id"
+  <li v-for="(categoryLi, index) in dataPortfolio.categoryUl" :key="categoryLi.id"
     :class="{ active_nav_category: dataPortfolio.isActive(index) }"
-    @click="dataPortfolio.toggleActiveCategory(index, categoryLi.value)"
-  >
+    @click="dataPortfolio.toggleActiveCategory(index, categoryLi.value)">
     {{ categoryLi.title }}
     <p>
       <span>
         {{
           {
             1: dataPortfolio.totalPortfolioCount,
-            2: dataPortfolio.totalAnalyticsCount,
-            3: dataPortfolio.totalDocumentationCount,
-            4: dataPortfolio.totalSiteCount,
-            5: dataPortfolio.totalCustomMadeCount,
-            6: dataPortfolio.totalProductCount,
-            7: dataPortfolio.totalUiUxCount,
+            2: dataPortfolio.totalDevelopmentCount,
+            3: dataPortfolio.totalAiCount,
+            4: dataPortfolio.totalModernizationItCount
           }[categoryLi.id] || null
         }}
       </span>

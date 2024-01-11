@@ -9,16 +9,9 @@ export const DataPortfolio = defineStore("data-portfolio", {
     },
     categoryUl: [
       { id: 1, title: "Все" },
-      { id: 2, title: "Аналитика", value: "Аналитика" },
-      {
-        id: 3,
-        title: "Разработка документации",
-        value: "Разработка документации",
-      },
-      { id: 4, title: "Разработка сайта", value: "Разработка сайта" },
-      { id: 5, title: "Заказная разработка", value: "Заказная разработка" },
-      { id: 6, title: "Разработка продукта", value: "Разработка продукта" },
-      { id: 7, title: "UI/UX", value: "UI/UX" },
+      { id: 2, title: "Заказная разработка", value: "Заказная разработка" },
+      { id: 3, title: "Внедрение ИИ", value: "Внедрение ИИ" },
+      { id: 4, title: "Доработка и модернизация IT-продукта", value: "Доработка и модернизация IT-продукта" },
     ],
 
     portfolioExamples: [
@@ -26,144 +19,62 @@ export const DataPortfolio = defineStore("data-portfolio", {
         id: 1,
         img: "src/assets/img/portfolio-example-1.webp",
         title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Аналитика", "Разработка сайта"],
+        categories: ["Заказная разработка", "Внедрение ИИ", "Доработка и модернизация IT-продукта"],
       },
       {
         id: 2,
         img: "src/assets/img/portfolio-example-2.webp",
         title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Заказная разработка", "Разработка продукта"],
+        categories: ["Заказная разработка", "Внедрение ИИ"],
       },
       {
         id: 3,
-        img: "src/assets/img/portfolio-example-2.webp",
+        img: "src/assets/img/portfolio-example-3.webp",
         title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["UI/UX"],
+        categories: ["Внедрение ИИ"],
       },
       {
         id: 4,
         img: "src/assets/img/portfolio-example-2.webp",
         title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: [
-          "Разработка документации",
-          "Разработка продукта",
-          "Аналитика",
-        ],
+        categories: ["Заказная разработка"],
       },
       {
         id: 5,
         img: "src/assets/img/portfolio-example-3.webp",
         title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Разработка документации", "Аналитика"],
+        categories: ["Доработка и модернизация IT-продукта"],
       },
       {
         id: 6,
         img: "src/assets/img/portfolio-example-1.webp",
         title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Разработка продукта", "UI/UX"],
+        categories: ["Доработка и модернизация IT-продукта", "Внедрение ИИ"],
       },
       {
         id: 7,
         img: "src/assets/img/portfolio-example-2.webp",
         title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: [
-          "Аналитика",
-          "UI/UX",
-          "Разработка документации",
-          "Разработка продукта",
-        ],
+        categories: ["Заказная разработка", "Внедрение ИИ"],
       },
       {
         id: 8,
         img: "src/assets/img/portfolio-example-2.webp",
         title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Разработка сайта", "UI/UX"],
+        categories: ["Внедрение ИИ", "Доработка и модернизация IT-продукта"],
       },
       {
         id: 9,
         img: "src/assets/img/portfolio-example-3.webp",
         title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: [
-          "Разработка документации",
-          "Аналитика",
-          "Разработка продукта",
-        ],
+        categories: ["Доработка и модернизация IT-продукта", "Заказная разработка"],
       },
       {
         id: 10,
         img: "src/assets/img/portfolio-example-2.webp",
         title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Разработка сайта", "Разработка документации", "UI/UX"],
-      },
-      {
-        id: 11,
-        img: "src/assets/img/portfolio-example-3.webp",
-        title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Разработка сайта", "Разработка продукта"],
-      },
-      {
-        id: 12,
-        img: "src/assets/img/portfolio-example-1.webp",
-        title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Заказная разработка"],
-      },
-      {
-        id: 13,
-        img: "src/assets/img/portfolio-example-3.webp",
-        title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Заказная разработка", "Аналитика"],
-      },
-      {
-        id: 14,
-        img: "src/assets/img/portfolio-example-2.webp",
-        title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Разработка документации"],
-      },
-      {
-        id: 15,
-        img: "src/assets/img/portfolio-example-1.webp",
-        title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: [
-          "UI/UX",
-          "Аналитика",
-          "Разработка сайта",
-          "Заказная разработка",
-        ],
-      },
-      {
-        id: 16,
-        img: "src/assets/img/portfolio-example-2.webp",
-        title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["UI/UX", "Заказная разработка", "Разработка сайта"],
-      },
-      {
-        id: 17,
-        img: "src/assets/img/portfolio-example-3.webp",
-        title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: [
-          "Разработка документации",
-          "Разработка продукта",
-          "Заказная разработка",
-        ],
-      },
-      {
-        id: 18,
-        img: "src/assets/img/portfolio-example-1.webp",
-        title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Аналитика", "Разработка сайта"],
-      },
-      {
-        id: 19,
-        img: "src/assets/img/portfolio-example-2.webp",
-        title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Аналитика", "Разработка продукта"],
-      },
-      {
-        id: 20,
-        img: "src/assets/img/portfolio-example-2.webp",
-        title: "Разработка корпоративного сайта “Охрана труда”",
-        categories: ["Заказная разработка", "Разработка сайта"],
-      },
+      }
     ],
   }),
 
@@ -178,50 +89,32 @@ export const DataPortfolio = defineStore("data-portfolio", {
       return this.category.length === 0 || this.category[0] === undefined
         ? this.portfolioExamples
         : this.portfolioExamples.filter((example) => {
-            return example.categories.some((element) =>
-              this.getCategory.includes(element)
-            );
-          });
+          return example.categories.some((element) =>
+            this.getCategory.includes(element)
+          );
+        });
     },
     totalPortfolioCount() {
       return this.portfolioExamples.length;
     },
-    totalAnalyticsCount() {
-      const analyticsExamples = this.portfolioExamples.filter((example) =>
-        example.categories.includes("Аналитика")
-      );
-      return analyticsExamples.length;
-    },
-    totalDocumentationCount() {
-      const documentationExamples = this.portfolioExamples.filter((example) =>
-        example.categories.includes("Разработка документации")
-      );
-      return documentationExamples.length;
-    },
-    totalSiteCount() {
-      const siteExamples = this.portfolioExamples.filter((example) =>
-        example.categories.includes("Разработка сайта")
-      );
-      return siteExamples.length;
-    },
-    totalCustomMadeCount() {
-      const customMadeExamples = this.portfolioExamples.filter((example) =>
+    totalDevelopmentCount() {
+      const developmentExamples = this.portfolioExamples.filter((example) =>
         example.categories.includes("Заказная разработка")
       );
-      return customMadeExamples.length;
+      return developmentExamples.length;
     },
-    totalProductCount() {
-      const productExamples = this.portfolioExamples.filter((example) =>
-        example.categories.includes("Разработка продукта")
+    totalAiCount() {
+      const aiExamples = this.portfolioExamples.filter((example) =>
+        example.categories.includes("Внедрение ИИ")
       );
-      return productExamples.length;
+      return aiExamples.length;
     },
-    totalUiUxCount() {
-      const uiUxExamples = this.portfolioExamples.filter((example) =>
-        example.categories.includes("UI/UX")
+    totalModernizationItCount() {
+      const modernizationExamples = this.portfolioExamples.filter((example) =>
+        example.categories.includes("Доработка и модернизация IT-продукта")
       );
-      return uiUxExamples.length;
-    },
+      return modernizationExamples.length;
+    }
   },
   actions: {
     toggleActiveCategory(index, category) {
