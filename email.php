@@ -14,10 +14,12 @@
    $phoneNumber = $data['phoneNumber'];
    $email = $data['email'];
    $company = $data['company'];
+   $servises = $data['servises'];
     //проверка
    $description = htmlspecialchars($data['description']);
    $description = urldecode(($description));
    $description = trim($description);
+
   //контент письма
     $title = "Письмо тест";
     if(trim(!empty($_POST['name']))){

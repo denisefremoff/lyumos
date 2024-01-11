@@ -91,10 +91,11 @@ export const FormControl = defineStore("form-control", {
     },
     //проверка корректности телефона и почты
     checkWrongValid() {
-      this.response = 'Неверно заполнены поля "Мой телефон" или "Моя почта"';
+      this.response =
+        'Некорректно заполнены поля "Мой телефон" или "Моя почта"';
       this.wrongStyle();
     },
-
+    //проверка на заполнение формы
     checkWrongFields() {
       this.response = "Необходимо заполнить все поля, для успешной отправки";
       this.wrongStyle();
