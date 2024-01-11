@@ -1,4 +1,10 @@
 import { defineStore } from "pinia";
+
+import config from "../../vue.config";
+
+
+
+
 export const FormControl = defineStore("form-control", {
   state: () => ({
     activForm: false,
@@ -43,7 +49,7 @@ export const FormControl = defineStore("form-control", {
         company: this.company,
       };
       // try {
-      const resp = await fetch("email.php", {
+      const resp = await fetch(config.url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
