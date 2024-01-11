@@ -5799,7 +5799,7 @@ main {
   }
 
   .dark-back .form-wrapper form {
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     max-width: 288px;
   }

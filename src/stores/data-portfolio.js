@@ -1,4 +1,7 @@
 import { defineStore } from "pinia";
+import img_1 from '@/assets/img/portfolio-example-1.webp';
+import img_2 from '@/assets/img/portfolio-example-2.webp';
+import img_3 from '@/assets/img/portfolio-example-3.webp';
 
 export const DataPortfolio = defineStore("data-portfolio", {
   state: () => ({
@@ -17,61 +20,61 @@ export const DataPortfolio = defineStore("data-portfolio", {
     portfolioExamples: [
       {
         id: 1,
-        img: "src/assets/img/portfolio-example-1.webp",
+        img: img_1,
         title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Заказная разработка", "Внедрение ИИ", "Доработка и модернизация IT-продукта"],
       },
       {
         id: 2,
-        img: "src/assets/img/portfolio-example-2.webp",
+        img: img_2,
         title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Заказная разработка", "Внедрение ИИ"],
       },
       {
         id: 3,
-        img: "src/assets/img/portfolio-example-3.webp",
+        img: img_3,
         title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Внедрение ИИ"],
       },
       {
         id: 4,
-        img: "src/assets/img/portfolio-example-2.webp",
+        img: img_2,
         title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Заказная разработка"],
       },
       {
         id: 5,
-        img: "src/assets/img/portfolio-example-3.webp",
+        img: img_3,
         title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Доработка и модернизация IT-продукта"],
       },
       {
         id: 6,
-        img: "src/assets/img/portfolio-example-1.webp",
+        img: img_1,
         title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Доработка и модернизация IT-продукта", "Внедрение ИИ"],
       },
       {
         id: 7,
-        img: "src/assets/img/portfolio-example-2.webp",
+        img: img_2,
         title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Заказная разработка", "Внедрение ИИ"],
       },
       {
         id: 8,
-        img: "src/assets/img/portfolio-example-2.webp",
+        img: img_2,
         title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Внедрение ИИ", "Доработка и модернизация IT-продукта"],
       },
       {
         id: 9,
-        img: "src/assets/img/portfolio-example-3.webp",
+        img: img_3,
         title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Доработка и модернизация IT-продукта", "Заказная разработка"],
       },
       {
         id: 10,
-        img: "src/assets/img/portfolio-example-2.webp",
+        img: img_2,
         title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Заказная разработка"],
       }
