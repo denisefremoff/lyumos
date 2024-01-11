@@ -1,4 +1,5 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
+import img from '@/assets/img/development_case.webp'
 
 export const DataCase = defineStore('data-case', {
     state: () => ({
@@ -10,7 +11,7 @@ export const DataCase = defineStore('data-case', {
                 h6: 'Автоматизированная система учета данных и генерации документов для производства металических изделий',
                 p: 'Для увеличения производительности и структуризации их деятельности мы разрабатываем для них систему автоматизации бизнес-процессов.',
                 url: '#',
-                img: 'src/assets/img/development_case.webp'
+                img: img
             },
             {
                 id: 2,
@@ -19,7 +20,7 @@ export const DataCase = defineStore('data-case', {
                 h6: 'Коллаборативная платформа для генерации идей и проведения мозговых штурмов с командами',
                 p: 'Описание того что на изображении',
                 url: '#',
-                img: 'src/assets/img/development_case.webp'
+                img: img
             }
         ]
     })
