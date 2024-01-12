@@ -9,13 +9,13 @@
     $json = file_get_contents('php://input'); 
     $data = json_decode($json, true);
 
-    $messagePositive = 'Сообщение отправлено успешно';
+    $messagePositive = 'Сообщение отправлено успешно!';
     $messageNegative = 'Сообщение не было отправлено!';
 //регулярные выражения
     $nameReg = '/^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]{1,}|[А-ЯA-Z][\x27а-яa-z]{1,}\-([А-ЯA-Z][\x27а-яa-z]{1,}|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]{1,}(\040[А-ЯA-Z][\x27а-яa-z]{1,})?$/';
     $phoneNumberReg = '/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/';
     $emailReg = '/^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/u';    
-    $companyReg='/^[а-яА-ЯёЁa-zA-Z0-9]$/i';
+    $companyReg='/^[а-яА-ЯёЁa-zA-Z0-9]$/';
 // проверка
     $name = preg_match($nameReg, $data['name']);
     $phoneNumber = preg_match($phoneNumberReg, $data['phoneNumber']);
@@ -61,7 +61,7 @@
     }
 
 
-    
+
     // $mail->Body = $body;
     //отправка
     // if(!$mail->send()){
