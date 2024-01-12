@@ -1,10 +1,4 @@
 <?php
-
-
-$json = file_get_contents('php://input');
-$data = json_decode($json, true);
-echo $data;
-
 //подключение библиотеки
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\Exception;
