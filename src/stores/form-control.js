@@ -11,8 +11,8 @@ export const FormControl = defineStore("form-control", {
     company: "",
     name: "",
     wrong: false,
-    emailPattern: "Шаблон почты mail@mail.com",
-    phonePattern: "Шаблон телефона +7 999 999 99 99",
+    emailPattern: "Шаблон почты mail@mail.ru",
+    phonePattern: "Шаблон телефона +7(999)999-99-99",
     response: "",
   }),
   getters: {

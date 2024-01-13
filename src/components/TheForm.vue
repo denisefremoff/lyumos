@@ -1,3 +1,8 @@
+<script setup>
+import { FormControl } from "@/stores/form-control.js";
+const form = FormControl();
+</script>
+
 <template>
   <div @click="form.changActivForm" class="dark-back">
     <div @click.stop class="form-wrapper">
@@ -164,6 +169,7 @@
                   v-model.trim="form.phoneNumber"
                   v-bind:title="form.phonePattern"
                   autocomplete="off"
+                  v-imask="{ mask: '+{7}(000)000-00-00' }"
                 />
               </div>
               <div class="input-wrapper">
@@ -313,10 +319,6 @@
     </div>
   </div>
 </template>
-<script setup>
-import { FormControl } from "@/stores/form-control.js";
-const form = FormControl();
-</script>
 <style scoped>
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
