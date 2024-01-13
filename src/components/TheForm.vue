@@ -317,7 +317,7 @@
 import { FormControl } from "@/stores/form-control.js";
 const form = FormControl();
 </script>
-<!-- <style scoped>
+<style scoped>
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
@@ -329,19 +329,11 @@ const form = FormControl();
   transform: translateX(100px);
   opacity: 0;
 }
-
-.next-step {
-  background: #dbdbdb;
-}
-.wrong {
-  background-color: #fcd6d8;
-  color: #ff404e;
-}
-.wrong-status {
+/*.wrong-status {
   display: flex;
   align-items: center;
   margin-left: 40px;
-  width: 256px;
+  width: 256px; 
   height: 42px;
   color: #ff404e;
   font-family: Onest;
@@ -349,34 +341,5 @@ const form = FormControl();
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
-}
-
-.navigation {
-  justify-content: space-between;
-}
-.btns-status {
-  display: flex;
-}
-.dark-back {
-  opacity: 1;
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  z-index: 100000000;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
-</style> -->
-
+}*/
+</style>

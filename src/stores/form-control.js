@@ -44,7 +44,7 @@ export const FormControl = defineStore("form-control", {
         company: this.company,
       };
       // try {
-      const resp = await fetch('email.php', {
+      const resp = await fetch("email.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,31 +69,52 @@ export const FormControl = defineStore("form-control", {
       let regEmail =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       let regPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      let regName = /^[a-zA-ZА-Яа-яЁё]+$/;
+      let regCompany = /^[а-яА-ЯёЁa-zA-Z0-9]+$/;
       //проверка на заполнение формы "пора познакомиться"
+
       this.phoneNumber == "" ||
       this.email == "" ||
       this.company == "" ||
       this.name == ""
         ? this.checkWrongFields()
-        : !regEmail.test(this.email.toLocaleLowerCase()) ||
-          !regPhone.test(this.phoneNumber)
-        ? this.checkWrongValid()
+        : !regName.test(this.name)
+        ? this.checkWrongName()
+        : !regCompany.test(this.company)
+        ? this.checkWrongCompany()
+        : !regEmail.test(this.email)
+        ? this.checkWrongEmail()
+        : !regPhone.test(this.phoneNumber)
+        ? this.checkWrongPhoneNumber()
         : this.getInfo();
     },
     changePageForvard() {
       //проверка на заполнение формы "Какие услуги вам необходимы"
       this.getArrServises.length === 0 || this.description === ""
         ? this.checkWrongFields()
-        : (this.pageNumber += 1); //переход на на следующую форму
+        : this.pageNumber < 2
+        ? this.pageNumber++
+        : ""; //переход на на следующую форму
     },
     //переход на предыдущую форму
     changePageBack() {
-      this.pageNumber -= 1;
+      this.pageNumber--;
     },
-    //проверка корректности телефона и почты
-    checkWrongValid() {
-      this.response =
-        'Некорректно заполнены поля "Мой телефон" или "Моя почта"';
+    //проверка корректности
+    checkWrongEmail() {
+      this.response = 'Некорректно заполнено поле "Моя почта"';
+      this.wrongStyle();
+    },
+    checkWrongName() {
+      this.response = 'Некорректно заполнено поле "Меня зовут"';
+      this.wrongStyle();
+    },
+    checkWrongCompany() {
+      this.response = 'Некорректно заполнено поле "Я предстовляю компанию"';
+      this.wrongStyle();
+    },
+    checkWrongPhoneNumber() {
+      this.response = 'Некорректно заполнено поле "Мой телефон"';
       this.wrongStyle();
     },
     //проверка на заполнение формы
