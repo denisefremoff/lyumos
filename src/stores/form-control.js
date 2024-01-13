@@ -57,8 +57,9 @@ export const FormControl = defineStore("form-control", {
       this.phoneNumber = "";
       this.company = "";
       this.email = "";
-      let results = await response.text();
-      console.log(results);
+      // let results = await response.text();
+      this.changActivForm();
+      this.pageNumber = 1;
       // } catch (err) {
       // this.response = err.response.data.message;
       // this.wrongStyle();
@@ -82,10 +83,10 @@ export const FormControl = defineStore("form-control", {
         ? this.checkWrongName()
         : !regCompany.test(this.company)
         ? this.checkWrongCompany()
-        : !regEmail.test(this.email)
-        ? this.checkWrongEmail()
         : !regPhone.test(this.phoneNumber)
         ? this.checkWrongPhoneNumber()
+        : !regEmail.test(this.email)
+        ? this.checkWrongEmail()
         : this.getInfo();
     },
     changePageForvard() {
