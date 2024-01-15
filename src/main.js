@@ -1,17 +1,22 @@
-import './assets/css/style.css'
+import "./assets/css/style.css";
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
 
-import { createWebHistory } from 'vue-router';
+import { createWebHistory } from "vue-router";
 
-import App from './App.vue'
-import router from './router'
+import { IMaskDirective } from "vue-imask"; //импорт директивы
 
-const app = createApp(App)
-app.use(createPinia())
-app.use(router)
+import App from "./App.vue";
+import router from "./router";
+
+const app = createApp(App);
+
+app.directive("imask", IMaskDirective); //импорт директивы
+
+app.use(createPinia());
+app.use(router);
 
 app.use(createWebHistory());
 
-app.mount('#app')
+app.mount("#app");
