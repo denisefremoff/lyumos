@@ -57,6 +57,7 @@ export const FormControl = defineStore("form-control", {
       this.phoneNumber = "";
       this.company = "";
       this.email = "";
+      this.changActivForm();
       let results = await response.text();
       console.log(results);
       // } catch (err) {
