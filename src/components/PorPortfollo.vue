@@ -1,17 +1,13 @@
 <script setup>
 import { DataPortfolio } from "@/stores/data-portfolio.js";
 import IconCard from "@/components/icons/IconCard.vue";
+import { RouterLink } from "vue-router";
 
 const dataPortfolio = DataPortfolio();
 </script>
 
 <template>
-  <a
-    href="#"
-    class="portfolio_example"
-    v-for="portfolioExample in dataPortfolio.filter"
-    :key="portfolioExample.id"
-  >
+  <RouterLink :to="`/portfolio/${portfolioExample.url}`" class="portfolio_example" v-for="portfolioExample in dataPortfolio.filter" :key="portfolioExample.id">
     <div class="portfolio_example_header">
       <img :src="portfolioExample.img" alt="Portfolio" />
       <div class="link_prod">
@@ -29,5 +25,5 @@ const dataPortfolio = DataPortfolio();
         </li>
       </ul>
     </div>
-  </a>
+  </RouterLink>
 </template>

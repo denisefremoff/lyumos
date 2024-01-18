@@ -30,6 +30,12 @@ const router = createRouter({
       meta: { title: "Portfolio" },
     },
     {
+      path: "/portfolio/premium-pipe",
+      name: "premium-pipe",
+      component: () => import("@/views/PremiumPipe.vue"),
+      meta: { title: "Premium-pipe" },
+    },
+    {
       path: "/services/development",
       name: "development",
       component: () => import("@/views/DevelopmentView.vue"),
