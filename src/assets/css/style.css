@@ -209,7 +209,6 @@ section {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   overflow: visible;
-  /* padding: 80px 181px; */
   padding: 4.1666667vw 9.375vw;
 }
 
@@ -364,7 +363,6 @@ section {
 }
 
 .dark-back {
-  /* opacity: 0; */
   position: absolute;
   top: 0;
   left: 0;
@@ -439,9 +437,6 @@ section {
 }
 
 .dark-back .form-wrapper form {
-  /* display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; */
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 5px;
@@ -465,7 +460,6 @@ section {
   font-size: 38px;
   font-weight: 500;
   text-align: center;
-  /* margin-top: 10px; */
 }
 
 .dark-back .form-wrapper .form .top .close-form-mobile {
@@ -1453,7 +1447,6 @@ section {
   line-height: 120%;
 }
 
-/* .active-footer-light  */
 .active-footer-light {
   position: relative;
 }
@@ -1919,7 +1912,6 @@ main {
 .type_expertise_footer li,
 .left_case_footer a,
 .left_case_footer a span,
-/* .header_right_applications, */
 .border_right_applications,
 .header_product_dev {
   -webkit-box-align: center;
@@ -2932,7 +2924,6 @@ main {
 }
 
 .experience h3 {
-  /* margin-top: 5.8854167vw; */
   font-size: 2.5vw;
   font-weight: 500;
   line-height: 120%;
@@ -3525,7 +3516,6 @@ main {
   color: #ff404e;
 }
 
-/* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ start*/
 .swap_icons {
   background: #289203;
   padding: 13.3333333vw 9.0104167vw 9.1666667vw 9.0104167vw;
@@ -3650,8 +3640,6 @@ main {
   margin-left: 7.734375vw;
 }
 
-/* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ end*/
-
 @media (min-width: 601px) {
   .dark-back form .form {
     overflow-y: auto;
@@ -3671,10 +3659,6 @@ main {
   h2 {
     font-size: 90px;
   }
-
-  /* .header .opened {
-    padding: 80px 141px;
-  } */
 
   .header .btn-order svg {
     width: 24px;
@@ -3858,10 +3842,6 @@ main {
     font-size: 16px;
   }
 
-  /* .dark-back .form-wrapper {
-    height: 700px;
-  } */
-
   .dark-back .form-wrapper .form .description p {
     font-size: 16px;
   }
@@ -3986,9 +3966,6 @@ main {
 }
 
 @media (max-width: 1350px) {
-  /* .header .opened {
-    padding: 60px 128px;
-  } */
 
   .header__dropdown nav ul li {
     font-size: 38px;
@@ -4056,7 +4033,6 @@ main {
 
   .dark-back .form-wrapper {
     width: 840px;
-    /* height: 520px; */
   }
 
   .dark-back .form-wrapper .close-form {
@@ -4293,10 +4269,6 @@ main {
     display: none;
   }
 
-  /* .header .opened {
-    padding: 120px 107px;
-  } */
-
   .header__dropdown nav ul li,
   .header__dropdown nav ul li a {
     font-size: 32px;
@@ -4490,7 +4462,6 @@ main {
 
   .dark-back .form-wrapper {
     width: 584px;
-    /* height: 568px; */
   }
 
   .dark-back .form-wrapper .close-form {
@@ -4865,7 +4836,6 @@ main {
   }
 
   .experience h3 {
-    /* margin-top: 120px; */
     width: 370px;
   }
 
@@ -5135,7 +5105,6 @@ main {
     display: none;
   }
 
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ start*/
   .design_system h2,
   .design_system p {
     margin-left: 0;
@@ -5193,8 +5162,6 @@ main {
   .design_system img {
     padding-top: 40px;
   }
-
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ end*/
 }
 
 @media (max-width: 990px) {
@@ -5521,7 +5488,6 @@ main {
     bottom: 0;
   }
 
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ start*/
   .concept:first-of-type {
     padding-top: 120px;
   }
@@ -5531,8 +5497,6 @@ main {
   .design_system {
     padding-bottom: 120px;
   }
-
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ end*/
 }
 
 @media (max-width: 900px) {
@@ -5686,7 +5650,6 @@ main {
     line-height: 130%;
   }
 
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ start*/
   .swap_icons {
     padding: 130px 80px 80px 80px;
   }
@@ -5707,8 +5670,6 @@ main {
   .design_system p {
     width: 100%;
   }
-
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ end*/
 }
 
 @media (max-width: 700px) {
@@ -5935,8 +5896,6 @@ main {
 
   .header .right {
     justify-content: center;
-    /* -webkit-box-align: end;
-    -ms-flex-align: end; */
     align-items: center;
   }
 
@@ -5970,22 +5929,8 @@ main {
   }
 
   .header .left-mobile-rights {
-    /* position: absolute;
-    bottom: 69px;
-    left: 0;
-    right: 0; */
     text-align: center;
   }
-
-  /* .header .dropdown__links {
-    position: absolute;
-    bottom: 145px;
-    right: 0;
-    left: 0;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  } */
 
   .header .right .dropdown__links {
     -webkit-box-align: center;
@@ -6019,7 +5964,6 @@ main {
   .dark-back .form-wrapper {
     position: relative;
     width: 328px;
-    /* height: 500px; */
     padding: 20px 6px 20px 20px;
   }
 
@@ -6103,24 +6047,6 @@ main {
     position: relative;
     z-index: 100000;
   }
-
-  /* .dark-back .form-wrapper form::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .dark-back .form-wrapper form::-webkit-scrollbar-track {
-    border-radius: 100px;
-    background-color: transparent;
-    border: 1px solid #3c3c3c;
-  }
-
-  .dark-back .form-wrapper form::-webkit-scrollbar-thumb {
-    border-radius: 100px;
-    background-color: #3c3c3c;
-    width: 4px;
-    border: 2px solid transparent;
-    background-clip: content-box;
-  } */
 
   .dark-back .form-wrapper .form .services {
     -webkit-box-orient: vertical;
@@ -6343,21 +6269,12 @@ main {
     margin-top: 15px;
   }
 
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ start*/
   .swap_icons {
     padding: 100px 70px 70px 70px;
   }
-
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ end*/
 }
 
 @media (max-width: 530px) {
-  /* .nav_category ul {
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    width: 2000px;
-  } */
-
   .right_product_dev {
     display: none;
   }
@@ -6416,7 +6333,6 @@ main {
     padding-right: 24px;
   }
 
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ start*/
   .premium_pipe h1,
   .about_project,
   .concept:first-of-type {
@@ -6458,8 +6374,6 @@ main {
     -webkit-transform: translateX(-150px);
     transform: translateX(-150px);
   }
-
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ end*/
 }
 
 @media (max-width: 525px) {
@@ -6485,7 +6399,6 @@ main {
     width: 100%;
   }
 
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ start*/
   .premium_pipe ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -6496,8 +6409,6 @@ main {
     column-gap: unset;
     row-gap: 8px;
   }
-
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ end*/
 }
 
 @media (max-width: 444px) {
@@ -6535,10 +6446,6 @@ main {
     padding-top: 90px;
   }
 
-  /* .description_product_dev {
-    width: 100%;
-  } */
-
   .dev_ring_1,
   .dev_ring_2,
   .dev_ring_3,
@@ -6573,7 +6480,6 @@ main {
     flex-direction: column;
   }
 
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ start*/
   .swap_icons {
     padding: 75px 40px 40px 40px;
   }
@@ -6588,8 +6494,6 @@ main {
   .design_system h2 {
     font-size: 24px;
   }
-
-  /* Premium Pipe ------------------------------------------------------------------------------------------------------------------------ end*/
 }
 
 @media (max-width: 370px) {
