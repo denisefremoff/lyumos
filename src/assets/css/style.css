@@ -402,7 +402,7 @@ section {
 
 .dark-back .form-wrapper {
   width: 52%;
-  height: 860px;
+  height: 90%;
   width: 1000px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -431,7 +431,7 @@ section {
   position: absolute;
   z-index: 1000;
   top: 58px;
-  right: 22px;
+  right: 40px;
 }
 
 .dark-back .form-wrapper .close-form img {
@@ -439,11 +439,12 @@ section {
 }
 
 .dark-back .form-wrapper form {
-  display: -webkit-box;
+  /* display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
-  overflow-y: hidden;
+  display: flex; */
+  overflow-y: auto;
   overflow-x: hidden;
+  padding-right: 5px;
 }
 
 .dark-back .form-wrapper .form {
@@ -456,6 +457,7 @@ section {
 .dark-back .form-wrapper .form .top {
   text-align: center;
   margin-bottom: 100px;
+  margin-top: 10px;
 }
 
 .dark-back .form-wrapper .form .top p {
@@ -463,6 +465,7 @@ section {
   font-size: 38px;
   font-weight: 500;
   text-align: center;
+  /* margin-top: 10px; */
 }
 
 .dark-back .form-wrapper .form .top .close-form-mobile {
@@ -3484,9 +3487,41 @@ main {
   height: 3.6458333vw;
 }
 
+.dark-back .form-wrapper form::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark-back .form-wrapper form::-webkit-scrollbar-track {
+  border-radius: 100px;
+  background-color: transparent;
+  border: 1px solid #3c3c3c;
+}
+
+.dark-back .form-wrapper form::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-color: #3c3c3c;
+  width: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.btns-status {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.dark-back .form-wrapper .navigation button.wrong {
+  background-color: #FCD6D8;
+  color: #FF404E;
+}
+
 @media (min-width: 601px) {
   .dark-back form .form {
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .lmr-600 {
@@ -3689,9 +3724,9 @@ main {
     font-size: 16px;
   }
 
-  .dark-back .form-wrapper {
+  /* .dark-back .form-wrapper {
     height: 700px;
-  }
+  } */
 
   .dark-back .form-wrapper .form .description p {
     font-size: 16px;
@@ -3887,11 +3922,12 @@ main {
 
   .dark-back .form-wrapper {
     width: 840px;
-    height: 520px;
+    /* height: 520px; */
   }
 
   .dark-back .form-wrapper .close-form {
     top: 48px;
+    right: 40px;
   }
 
   .dark-back .form-wrapper .form .top {
@@ -4320,7 +4356,7 @@ main {
 
   .dark-back .form-wrapper {
     width: 584px;
-    height: 568px;
+    /* height: 568px; */
   }
 
   .dark-back .form-wrapper .close-form {
@@ -4330,8 +4366,8 @@ main {
   }
 
   .dark-back .form-wrapper .close-form img {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
   }
 
   .dark-back .form-wrapper .form .top p {
@@ -5039,7 +5075,7 @@ main {
 
   .dark-back .form-wrapper {
     width: 568px;
-    height: 640px;
+    height: 90%;
   }
 
   .dark-back .form-wrapper .form .services {
@@ -5766,7 +5802,7 @@ main {
   .dark-back .form-wrapper {
     position: relative;
     width: 328px;
-    height: 500px;
+    /* height: 500px; */
     padding: 20px 6px 20px 20px;
   }
 
@@ -5851,7 +5887,7 @@ main {
     z-index: 100000;
   }
 
-  .dark-back .form-wrapper form::-webkit-scrollbar {
+  /* .dark-back .form-wrapper form::-webkit-scrollbar {
     width: 8px;
   }
 
@@ -5867,7 +5903,7 @@ main {
     width: 4px;
     border: 2px solid transparent;
     background-clip: content-box;
-  }
+  } */
 
   .dark-back .form-wrapper .form .services {
     -webkit-box-orient: vertical;
@@ -6078,6 +6114,16 @@ main {
 
   .lmr-600 {
     margin-top: 60px !important;
+  }
+
+  .btns-status {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: unset;
+  }
+
+  .wrong-status {
+    margin-top: 15px;
   }
 }
 
