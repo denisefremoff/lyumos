@@ -1,5 +1,5 @@
 <script setup>
-//import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router'
 import { DataCase } from '@/stores/data-case.js';
 
 const dataCase = DataCase();
@@ -19,7 +19,7 @@ const dataCase = DataCase();
                 <p class="case_description">{{ devCase.p }}</p>
             </div>
             <div class="left_case_footer">
-                <a href="#"><!-- <RouterLink :to="`/services/development${devCase.url}`"> -->
+                <RouterLink :to="`/portfolio/${devCase.url}`">
                     <span>
                         Подробнее
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -27,7 +27,7 @@ const dataCase = DataCase();
                                 stroke-width="1.5" stroke-linejoin="round" />
                         </svg>
                     </span>
-                </a><!-- </RouterLink> -->
+                </RouterLink>
             </div>
         </div>
         <div class="right_case">

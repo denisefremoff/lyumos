@@ -20,7 +20,7 @@ export const DataPortfolio = defineStore("data-portfolio", {
         id: 1,
         url: "premium-pipe",
         img: img_1,
-        title: "Разработка корпоративного сайта “Охрана труда”",
+        title: "Система автоматизации для Premium Pipe",
         categories: ["Заказная разработка"],
       },
       // {

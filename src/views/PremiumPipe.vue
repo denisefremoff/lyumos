@@ -1,5 +1,7 @@
 <script setup>
 import TheFooter from '@/components/TheFooter.vue';
+import TheAboutProject from "@/components/TheAboutProject.vue";
+import TheConceptVue from '../components/TheConcept.vue';
 </script>
 
 <template>
@@ -21,42 +23,9 @@ import TheFooter from '@/components/TheFooter.vue';
                     <li>Система автоматизации</li>
                 </ul>
 
-                <div class="about_project">
-                    <h2>О проекте</h2>
-                    <p>Premium Pipe – компания, по производству металлических изделий различной сложности для нефтяной,
-                        газовой и промышленной отраслей.</p>
-                </div>
+                <TheAboutProject />
 
-                <div class="about_project">
-                    <h2>Задача</h2>
-                    <p>Для увеличения производительности и структуризации их деятельности мы разрабатываем для них
-                        систему
-                        автоматизации бизнес-процессов.</p>
-                </div>
-
-                <section class="concept">
-                    <h2>Концепция</h2>
-                    <p>Мы создали систему, которая позволяет с самого начала подготовки заказа позволяет отслеживать
-                        процессы над каждой заготовкой или материалом, который используется в работе. Так как в
-                        документации
-                        используются данные которые и так хранятся в системе, мы их используем для подготовки и
-                        генерации
-                        документации.</p>
-                    <img src="@/assets/img/foto-concept.webp" alt="foto-concept">
-                </section>
-
-                <section class="concept">
-                    <h2>Интерактивный прототип</h2>
-                    <p>Помог нам показать клиенту возможности системы и провести тесты на стадии UI дизайна.</p>
-                    <img src="@/assets/img/interactive-prototype.webp" alt="interactive-prototype">
-                </section>
-
-                <section class="concept">
-                    <h2>Понятный интерфейс</h2>
-                    <p>Одной из главных задач было обеспечить удобство использования. Мы разработали интуитивно понятный
-                        интерфейс, который позволяет пользователям легко найти необходимую информацию.</p>
-                    <img src="@/assets/img/intuitive-interface.webp" alt="intuitive-interface">
-                </section>
+                <TheConceptVue />
 
                 <section class="we_used">
                     <h2>В работе мы использовали</h2>
