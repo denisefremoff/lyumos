@@ -20,3 +20,4 @@ app.use(router);
 app.use(createWebHistory());
 
 app.mount("#app");
+
