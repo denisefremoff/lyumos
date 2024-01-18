@@ -43,27 +43,29 @@ export const FormControl = defineStore("form-control", {
         email: this.email,
         company: this.company,
       };
-      // try {
-      const resp = await fetch("email.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      this.arrServises = [];
-      this.description = "";
-      this.name = "";
-      this.phoneNumber = "";
-      this.company = "";
-      this.email = "";
-      // let results = await response.text();
-      this.changActivForm();
-      this.pageNumber = 1;
-      // } catch (err) {
-      // this.response = err.response.data.message;
-      // this.wrongStyle();
-      //}
+      try {
+        const resp = await fetch("email.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+        this.arrServises = [];
+        this.description = "";
+        this.name = "";
+        this.phoneNumber = "";
+        this.company = "";
+        this.email = "";
+        let result = resp;
+        console.log(result);
+        this.changActivForm();
+        this.pageNumber = 1;
+      } catch (err) {
+        // this.response = err.response.data.message;
+        // this.wrongStyle();
+        console.log(err);
+      }
     },
     passInformation() {
       //регулярные выражения
