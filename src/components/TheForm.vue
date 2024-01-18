@@ -10,7 +10,6 @@ const form = FormControl();
         <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
       </button>
       <form action="" autocomplete="off">
-        <transition name="slide-fade">
           <div v-if="form.getPageNumber === 1" data-num="1" class="form form-1 active-slide-form">
             <div class="top">
               <p>Какие услуги вам необходимы</p>
@@ -102,7 +101,6 @@ const form = FormControl();
               </div>
             </div>
           </div>
-        </transition>
       </form>
 
       <div class="navigation">
@@ -173,19 +171,6 @@ const form = FormControl();
   </div>
 </template>
 <style scoped>
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(100px);
-  opacity: 0;
-}
 
 .wrong-status {
   color: #ff404e;
