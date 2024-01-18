@@ -1,5 +1,4 @@
 <script setup>
-import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import TheSpotsFore from "@/components/TheSpotsFore.vue";
 import PageTitle from "@/components/PageTitle.vue";
@@ -101,8 +100,6 @@ export default {
 </script>
 
 <template>
-  <TheHeader />
-
   <main class="development">
     <PageTitle
       pageTitle="Разработка продукта"
@@ -128,14 +125,12 @@ export default {
           </p>-->
           <h3>Наша экспертность в автоматизации</h3>
           <TheExpertise />
-
         </div>
 
         <section class="word_case">
           <h2>От слов к делу</h2>
           <h3>Кейсы</h3>
           <div class="cases">
-
             <DevCase />
 
             <!-- <div class="case">
@@ -233,10 +228,8 @@ export default {
                 <img src="@/assets/img/development_case.webp" alt="case" />
               </div>
             </div> -->
-
           </div>
         </section>
-
       </div>
     </div>
   </main>

@@ -1,5 +1,4 @@
 <script setup>
-import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import IconPrimaryBtn from "@/components/icons/IconPrimaryBtn.vue";
 import { RouterLink } from "vue-router";
@@ -66,8 +65,6 @@ import TheServMob from "@/components/TheServicesMobile.vue";
 </style>
 
 <template>
-  <TheHeader />
-
   <main>
     <section class="intro">
       <div class="wrapper">
