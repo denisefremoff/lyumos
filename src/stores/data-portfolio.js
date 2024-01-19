@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import img_1 from '@/assets/img/premium-pipe.webp';
+import img_1 from "@/assets/img/premium-pipe.webp";
 
 export const DataPortfolio = defineStore("data-portfolio", {
   state: () => ({
@@ -8,11 +8,16 @@ export const DataPortfolio = defineStore("data-portfolio", {
     dataPortfolio: {
       categoryUl: [],
     },
+    tmpArrCategory: [],
     categoryUl: [
-      { id: 1, title: "Все" },
+      { id: 1, title: "Всё" },
       { id: 2, title: "Заказная разработка", value: "Заказная разработка" },
       { id: 3, title: "Внедрение ИИ", value: "Внедрение ИИ" },
-      { id: 4, title: "Доработка и модернизация IT-продукта", value: "Доработка и модернизация IT-продукта" },
+      {
+        id: 4,
+        title: "Доработка и модернизация IT-продукта",
+        value: "Доработка и модернизация IT-продукта",
+      },
     ],
 
     portfolioExamples: [
@@ -20,24 +25,24 @@ export const DataPortfolio = defineStore("data-portfolio", {
         id: 1,
         url: "premium-pipe",
         img: img_1,
-        title: "Система автоматизации для Premium Pipe",
+        title: "Разработка корпоративного сайта “Охрана труда”",
         categories: ["Заказная разработка"],
       },
       // {
       //   id: 2,
-      //   img: img_2,
+      //   img: 2,
       //   title: "Разработка корпоративного сайта “Охрана труда”",
       //   categories: ["Заказная разработка", "Внедрение ИИ"],
       // },
       // {
       //   id: 3,
-      //   img: img_3,
+      //   img: 2,
       //   title: "Разработка корпоративного сайта “Охрана труда”",
       //   categories: ["Внедрение ИИ"],
       // },
       // {
       //   id: 4,
-      //   img: img_2,
+      //   img: 3,
       //   title: "Разработка корпоративного сайта “Охрана труда”",
       //   categories: ["Заказная разработка"],
       // },
@@ -67,16 +72,19 @@ export const DataPortfolio = defineStore("data-portfolio", {
       // },
       // {
       //   id: 9,
-      //   img: img_3,
+      //   img: 2,
       //   title: "Разработка корпоративного сайта “Охрана труда”",
-      //   categories: ["Доработка и модернизация IT-продукта", "Заказная разработка"],
+      //   categories: [
+      //     "Доработка и модернизация IT-продукта",
+      //     "Заказная разработка",
+      //   ],
       // },
       // {
       //   id: 10,
-      //   img: img_2,
+      //   img: 1,
       //   title: "Разработка корпоративного сайта “Охрана труда”",
       //   categories: ["Заказная разработка"],
-      // }
+      //},
     ],
   }),
 
@@ -91,11 +99,22 @@ export const DataPortfolio = defineStore("data-portfolio", {
       return this.category.length === 0 || this.category[0] === undefined
         ? this.portfolioExamples
         : this.portfolioExamples.filter((example) => {
-          return example.categories.some((element) =>
-            this.getCategory.includes(element)
-          );
-        });
+            return example.categories.some((element) =>
+              this.getCategory.includes(element)
+            );
+          });
     },
+
+    filterCategory() {
+      this.getTmpArrCategory();
+      return this.categoryUl.filter((example) => {
+        return (
+          example.title.includes("Всё") ||
+          this.tmpArrCategory.some((category) => example.title === category)
+        );
+      });
+    },
+
     totalPortfolioCount() {
       return this.portfolioExamples.length;
     },
@@ -116,9 +135,18 @@ export const DataPortfolio = defineStore("data-portfolio", {
         example.categories.includes("Доработка и модернизация IT-продукта")
       );
       return modernizationExamples.length;
-    }
+    },
   },
   actions: {
+    getTmpArrCategory() {
+      const categoriesSet = new Set();
+      this.portfolioExamples.forEach((el) => {
+        el.categories.forEach((category) => {
+          categoriesSet.add(category);
+        });
+      });
+      this.tmpArrCategory = Array.from(categoriesSet);
+    },
     toggleActiveCategory(index, category) {
       if (index === 0) {
         this.clearActiveCategories();

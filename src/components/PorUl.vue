@@ -4,7 +4,7 @@ const dataPortfolio = DataPortfolio();
 </script>
 
 <template>
-  <li v-for="(categoryLi, index) in dataPortfolio.categoryUl" :key="categoryLi.id"
+  <li v-for="(categoryLi, index) in dataPortfolio.filterCategory" :key="categoryLi.id"
     :class="{ active_nav_category: dataPortfolio.isActive(index) }"
     @click="dataPortfolio.toggleActiveCategory(index, categoryLi.value)">
     {{ categoryLi.title }}
