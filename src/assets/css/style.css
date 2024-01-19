@@ -2976,14 +2976,15 @@ main {
   font-size: 0.8333333vw;
   font-weight: 400;
   line-height: 140%;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .type_expertise_footer .expertise_active,
 .type_expertise_footer li:hover {
   background: #595959;
   color: #f5f5f5;
+  cursor: pointer;
 }
 
 .type_expertise_footer p {
