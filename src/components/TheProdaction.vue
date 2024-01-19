@@ -10,11 +10,20 @@
       </div>
     </div>
     <div class="type_expertise_footer">
-      <ul>
+      <ul v-if="this.window.width > 1023">
         <li
           v-for="(switcher, index) in expertise.cart2.switchers"
           :key="switcher.id"
           @mouseenter="expertise.changeCart2(index)"
+          :class="{ expertise_active: switcher.id === expertise.pageCart2 + 1 }"
+        >
+          <p>{{ switcher.body }}</p>
+        </li>
+      </ul>
+      <ul v-else>
+        <li
+          v-for="(switcher, index) in expertise.cart2.switchers"
+          :key="switcher.id"
           @click="expertise.changeCart2(index)"
           :class="{ expertise_active: switcher.id === expertise.pageCart2 + 1 }"
         >
@@ -28,4 +37,23 @@
 import { DataExpertise } from "@/stores/data-expertise.js";
 const expertise = DataExpertise();
 </script>
-<style scoped></style>
+<script>
+export default {
+  data() {
+    return {
+      window: {
+        width: 0,
+      },
+    };
+  },
+  methods: {
+    handleResize() {
+      this.window.width = window.innerWidth;
+    },
+  },
+  created() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+  },
+};
+</script>
