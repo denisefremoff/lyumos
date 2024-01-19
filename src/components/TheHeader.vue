@@ -33,13 +33,19 @@ export default {
           <nav>
             <ul>
               <li>
-                <RouterLink to="/portfolio">Портфолио</RouterLink>
+                <RouterLink to="/portfolio" @click="isDropdownOpened = false"
+                  >Портфолио</RouterLink
+                >
               </li>
               <li>
-                <RouterLink to="/contacts">Контакты</RouterLink>
+                <RouterLink to="/contacts" @click="isDropdownOpened = false"
+                  >Контакты</RouterLink
+                >
               </li>
               <li>
-                <RouterLink to="/services">Услуги</RouterLink>
+                <RouterLink to="/services" @click="isDropdownOpened = false"
+                  >Услуги</RouterLink
+                >
               </li>
             </ul>
           </nav>
@@ -101,13 +107,19 @@ export default {
               </a>
             </li>
             <li class="mobile_li">
-              <RouterLink to="/portfolio">Портфолио</RouterLink>
+              <RouterLink to="/portfolio" @click="isDropdownOpened = false"
+                >Портфолио</RouterLink
+              >
             </li>
             <li class="mobile_li">
-              <RouterLink to="/contacts">Контакты</RouterLink>
+              <RouterLink to="/contacts" @click="isDropdownOpened = false"
+                >Контакты</RouterLink
+              >
             </li>
             <li class="mobile_li">
-              <RouterLink to="/services">Услуги</RouterLink>
+              <RouterLink to="/services" @click="isDropdownOpened = false"
+                >Услуги</RouterLink
+              >
             </li>
           </ul>
         </nav>
@@ -173,7 +185,6 @@ export default {
     </div>
 
     <TheForm v-if="form.getFormState" />
- 
   </header>
 </template>
 
