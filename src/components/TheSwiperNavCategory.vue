@@ -1,8 +1,13 @@
 <template>
   <swiper :slidesPerView="'auto'" :space-between="12">
-    <swiper-slide v-for="(categoryLi, index) in dataPortfolio.categoryUl" :key="categoryLi.id">
-      <li :class="{ active_nav_category: dataPortfolio.isActive(index) }"
-        @click="dataPortfolio.toggleActiveCategory(index, categoryLi.value)">
+    <swiper-slide
+      v-for="(categoryLi, index) in dataPortfolio.filterCategory"
+      :key="categoryLi.id"
+    >
+      <li
+        :class="{ active_nav_category: dataPortfolio.isActive(index) }"
+        @click="dataPortfolio.toggleActiveCategory(index, categoryLi.value)"
+      >
         {{ categoryLi.title }}
         <p>
           <span>
@@ -11,7 +16,7 @@
                 1: dataPortfolio.totalPortfolioCount,
                 2: dataPortfolio.totalDevelopmentCount,
                 3: dataPortfolio.totalAiCount,
-                4: dataPortfolio.totalModernizationItCount
+                4: dataPortfolio.totalModernizationItCount,
               }[categoryLi.id] || null
             }}
           </span>
