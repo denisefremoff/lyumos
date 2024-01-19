@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="type_expertise_footer">
-      <ul v-if="this.window.width > 1023">
+      <ul v-if="width > 1023">
         <li
           v-for="(switcher, index) in expertise.cart1.switchers"
           :key="switcher.id"
@@ -42,17 +42,15 @@ const expertise = DataExpertise();
 export default {
   data() {
     return {
-      window: {
-        width: 0,
-      },
+      width: 0,
     };
   },
   methods: {
     handleResize() {
-      this.window.width = window.innerWidth;
+      this.width = window.innerWidth;
     },
   },
-  created() {
+  mounted() {
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
   },
