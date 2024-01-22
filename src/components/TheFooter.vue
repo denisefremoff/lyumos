@@ -65,7 +65,7 @@ import { RouterLink } from "vue-router";
           </ul>
         </nav>
         <p class="footer__rights">
-          IT-компания lumos.ru, 2023 © Все права защищены
+          IT-компания lumos.ru, 2024 © Все права защищены
         </p>
       </div>
 
@@ -79,10 +79,10 @@ import { RouterLink } from "vue-router";
         }"
       >
         <div class="footer__contacts">
-          <a href="tel:+79123456789" class="footer__phone"
-            >+7 (912) 345-67-89</a
+          <a href="tel:+79969241648" class="footer__phone"
+            >+7 (996) 924-16-48</a
           >
-          <a href="mailto:it@lumos.ru" class="footer__mail">it@lumos.ru</a>
+          <a href="mailto:protechnologii22@yandex.ru" class="footer__mail">Наша почта</a>
         </div>
         <div class="footer__links">
           <a href="#" target="_blank">ВКонтакте</a>
@@ -94,8 +94,8 @@ import { RouterLink } from "vue-router";
     </div>
 
     <div class="footer_tel_rights">
-      <a href="tel:+79123456789">+7 (912) 345-67-89</a>
-      <p>IT-компания lumos.ru, 2023 © Все права защищены</p>
+      <a href="tel:+79969241648">+7 (996) 924-16-48</a>
+      <p>IT-компания lumos.ru, 2024 © Все права защищены</p>
     </div>
   </footer>
 </template>

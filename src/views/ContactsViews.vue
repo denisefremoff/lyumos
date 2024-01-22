@@ -5,7 +5,6 @@ import TheSpots from "@/components/TheSpots.vue";
 </script>
 
 <template>
-  <!-- <TheHeader /> -->
   <main>
     <TheSpots />
     <div class="wrapper">
@@ -38,15 +37,14 @@ import TheSpots from "@/components/TheSpots.vue";
           </div>
           <div class="phone_number">
             <h4>Номер</h4>
-            <a href="tel:+79123456789" target="_blank">+7 (912) 345-67-89</a>
+            <a href="tel:+79969241648" target="_blank">+7 (996) 924-16-48</a>
           </div>
           <div class="email">
             <h4>Почта</h4>
-            <a href="mailto:it@lumos.ru">it@lumos.ru</a>
+            <a href="mailto:protechnologii22@yandex.ru">protechnologii22@yandex.ru</a>
           </div>
         </div>
       </div>
     </div>
   </main>
-  <!-- <TheFooter /> -->
 </template>

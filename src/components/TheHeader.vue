@@ -3,6 +3,7 @@ import { RouterLink } from "vue-router";
 import IconOrderProject from "@/components/icons/IconOrderProject.vue";
 import { FormControl } from "@/stores/form-control.js";
 import TheForm from "@/components/TheForm.vue";
+import TheFormThanks from "./TheFormThanks.vue";
 const form = FormControl();
 </script>
 
@@ -52,7 +53,7 @@ export default {
               </li>
             </ul>
           </nav>
-          <p>IT-компания lumos.ru, 2023 © Все права защищены</p>
+          <p>IT-компания lumos.ru, 2024 © Все права защищены</p>
         </div>
         <div class="right-part">
           <nav>
@@ -69,9 +70,9 @@ export default {
           </nav>
 
           <div class="right-contacts">
-            <a href="tel:+79123456789">+7 (912) 345-67-89</a>
+            <a href="tel:+79969241648">+7 (996) 924-16-48</a>
             <span class="dropdown__divider"></span>
-            <a href="mailto:it@lumos.ru">it@lumos.ru</a>
+            <a href="mailto:protechnologii22@yandex.ru">protechnologii22@yandex.ru</a>
           </div>
         </div>
       </div>
@@ -100,12 +101,12 @@ export default {
         </nav>
 
         <div class="left-mobile-contacts">
-          <a href="tel:+79123456789">+7 (912) 345-67-89</a>
-          <a href="mailto:it@lumos.ru">it@lumos.ru</a>
+          <a href="tel:+79969241648">+7 (996) 924-16-48</a>
+          <a href="mailto:protechnologii22@yandex.ru">protechnologii22@yandex.ru</a>
         </div>
 
         <p class="left-mobile-rights lmr-601">
-          IT-компания lumos.ru, 2023 © Все права защищены
+          IT-компания lumos.ru, 2024 © Все права защищены
         </p>
       </div>
       <div class="right">
@@ -121,7 +122,7 @@ export default {
       </div>
 
       <p class="left-mobile-rights lmr-600">
-        IT-компания lumos.ru, 2023 © Все права защищены
+        IT-компания lumos.ru, 2024 © Все права защищены
       </p>
     </div>
 
@@ -148,7 +149,7 @@ export default {
       </div>
       <ul class="header__right-side">
         <li class="header__right-item">
-          <a href="tel:+79123456789">+7 (912) 345-67-89</a>
+          <a href="tel:+79969241648">+7 (996) 924-16-48</a>
         </li>
         <li>
           <a class="btn-order" @click="form.changActivForm">Заказать проект
@@ -159,6 +160,9 @@ export default {
     </div>
 
     <TheForm v-if="form.getFormState" />
+    <TheFormThanks />
+
+
   </header>
 </template>
 
