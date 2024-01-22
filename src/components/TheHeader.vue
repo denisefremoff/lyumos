@@ -3,7 +3,7 @@ import { RouterLink } from "vue-router";
 import IconOrderProject from "@/components/icons/IconOrderProject.vue";
 import { FormControl } from "@/stores/form-control.js";
 import TheForm from "@/components/TheForm.vue";
-import TheFormThanks from "./TheFormThanks.vue";
+import TheFormThanks from "@/components/TheFormThanks.vue";
 const form = FormControl();
 </script>
 
@@ -17,19 +17,18 @@ export default {
   methods: {
     toggleDropdown() {
       this.isDropdownOpened = !this.isDropdownOpened;
-      document.body.classList.add('stop');
-
+      document.body.classList.add("stop");
 
       const doc = document.documentElement;
-      doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+      doc.style.setProperty("--app-height", `${window.innerHeight}px`);
 
-      window.addEventListener('resize', () => {
-        doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+      window.addEventListener("resize", () => {
+        doc.style.setProperty("--app-height", `${window.innerHeight}px`);
       });
     },
     closeDropdown() {
       this.isDropdownOpened = false;
-      document.body.classList.remove('stop');
+      document.body.classList.remove("stop");
     },
   },
 };
@@ -43,13 +42,19 @@ export default {
           <nav>
             <ul>
               <li>
-                <RouterLink to="/portfolio" @click="closeDropdown">Портфолио</RouterLink>
+                <RouterLink to="/portfolio" @click="closeDropdown"
+                  >Портфолио</RouterLink
+                >
               </li>
               <li>
-                <RouterLink to="/contacts" @click="closeDropdown">Контакты</RouterLink>
+                <RouterLink to="/contacts" @click="closeDropdown"
+                  >Контакты</RouterLink
+                >
               </li>
               <li>
-                <RouterLink to="/services" @click="closeDropdown">Услуги</RouterLink>
+                <RouterLink to="/services" @click="closeDropdown"
+                  >Услуги</RouterLink
+                >
               </li>
             </ul>
           </nav>
@@ -59,10 +64,21 @@ export default {
           <nav>
             <ul>
               <li>
-                <a class="btn-order" @click="form.changActivForm">Заказать проект
-                  <svg width="70" height="70" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M27.8027 8L12.5 23.3027M27.8027 8L27.8027 21.3456M27.8027 8L14.4816 8" stroke="#FD8B93"
-                      stroke-width="2" stroke-linejoin="round" />
+                <a class="btn-order" @click="form.changActivForm"
+                  >Заказать проект
+                  <svg
+                    width="70"
+                    height="70"
+                    viewBox="0 0 33 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M27.8027 8L12.5 23.3027M27.8027 8L27.8027 21.3456M27.8027 8L14.4816 8"
+                      stroke="#FD8B93"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
                   </svg>
                 </a>
               </li>
@@ -72,7 +88,9 @@ export default {
           <div class="right-contacts">
             <a href="tel:+79969241648">+7 (996) 924-16-48</a>
             <span class="dropdown__divider"></span>
-            <a href="mailto:protechnologii22@yandex.ru">protechnologii22@yandex.ru</a>
+            <a href="mailto:protechnologii22@yandex.ru"
+              >protechnologii22@yandex.ru</a
+            >
           </div>
         </div>
       </div>
@@ -81,28 +99,47 @@ export default {
         <nav>
           <ul>
             <li>
-              <a class="btn-order" @click="form.changActivForm">Заказать проект
-                <svg width="70" height="70" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M27.8027 8L12.5 23.3027M27.8027 8L27.8027 21.3456M27.8027 8L14.4816 8" stroke="#FD8B93"
-                    stroke-width="2" stroke-linejoin="round" />
+              <a class="btn-order" @click="form.changActivForm"
+                >Заказать проект
+                <svg
+                  width="70"
+                  height="70"
+                  viewBox="0 0 33 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M27.8027 8L12.5 23.3027M27.8027 8L27.8027 21.3456M27.8027 8L14.4816 8"
+                    stroke="#FD8B93"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                  />
                 </svg>
               </a>
             </li>
             <li class="mobile_li">
-              <RouterLink to="/portfolio" @click="closeDropdown">Портфолио</RouterLink>
+              <RouterLink to="/portfolio" @click="closeDropdown"
+                >Портфолио</RouterLink
+              >
             </li>
             <li class="mobile_li">
-              <RouterLink to="/contacts" @click="closeDropdown">Контакты</RouterLink>
+              <RouterLink to="/contacts" @click="closeDropdown"
+                >Контакты</RouterLink
+              >
             </li>
             <li class="mobile_li">
-              <RouterLink to="/services" @click="closeDropdown">Услуги</RouterLink>
+              <RouterLink to="/services" @click="closeDropdown"
+                >Услуги</RouterLink
+              >
             </li>
           </ul>
         </nav>
 
         <div class="left-mobile-contacts">
           <a href="tel:+79969241648">+7 (996) 924-16-48</a>
-          <a href="mailto:protechnologii22@yandex.ru">protechnologii22@yandex.ru</a>
+          <a href="mailto:protechnologii22@yandex.ru"
+            >protechnologii22@yandex.ru</a
+          >
         </div>
 
         <p class="left-mobile-rights lmr-601">
@@ -152,7 +189,8 @@ export default {
           <a href="tel:+79969241648">+7 (996) 924-16-48</a>
         </li>
         <li>
-          <a class="btn-order" @click="form.changActivForm">Заказать проект
+          <a class="btn-order" @click="form.changActivForm"
+            >Заказать проект
             <IconOrderProject />
           </a>
         </li>
@@ -160,9 +198,7 @@ export default {
     </div>
 
     <TheForm v-if="form.getFormState" />
-    <TheFormThanks />
-
-
+    <TheFormThanks v-if="form.getThanksFormState" />
   </header>
 </template>
 

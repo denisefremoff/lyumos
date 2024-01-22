@@ -14,6 +14,7 @@ export const FormControl = defineStore("form-control", {
     emailPattern: "Шаблон почты mail@mail.ru",
     phonePattern: "Шаблон телефона +7(999)999-99-99",
     response: "",
+    thanksForm: false,
   }),
   getters: {
     getFormState() {
@@ -27,6 +28,9 @@ export const FormControl = defineStore("form-control", {
     },
     getWrong() {
       return this.wrong;
+    },
+    getThanksFormState() {
+      return this.thanksForm;
     },
   },
   actions: {
@@ -57,15 +61,10 @@ export const FormControl = defineStore("form-control", {
         this.phoneNumber = "";
         this.company = "";
         this.email = "";
-        let result = resp;
-        console.log(result);
         this.changActivForm();
+        this.changeThanksFormState();
         this.pageNumber = 1;
-      } catch (err) {
-        // this.response = err.response.data.message;
-        // this.wrongStyle();
-        console.log(err);
-      }
+      } catch (err) {}
     },
     passInformation() {
       //регулярные выражения
@@ -131,6 +130,9 @@ export const FormControl = defineStore("form-control", {
       setTimeout(() => {
         this.wrong = false;
       }, 2000);
+    },
+    changeThanksFormState() {
+      this.thanksForm = !this.thanksForm;
     },
   },
 });
