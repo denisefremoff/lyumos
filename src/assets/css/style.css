@@ -107,6 +107,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.stop {
+  overflow: hidden;
+}
+
 section {
   padding-bottom: 226px;
 }
@@ -197,17 +201,18 @@ section {
 .header__dropdown {
   height: 0;
   overflow: hidden;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
+:root {
+  --app-height: 100%;
+}
+
 .header .opened {
-  height: 100%;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  height: 100vh;
+  height: var(--app-height);
   overflow: visible;
   padding: 4.1666667vw 9.375vw;
 }
@@ -336,7 +341,8 @@ section {
 }
 
 .header .right button img {
-  width: 120%;
+  width: 52px;
+  height: 52px;
   padding-top: 30px;
 }
 
@@ -479,7 +485,7 @@ section {
 }
 
 .dark-back .form-wrapper .form .checkbox-container .services-group {
-  width: 48%;
+  width: 100%;
   min-width: 440px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -531,42 +537,33 @@ section {
   border: none;
 }
 
-.dark-back .form-wrapper .form .checkbox-container label input[name="online-store"]:checked {
-  background: linear-gradient(136.55deg,
-      #d3e1fc -63.86%,
-      #f5d6fc 49.56%,
-      #fcd6d8 162.99%);
+.dark-back .form-wrapper .form .checkbox-container label input[name="erp-system"]:checked,
+.dark-back .form-wrapper .form .checkbox-container label input[name="crm-system"]:checked,
+.dark-back .form-wrapper .form .checkbox-container label input[name="production-management"]:checked,
+.dark-back .form-wrapper .form .checkbox-container label input[name="development-analogue"]:checked,
+.dark-back .form-wrapper .form .checkbox-container label input[name="financial-management"]:checked,
+.dark-back .form-wrapper .form .checkbox-container label input[name="project-management"]:checked {
+  background: linear-gradient(134deg, #F5D6FC -62.41%, #FCD6D8 161.2%);
 }
 
-.dark-back .form-wrapper .form .checkbox-container label input[name="landing"]:checked {
-  background: linear-gradient(136.55deg,
-      #d3e1fc -63.86%,
-      #f5d6fc 49.56%,
-      #fcd6d8 162.99%);
+.dark-back .form-wrapper .form .checkbox-container label input[name="monitoring-systems"]:checked,
+.dark-back .form-wrapper .form .checkbox-container label input[name="implementation-ai"]:checked {
+  background: linear-gradient(134deg, #F5D6FC -58.55%, #FCF2D3 158.08%);
 }
 
-.dark-back .form-wrapper .form .checkbox-container label input[name="app"]:checked {
-  background: linear-gradient(134.44deg, #f5d6fc -62.41%, #fcd6d8 161.2%);
+.dark-back .form-wrapper .form .checkbox-container label input[name="product-support"]:checked,
+.dark-back .form-wrapper .form .checkbox-container label input[name="product-refinement"]:checked {
+  background: linear-gradient(137deg, #D3E1FC -63.86%, #F5D6FC 49.56%, #FCD6D8 162.99%);
 }
 
-.dark-back .form-wrapper .form .checkbox-container label input[name="ux"]:checked {
-  background: linear-gradient(134.83deg, #f5d6fc -18.38%, #d3e1fc 113.23%);
+.dark-back .form-wrapper .form .checkbox-container label input[name="mvp-development"]:checked,
+.dark-back .form-wrapper .form .checkbox-container label input[name="customized-solution"]:checked {
+  background: #595959;
 }
 
-.dark-back .form-wrapper .form .checkbox-container label input[name="service"]:checked {
-  background: linear-gradient(134.44deg, #f5d6fc -62.41%, #fcd6d8 161.2%);
-}
-
-.dark-back .form-wrapper .form .checkbox-container label input[name="ui-ux"]:checked {
-  background: linear-gradient(134.83deg, #f5d6fc -18.38%, #d3e1fc 113.23%);
-}
-
-.dark-back .form-wrapper .form .checkbox-container label input[name="identity"]:checked,
-.dark-back .form-wrapper .form .checkbox-container label input[name="design"]:checked,
-.dark-back .form-wrapper .form .checkbox-container label input[name="design-support"]:checked,
-.dark-back .form-wrapper .form .checkbox-container label input[name="naming"]:checked,
-.dark-back .form-wrapper .form .checkbox-container label input[name="illustration"]:checked {
-  background: linear-gradient(134.44deg, #f5d6fc -62.41%, #fcd6d8 161.2%);
+.dark-back .form-wrapper .form .checkbox-container label input[name="mvp-development"]:checked+p,
+.dark-back .form-wrapper .form .checkbox-container label input[name="customized-solution"]:checked+p {
+  color: #F5F5F5;
 }
 
 .dark-back .form-wrapper .form .checkbox-container label p {
@@ -4057,10 +4054,6 @@ main {
     font-size: 12px;
   }
 
-  .dark-back .form-wrapper .form .checkbox-container .services-group {
-    min-width: 46%;
-  }
-
   .dark-back .form-wrapper .form .description p {
     margin-bottom: 16px;
   }
@@ -5995,11 +5988,11 @@ main {
   .dark-back .form-wrapper form {
     overflow-y: auto;
     overflow-x: hidden;
-    max-width: 288px;
+    max-width: 294px;
   }
 
   .dark-back .form-wrapper form .form {
-    max-width: 288px;
+    /* max-width: 288px; */
     padding-right: 6px;
   }
 
@@ -6268,6 +6261,54 @@ main {
 
   .swap_icons {
     padding: 100px 70px 70px 70px;
+  }
+
+  .services-group label:nth-child(1) {
+    order: 2;
+  }
+
+  .services-group label:nth-child(2) {
+    order: 4;
+  }
+
+  .services-group label:nth-child(3) {
+    order: 10;
+  }
+
+  .services-group label:nth-child(4) {
+    order: 9;
+  }
+
+  .services-group label:nth-child(5) {
+    order: 5;
+  }
+
+  .services-group label:nth-child(6) {
+    order: 6;
+  }
+
+  .services-group label:nth-child(7) {
+    order: 3;
+  }
+
+  .services-group label:nth-child(8) {
+    order: 1;
+  }
+
+  .services-group label:nth-child(9) {
+    order: 12;
+  }
+
+  .services-group label:nth-child(10) {
+    order: 7;
+  }
+
+  .services-group label:nth-child(11) {
+    order: 8;
+  }
+
+  .services-group label:nth-child(12) {
+    order: 11;
   }
 }
 

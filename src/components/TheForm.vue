@@ -10,97 +10,104 @@ const form = FormControl();
         <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
       </button>
       <form action="" autocomplete="off">
-          <div v-if="form.getPageNumber === 1" data-num="1" class="form form-1 active-slide-form">
-            <div class="top">
-              <p>Какие услуги вам необходимы</p>
-              <button @click="form.changActivForm" class="close-form-mobile">
-                <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
-              </button>
-            </div>
-            <div class="checkbox-container services">
-              <div class="services-group">
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" name="online-store" value="Интернет-магазин" />
-                  <p>Интернет-магазин</p>
-                </label>
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" value="Лендинг" name="landing" />
-                  <p>Лендинг</p>
-                </label>
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" value="Приложение" name="app" />
-                  <p>Приложение</p>
-                </label>
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" name="ux" value="UX-прототипирование" />
-                  <p>UX-прототипирование</p>
-                </label>
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" name="service" value="Сервис" />
-                  <p>Сервис</p>
-                </label>
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" name="ui-ux" value="UI-UX дизайн" />
-                  <p>UI-UX дизайн</p>
-                </label>
-              </div>
-              <div class="services-group">
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" name="identity" value="Айдентика" />
-                  <p>Айдентика</p>
-                </label>
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" name="design" value="Графический дизайн" />
-                  <p>Графический дизайн</p>
-                </label>
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" name="design-support" value="Дизайн поддержка" />
-                  <p>Дизайн поддержка</p>
-                </label>
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" name="naming" value="Нейминг" />
-                  <p>Нейминг</p>
-                </label>
-                <label>
-                  <input v-model="form.arrServises" type="checkbox" name="illustration" value="Иллюстрация" />
-                  <p>Иллюстрация</p>
-                </label>
-              </div>
-            </div>
-            <div class="description">
-              <p>Опишите проект, не забудьте уточнить сроки</p>
-              <textarea v-model="form.description" name="description" placeholder="Введите сообщение..."
-                autocomplete="off"></textarea>
+        <div v-if="form.getPageNumber === 1" data-num="1" class="form form-1 active-slide-form">
+          <div class="top">
+            <p>Какие услуги вам необходимы</p>
+            <button @click="form.changActivForm" class="close-form-mobile">
+              <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
+            </button>
+          </div>
+          <div class="checkbox-container services">
+            <div class="services-group">
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="erp-system" value="ERP-система" />
+                <p>ERP-система</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="crm-system" value="CRM-система" />
+                <p>CRM-система</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="production-management"
+                  value="Управление производством" />
+                <p>Управление производством</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="development-analogue"
+                  value="Разработка аналога иностранного ПО" />
+                <p>Разработка аналога иностранного ПО</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="monitoring-systems" value="Системы мониторинга" />
+                <p>Системы мониторинга</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="implementation-ai" value="Внедрение ИИ" />
+                <p>Внедрение ИИ</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="product-support" value="Поддержка продукта" />
+                <p>Поддержка продукта</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="financial-management"
+                  value="Управление финансами" />
+                <p>Управление финансами</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="project-management"
+                  value="Управление проектами" />
+                <p>Управление проектами</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="product-refinement" value="Доработка продукта" />
+                <p>Доработка продукта</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="mvp-development" value="Разработка MVP" />
+                <p>Разработка MVP</p>
+              </label>
+              <label>
+                <input v-model="form.arrServises" type="checkbox" name="customized-solution"
+                  value="Индивидуальные решение" />
+                <p>Индивидуальные решение</p>
+              </label>
             </div>
           </div>
+          <div class="description">
+            <p>Опишите проект, не забудьте уточнить сроки</p>
+            <textarea v-model="form.description" name="description" placeholder="Введите сообщение..."
+              autocomplete="off"></textarea>
+          </div>
+        </div>
 
-          <div v-else data-num="3" class="form form-3">
-            <div class="top">
-              <p>Пора знакомиться</p>
-              <button class="close-form-mobile">
-                <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
-              </button>
+        <div v-else data-num="3" class="form form-3">
+          <div class="top">
+            <p>Пора знакомиться</p>
+            <button class="close-form-mobile">
+              <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
+            </button>
+          </div>
+          <div class="profile">
+            <div class="input-wrapper">
+              <p class="input-title">Меня зовут</p>
+              <input type="text" v-model.trim="form.name" autocomplete="off" />
             </div>
-            <div class="profile">
-              <div class="input-wrapper">
-                <p class="input-title">Меня зовут</p>
-                <input type="text" v-model.trim="form.name" autocomplete="off" />
-              </div>
-              <div class="input-wrapper">
-                <p class="input-title">Я представляю компанию</p>
-                <input type="text" v-model.trim="form.company" autocomplete="off" />
-              </div>
-              <div class="input-wrapper">
-                <p class="input-title">Мой телефон</p>
-                <input type="text" v-model.trim="form.phoneNumber" v-bind:title="form.phonePattern" autocomplete="off"
-                  v-imask="{ mask: '+{7}(000)000-00-00' }" />
-              </div>
-              <div class="input-wrapper">
-                <p class="input-title">Моя почта</p>
-                <input type="email" v-bind:title="form.emailPattern" v-model.trim="form.email" autocomplete="off" />
-              </div>
+            <div class="input-wrapper">
+              <p class="input-title">Я представляю компанию</p>
+              <input type="text" v-model.trim="form.company" autocomplete="off" />
+            </div>
+            <div class="input-wrapper">
+              <p class="input-title">Мой телефон</p>
+              <input type="text" v-model.trim="form.phoneNumber" v-bind:title="form.phonePattern" autocomplete="off"
+                v-imask="{ mask: '+{7}(000)000-00-00' }" />
+            </div>
+            <div class="input-wrapper">
+              <p class="input-title">Моя почта</p>
+              <input type="email" v-bind:title="form.emailPattern" v-model.trim="form.email" autocomplete="off" />
             </div>
           </div>
+        </div>
       </form>
 
       <div class="navigation">
@@ -119,8 +126,7 @@ const form = FormControl();
             <button v-else @click="form.passInformation" :class="[
               { 'next-step': !form.getWrong },
               { wrong: form.getWrong },
-            ]"
-            >Отправить</button>
+            ]">Отправить</button>
           </div>
           <!-- незаполненные поля -->
           <div class="wrong-status" v-if="form.getWrong">
@@ -171,7 +177,6 @@ const form = FormControl();
   </div>
 </template>
 <style scoped>
-
 .wrong-status {
   color: #ff404e;
   font-family: Onest;

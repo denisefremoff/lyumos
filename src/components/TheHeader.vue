@@ -16,9 +16,15 @@ export default {
   methods: {
     toggleDropdown() {
       this.isDropdownOpened = !this.isDropdownOpened;
+      document.body.classList.add('stop');
+
+      
+      const doc = document.documentElement;
+      doc.style.setProperty('--app-height', `${window.innerHeight}px`);
     },
     closeDropdown() {
       this.isDropdownOpened = false;
+      document.body.classList.remove('stop');
     },
   },
 };
@@ -26,26 +32,19 @@ export default {
 
 <template>
   <header class="header">
-    <!--  -->
     <div class="header__dropdown" :class="{ opened: isDropdownOpened }">
       <div class="left">
         <div class="left-part">
           <nav>
             <ul>
               <li>
-                <RouterLink to="/portfolio" @click="isDropdownOpened = false"
-                  >Портфолио</RouterLink
-                >
+                <RouterLink to="/portfolio" @click="closeDropdown">Портфолио</RouterLink>
               </li>
               <li>
-                <RouterLink to="/contacts" @click="isDropdownOpened = false"
-                  >Контакты</RouterLink
-                >
+                <RouterLink to="/contacts" @click="closeDropdown">Контакты</RouterLink>
               </li>
               <li>
-                <RouterLink to="/services" @click="isDropdownOpened = false"
-                  >Услуги</RouterLink
-                >
+                <RouterLink to="/services" @click="closeDropdown">Услуги</RouterLink>
               </li>
             </ul>
           </nav>
@@ -55,21 +54,10 @@ export default {
           <nav>
             <ul>
               <li>
-                <a class="btn-order" @click="form.changActivForm"
-                  >Заказать проект
-                  <svg
-                    width="70"
-                    height="70"
-                    viewBox="0 0 33 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M27.8027 8L12.5 23.3027M27.8027 8L27.8027 21.3456M27.8027 8L14.4816 8"
-                      stroke="#FD8B93"
-                      stroke-width="2"
-                      stroke-linejoin="round"
-                    />
+                <a class="btn-order" @click="form.changActivForm">Заказать проект
+                  <svg width="70" height="70" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.8027 8L12.5 23.3027M27.8027 8L27.8027 21.3456M27.8027 8L14.4816 8" stroke="#FD8B93"
+                      stroke-width="2" stroke-linejoin="round" />
                   </svg>
                 </a>
               </li>
@@ -88,38 +76,21 @@ export default {
         <nav>
           <ul>
             <li>
-              <a class="btn-order" @click="form.changActivForm"
-                >Заказать проект
-                <svg
-                  width="70"
-                  height="70"
-                  viewBox="0 0 33 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.8027 8L12.5 23.3027M27.8027 8L27.8027 21.3456M27.8027 8L14.4816 8"
-                    stroke="#FD8B93"
-                    stroke-width="2"
-                    stroke-linejoin="round"
-                  />
+              <a class="btn-order" @click="form.changActivForm">Заказать проект
+                <svg width="70" height="70" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M27.8027 8L12.5 23.3027M27.8027 8L27.8027 21.3456M27.8027 8L14.4816 8" stroke="#FD8B93"
+                    stroke-width="2" stroke-linejoin="round" />
                 </svg>
               </a>
             </li>
             <li class="mobile_li">
-              <RouterLink to="/portfolio" @click="isDropdownOpened = false"
-                >Портфолио</RouterLink
-              >
+              <RouterLink to="/portfolio" @click="closeDropdown">Портфолио</RouterLink>
             </li>
             <li class="mobile_li">
-              <RouterLink to="/contacts" @click="isDropdownOpened = false"
-                >Контакты</RouterLink
-              >
+              <RouterLink to="/contacts" @click="closeDropdown">Контакты</RouterLink>
             </li>
             <li class="mobile_li">
-              <RouterLink to="/services" @click="isDropdownOpened = false"
-                >Услуги</RouterLink
-              >
+              <RouterLink to="/services" @click="closeDropdown">Услуги</RouterLink>
             </li>
           </ul>
         </nav>
@@ -176,8 +147,7 @@ export default {
           <a href="tel:+79123456789">+7 (912) 345-67-89</a>
         </li>
         <li>
-          <a class="btn-order" @click="form.changActivForm"
-            >Заказать проект
+          <a class="btn-order" @click="form.changActivForm">Заказать проект
             <IconOrderProject />
           </a>
         </li>
