@@ -601,6 +601,7 @@ section {
 .dark-back .form-wrapper .form .description textarea {
   resize: none;
   border: 2px solid #3c3c3c;
+  outline: none;
   border-radius: 8px;
   padding: 20px;
   width: 100%;
@@ -676,8 +677,11 @@ section {
 }
 
 .dark-back .form-wrapper .form .input-wrapper input {
-  border: none;
   outline: none;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   border-bottom: 1px solid #3c3c3c;
   padding: 0px 0px 0px 12px;
   font-size: 20px;
@@ -705,6 +709,7 @@ section {
 .dark-back .form-wrapper .navigation button {
   font-size: 16px;
   background-color: #dbdbdb;
+  color: #1E1E1E;
   padding: 12px 24px 12px 24px;
   border-radius: 4px;
   border: none;
