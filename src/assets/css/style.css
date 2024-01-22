@@ -211,7 +211,6 @@ section {
 }
 
 .header .opened {
-  height: 100vh;
   height: var(--app-height);
   overflow: visible;
   padding: 4.1666667vw 9.375vw;

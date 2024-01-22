@@ -18,9 +18,13 @@ export default {
       this.isDropdownOpened = !this.isDropdownOpened;
       document.body.classList.add('stop');
 
-      
+
       const doc = document.documentElement;
       doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+
+      window.addEventListener('resize', () => {
+        doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+      });
     },
     closeDropdown() {
       this.isDropdownOpened = false;
