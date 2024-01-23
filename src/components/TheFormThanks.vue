@@ -78,12 +78,11 @@ const form = FormControl();
 
 <style scoped>
 .thanks {
-  /* display: none; */
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 50;
-  /* backdrop-filter: blur(10px); */
+  backdrop-filter: blur(10px); 
 }
 
 .thanks_wrapper {
