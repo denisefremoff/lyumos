@@ -3,7 +3,6 @@
 // import TheFooter from '@/components/TheFooter.vue';
 import TheSpots from "@/components/TheSpots.vue";
 </script>
-
 <template>
   <main>
     <TheSpots />
@@ -12,8 +11,16 @@ import TheSpots from "@/components/TheSpots.vue";
         <h1 class="title_contacts">Контакты</h1>
         <h3>Карта</h3>
         <div class="map">
-          <iframe
+          <!-- <iframe
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A3bab022f05fe60f2e72c32d18155c71a3bd3ac31d8f6b3277fb4430915c8aa20&amp;source=constructor"
+            width="100%"
+            height="720"
+            frameborder="0"
+            
+          >
+          </iframe> -->
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A7444044631eb7962bb993ecaac2b3e4dbb46ef58a02c142702cb4fe7525525fb&amp;source=constructor"
             width="100%"
             height="720"
             frameborder="0"
@@ -24,15 +31,29 @@ import TheSpots from "@/components/TheSpots.vue";
           <div class="social_network">
             <h4>Социальные сети</h4>
             <ul>
-              <li><a href="#" target="_blank">ВКонтакте</a></li>
-              <li><a href="#" target="_blank">TenChat</a></li>
+              <li>
+                <a href="https://vk.com/pro_technology" target="_blank"
+                  >ВКонтакте</a
+                >
+              </li>
+              <li>
+                <a href="https://tenchat.ru/akolomiec" target="_blank"
+                  >TenChat</a
+                >
+              </li>
             </ul>
           </div>
           <div class="messengers">
             <h4>Мессенджеры</h4>
             <ul>
-              <li><a href="#" target="_blank">WhatsApp</a></li>
-              <li><a href="#" target="_blank">Telegram</a></li>
+              <li>
+                <a href="https://wa.me/79969241648" target="_blank">WhatsApp</a>
+              </li>
+              <li>
+                <a href="https://t.me/protechnologii56" target="_blank"
+                  >Telegram</a
+                >
+              </li>
             </ul>
           </div>
           <div class="phone_number">
@@ -41,7 +62,10 @@ import TheSpots from "@/components/TheSpots.vue";
           </div>
           <div class="email">
             <h4>Почта</h4>
-            <a href="mailto:protechnologii22@yandex.ru">protechnologii22@yandex.ru</a>
+            <a href="mailto:protechnologii22@yandex.ru"
+              >protechnologii22@yandex.ru</a
+            >
+            <!-- info@lymos.ru -->
           </div>
         </div>
       </div>

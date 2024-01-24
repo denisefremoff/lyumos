@@ -82,13 +82,16 @@ import { RouterLink } from "vue-router";
           <a href="tel:+79969241648" class="footer__phone"
             >+7 (996) 924-16-48</a
           >
-          <a href="mailto:protechnologii22@yandex.ru" class="footer__mail">Наша почта</a>
+          <a href="mailto:protechnologii22@yandex.ru" class="footer__mail"
+            >Наша почта</a
+          >
+          <!-- info@lymos.ru -->
         </div>
         <div class="footer__links">
-          <a href="#" target="_blank">ВКонтакте</a>
-          <a href="#" target="_blank">WhatsApp</a>
-          <a href="#" target="_blank">Telegram</a>
-          <a href="#" target="_blank">TenChat</a>
+          <a href="https://vk.com/pro_technology" target="_blank">ВКонтакте</a>
+          <a href="https://wa.me/79969241648" target="_blank">WhatsApp</a>
+          <a href="https://t.me/protechnologii56" target="_blank">Telegram</a>
+          <a href="https://tenchat.ru/akolomiec" target="_blank">TenChat</a>
         </div>
       </div>
     </div>

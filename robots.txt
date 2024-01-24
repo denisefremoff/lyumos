@@ -1,0 +1,9 @@
+User-agent:Yandex
+Allow:/js/*.js
+Allow:/css/*.css
+Allow:/fonts/*.woff2
+Disallow:
+
+User-agent:GoogleBot
+
+

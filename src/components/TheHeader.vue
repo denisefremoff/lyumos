@@ -140,6 +140,7 @@ export default {
           <a href="mailto:protechnologii22@yandex.ru"
             >protechnologii22@yandex.ru</a
           >
+          <!-- info@lymos.ru -->
         </div>
 
         <p class="left-mobile-rights lmr-601">
@@ -151,10 +152,10 @@ export default {
           <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
         </button>
         <div class="dropdown__links">
-          <a href="#" target="_blank">ВКонтакте</a>
-          <a href="#" target="_blank">WhatsApp</a>
-          <a href="#" target="_blank">Telegram</a>
-          <a href="#" target="_blank">TenChat</a>
+          <a href="https://vk.com/pro_technology " target="_blank">ВКонтакте</a>
+          <a href="https://wa.me/79969241648" target="_blank">WhatsApp</a>
+          <a href="https://t.me/protechnologii56" target="_blank">Telegram</a>
+          <a href="https://tenchat.ru/akolomiec" target="_blank">TenChat</a>
         </div>
       </div>
 
