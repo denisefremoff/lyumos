@@ -1,5 +1,4 @@
 <script setup>
-// import TheHeader from '@/components/TheHeader.vue';
 import TheFooter from "@/components/TheFooter.vue";
 import TheSpots from "@/components/TheSpots.vue";
 
@@ -7,7 +6,6 @@ import SerApplications from "@/components/SerApplications.vue";
 </script>
 
 <template>
-  <!-- <TheHeader /> -->
   <main>
     <TheSpots />
     <div class="wrapper">

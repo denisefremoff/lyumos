@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+//import axios from "axios";
 export const DataExpertise = defineStore("data-expertise", {
   state: () => ({
     cart1: {
@@ -46,7 +47,6 @@ export const DataExpertise = defineStore("data-expertise", {
       ],
     },
     pageCart1: 0,
-
     cart2: {
       id: 2,
       header: "Производство",
@@ -92,7 +92,6 @@ export const DataExpertise = defineStore("data-expertise", {
       ],
     },
     pageCart2: 0,
-
     cart3: {
       id: 3,
       header: "Персонал",
@@ -110,17 +109,17 @@ export const DataExpertise = defineStore("data-expertise", {
         {
           id: 3,
           header: "PM (Project Management System)",
-          body: "Проектная деятельность"
+          body: "Проектная деятельность",
         },
         {
           id: 4,
           header: "BPM (Business Process Management)",
-          body: "Управление бизнес-процессами"
+          body: "Управление бизнес-процессами",
         },
         {
           id: 5,
           header: "OAS (Office Automation System)",
-          body: "Автоматизация офиса"
+          body: "Автоматизация офиса",
         },
       ],
       switchers: [
@@ -159,7 +158,7 @@ export const DataExpertise = defineStore("data-expertise", {
         {
           id: 2,
           header: "EDI (Electronic Data Interchange)",
-          body: "Обмен данными ЭДО"
+          body: "Обмен данными ЭДО",
         },
         {
           id: 3,
@@ -198,6 +197,20 @@ export const DataExpertise = defineStore("data-expertise", {
     },
   },
   actions: {
+    // async getCart1Data() {
+    //   try {
+    //     const respCart1 = await axios({
+    //       url: "http://localhost:1337/api/expertise-cart1s?populate=*",
+    //       method: "GET",
+    //       headers: {
+    //         "Content-Type": "application/x-www-form-urlencoded",
+    //       },
+    //     });
+    //     this.c1 = respCart1.data.data;
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // },
     changeCart1(i) {
       this.pageCart1 = i;
     },

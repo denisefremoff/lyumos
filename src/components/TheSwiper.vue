@@ -17,9 +17,11 @@
       :modules="modules"
     >
       <swiper-slide v-for="SwData in swipe.swiperData" :key="SwData.id">
-
-        <RouterLink :to="`/services/${SwData.url}`" class="services__slide swiper-slide" :class="'slide-' + SwData.id">
-
+        <RouterLink
+          :to="`/services/${SwData.attributes.url}`"
+          class="services__slide swiper-slide"
+          :class="'slide-' + SwData.id"
+        >
           <div class="bg_img_slide">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -28,21 +30,19 @@
               viewBox="0 0 250 250"
               fill="none"
             >
-              <path :d="SwData.d" fill="white" fill-opacity="0.4" />
+              <path :d="SwData.attributes.d" fill="white" fill-opacity="0.4" />
             </svg>
           </div>
           <div class="services__top-block">
-            <h5>{{ SwData.title }}</h5>
+            <h5>{{ SwData.attributes.title }}</h5>
             <div class="services__top_box">
               <IconCard />
             </div>
           </div>
           <p>
-            {{ SwData.body }}
+            {{ SwData.attributes.body }}
           </p>
-
         </RouterLink>
-
       </swiper-slide>
     </swiper>
     <div class="services__nav">
@@ -107,6 +107,11 @@ import IconCard from "@/components/icons/IconCard.vue";
 
 import { DataSwiper } from "@/stores/data-swiper.js";
 const swipe = DataSwiper();
+
+import { onMounted } from "vue";
+onMounted(() => {
+  swipe.swiperData == 0 ? swipe.getSwiper() : "";
+});
 </script>
 <style scoped>
 .swiper {
@@ -135,7 +140,7 @@ const swipe = DataSwiper();
   -ms-flex-pack: justify;
   justify-content: space-between;
   text-decoration: none;
-  color: #3C3C3C;
+  color: #3c3c3c;
 }
 .indicates {
   width: 16.40625vw;

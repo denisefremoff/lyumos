@@ -5,28 +5,16 @@ import TheSpots from "@/components/TheSpots.vue";
 import PorUl from "@/components/PorUl.vue";
 import PorPortfollo from "@/components/PorPortfollo.vue";
 import SwiperNav from "@/components/TheSwiperNavCategory.vue";
+
+import { onMounted } from "vue";
+import { DataPortfolio } from "@/stores/data-portfolio.js";
+const dataPortfolio = DataPortfolio();
+onMounted(() => {
+  dataPortfolio.portfolioExample == 0 ? dataPortfolio.getPortfolio() : "";
+});
 </script>
 
 <script>
-// export default {
-//   data() {
-//     return {
-//       isMobile: window.innerWidth <= 530,
-//     };
-//   },
-//   mounted() {
-//     window.addEventListener('resize', this.handleResize);
-//   },
-//   beforeDestroy() {
-//     window.removeEventListener('resize', this.handleResize);
-//   },
-//   methods: {
-//     handleResize() {
-//       this.isMobile = window.innerWidth <= 530;
-//     },
-//   },
-// };
-
 export default {
   data() {
     return {

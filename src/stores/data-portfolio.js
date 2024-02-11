@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import img_1 from "@/assets/img/premium-pipe.webp";
-
+import axios from "axios";
 export const DataPortfolio = defineStore("data-portfolio", {
   state: () => ({
     category: [],
@@ -19,75 +19,18 @@ export const DataPortfolio = defineStore("data-portfolio", {
         value: "Доработка и модернизация IT-продукта",
       },
     ],
-
-    portfolioExamples: [
-      {
-        id: 1,
-        url: "premium-pipe",
-        img: img_1,
-        title: "Система автоматизации для Premium Pipe",
-        categories: ["Заказная разработка"],
-      },
-      // {
-      //   id: 2,
-      //   img: 2,
-      //   title: "Разработка корпоративного сайта “Охрана труда”",
-      //   categories: ["Заказная разработка", "Внедрение ИИ"],
-      // },
-      // {
-      //   id: 3,
-      //   img: 2,
-      //   title: "Разработка корпоративного сайта “Охрана труда”",
-      //   categories: ["Внедрение ИИ"],
-      // },
-      // {
-      //   id: 4,
-      //   img: 3,
-      //   title: "Разработка корпоративного сайта “Охрана труда”",
-      //   categories: ["Заказная разработка"],
-      // },
-      // {
-      //   id: 5,
-      //   img: img_3,
-      //   title: "Разработка корпоративного сайта “Охрана труда”",
-      //   categories: ["Доработка и модернизация IT-продукта"],
-      // },
-      // {
-      //   id: 6,
-      //   img: img_1,
-      //   title: "Разработка корпоративного сайта “Охрана труда”",
-      //   categories: ["Доработка и модернизация IT-продукта", "Внедрение ИИ"],
-      // },
-      // {
-      //   id: 7,
-      //   img: img_2,
-      //   title: "Разработка корпоративного сайта “Охрана труда”",
-      //   categories: ["Заказная разработка", "Внедрение ИИ"],
-      // },
-      // {
-      //   id: 8,
-      //   img: img_2,
-      //   title: "Разработка корпоративного сайта “Охрана труда”",
-      //   categories: ["Внедрение ИИ", "Доработка и модернизация IT-продукта"],
-      // },
-      // {
-      //   id: 9,
-      //   img: 2,
-      //   title: "Разработка корпоративного сайта “Охрана труда”",
-      //   categories: [
-      //     "Доработка и модернизация IT-продукта",
-      //     "Заказная разработка",
-      //   ],
-      // },
-      // {
-      //   id: 10,
-      //   img: 1,
-      //   title: "Разработка корпоративного сайта “Охрана труда”",
-      //   categories: ["Заказная разработка"],
-      //},
-    ],
+    portfolioExample: [],
   }),
-
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        key: "portfolioExample",
+        storage: localStorage,
+        paths: ["portfolioExample"],
+      },
+    ],
+  },
   getters: {
     getCategory() {
       return this.category
@@ -97,10 +40,11 @@ export const DataPortfolio = defineStore("data-portfolio", {
     },
     filter() {
       return this.category.length === 0 || this.category[0] === undefined
-        ? this.portfolioExamples
-        : this.portfolioExamples.filter((example) => {
-            return example.categories.some((element) =>
-              this.getCategory.includes(element)
+        ? this.portfolioExample
+        : this.portfolioExample.filter((example) => {
+            const exampleCategories = example.attributes.categories.split(", ");
+            return exampleCategories.some((category) =>
+              this.category.includes(category.trim())
             );
           });
     },
@@ -116,37 +60,42 @@ export const DataPortfolio = defineStore("data-portfolio", {
     },
 
     totalPortfolioCount() {
-      return this.portfolioExamples.length;
+      return this.portfolioExample.length;
     },
     totalDevelopmentCount() {
-      const developmentExamples = this.portfolioExamples.filter((example) =>
-        example.categories.includes("Заказная разработка")
+      const developmentExamples = this.portfolioExample.filter((example) =>
+        example.attributes.categories.includes("Заказная разработка")
       );
       return developmentExamples.length;
     },
     totalAiCount() {
-      const aiExamples = this.portfolioExamples.filter((example) =>
-        example.categories.includes("Внедрение ИИ")
+      const aiExamples = this.portfolioExample.filter((example) =>
+        example.attributes.categories.includes("Внедрение ИИ")
       );
       return aiExamples.length;
     },
     totalModernizationItCount() {
-      const modernizationExamples = this.portfolioExamples.filter((example) =>
-        example.categories.includes("Доработка и модернизация IT-продукта")
+      const modernizationExamples = this.portfolioExample.filter((example) =>
+        example.attributes.categories.includes(
+          "Доработка и модернизация IT-продукта"
+        )
       );
       return modernizationExamples.length;
     },
   },
   actions: {
     getTmpArrCategory() {
-      const categoriesSet = new Set();
-      this.portfolioExamples.forEach((el) => {
-        el.categories.forEach((category) => {
-          categoriesSet.add(category);
-        });
+      let tmp = [];
+      this.portfolioExample.forEach((el) => {
+        tmp.push(el.attributes.categories);
       });
-      this.tmpArrCategory = Array.from(categoriesSet);
+      this.tmpArrCategory = tmp
+        .join(",")
+        .split(",")
+        .filter((category) => category.trim() !== " ");
+      this.tmp = [];
     },
+
     toggleActiveCategory(index, category) {
       if (index === 0) {
         this.clearActiveCategories();
@@ -176,6 +125,21 @@ export const DataPortfolio = defineStore("data-portfolio", {
     clearActiveCategories() {
       this.activeCategories = [];
       this.category = [];
+    },
+
+    async getPortfolio() {
+      try {
+        const response = await axios({
+          url: "http://localhost:1337/api/portfolios",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.portfolioExample = response.data.data;
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
 });

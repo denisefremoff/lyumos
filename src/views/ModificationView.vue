@@ -3,102 +3,15 @@ import TheFooter from "@/components/TheFooter.vue";
 import TheSpotsFore from "@/components/TheSpotsFore.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import PageSteps from "@/components/PageSteps.vue";
+import { DataMod } from "@/stores/data-modification";
+import { onMounted } from "vue";
+const dataMod = DataMod();
+onMounted(() => {
+  dataMod.arcHeaders == 0 || dataMod.stepsDev == 0 || dataMod.arcFooters == 0
+    ? dataMod.getModData()
+    : "";
+});
 </script>
-
-<script>
-export default {
-  components: {
-    PageSteps,
-  },
-  data() {
-    return {
-      pageData: {
-        arcHeaders: [
-          {
-            id: 1,
-            arcclass: "arc_1",
-            iconarc:
-              '<svg xmlns="http://www.w3.org/2000/svg" width="617" height="306" viewBox="0 0 617 306" fill="none"><path d="M604.848 268.271C579.921 236.946 552.249 207.629 523.578 179.823C486.775 144.13 447.777 115.908 403.494 90.4544C338.535 53.116 271.515 18.3483 195.62 13.6771C153.942 11.1119 101.362 14.2172 67.8029 43.006C44.158 63.2899 24.0615 97.6956 18.3741 128.689C8.6137 181.879 13.8255 239.076 13.8255 293.146" stroke="url(#paint0_linear_2310_11593)" stroke-width="24" stroke-linecap="round"/><defs><linearGradient id="paint0_linear_2310_11593" x1="165.5" y1="2.06808e-05" x2="482.473" y2="131.565" gradientUnits="userSpaceOnUse"><stop stop-color="#F5D6FC"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient></defs></svg>',
-          },
-          {
-            id: 2,
-            arcclass: "arc_2",
-            iconarc:
-              '<svg xmlns="http://www.w3.org/2000/svg" width="617" height="305" viewBox="0 0 617 305" fill="none"><path d="M604.953 267.312C580.027 235.987 552.354 206.67 523.684 178.864C486.881 143.171 447.882 114.949 403.599 89.4954C338.641 52.157 271.62 17.3893 195.726 12.7182C154.047 10.1529 101.467 13.2582 67.9083 42.047C44.2634 62.3309 24.167 96.7366 18.4795 127.73C8.71917 180.92 13.931 238.117 13.931 292.187" stroke="url(#paint0_linear_2310_11591)" stroke-width="24" stroke-linecap="round"/><defs><linearGradient id="paint0_linear_2310_11591" x1="213" y1="24.5" x2="547.489" y2="216.519" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="#E5BA39" stop-opacity="0"/></linearGradient></defs></svg>',
-          },
-        ],
-        stepsDev: [
-          {
-            id: 1,
-            number: "Шаг 1",
-            title: "Анализ",
-            iconstep:
-              '<svg xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67" fill="none"><g clip-path="url(#clip0_2440_6483)"><path d="M31.4629 66.2119L0.853125 35.5365C-0.263542 34.4198 -0.263542 32.5806 0.853125 31.4639L31.4629 0.854102C32.5796 -0.262565 34.4188 -0.262565 35.5355 0.854102L66.1453 31.4639C67.2619 32.5806 67.2619 34.4198 66.1453 35.5365L35.5355 66.1463C34.4188 67.3286 32.5796 67.3286 31.4629 66.2119Z" fill="#DF40FF"/></g><defs><clipPath id="clip0_2440_6483"><rect width="67" height="67" fill="white"/></clipPath></defs></svg>',
-            description:
-              "Оценка текущего состояния продукта через анализ данных и выявление потребностей бизнеса в доработках",
-          },
-          {
-            id: 2,
-            number: "Шаг 2",
-            title: "Прототип",
-            description:
-              "Создание концепции изменений, включая UI/UX функциональных и пользовательских улучшений, а также разработка прототипа",
-          },
-          {
-            id: 3,
-            number: "Шаг 3",
-            title: "Маркетинг",
-            iconstep:
-              '<svg xmlns="http://www.w3.org/2000/svg" width="68" height="67" viewBox="0 0 68 67" fill="none"><g clip-path="url(#clip0_2497_5853)"><path d="M32.1781 4.9267L0.583045 59.5777C-0.139504 60.8914 0.780104 62.4679 2.29089 62.4679H65.4154C66.9262 62.4679 67.8458 60.8257 67.1232 59.5777L35.5281 4.9267C34.7399 3.61297 32.9007 3.61297 32.1781 4.9267Z" fill="#E5BA39"/></g><defs><clipPath id="clip0_2497_5853"><rect width="67" height="67" fill="white" transform="translate(0.333984)"/></clipPath></defs></svg>',
-            description:
-              "Разработка стратегии маркетинга для представления улучшенного продукта на рынке и среди пользователей",
-          },
-          {
-            id: 4,
-            number: "Шаг 4",
-            title: "Дизайн",
-            iconstep:
-              '<svg xmlns="http://www.w3.org/2000/svg" width="68" height="67" viewBox="0 0 68 67" fill="none"><g clip-path="url(#clip0_2440_6351)"><path d="M33.832 66.9995C52.3336 66.9995 67.332 52.001 67.332 33.4995C67.332 14.998 52.3336 -0.000488281 33.832 -0.000488281C15.3305 -0.000488281 0.332031 14.998 0.332031 33.4995C0.332031 52.001 15.3305 66.9995 33.832 66.9995Z" fill="#3377FF"/></g><defs><clipPath id="clip0_2440_6351"><rect width="67" height="67" fill="white" transform="translate(0.333008)"/></clipPath></defs></svg>',
-            description:
-              "Разработка интерфейса, который не только отражает корпоративный стиль, но и обеспечивает удобство",
-          },
-          {
-            id: 5,
-            number: "Шаг 5",
-            title: "Разработка",
-            iconstep:
-              '<svg xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67" fill="none"><g clip-path="url(#clip0_2440_612)"><path d="M35.4962 2.62794L15.856 64.6358C15.4619 65.8181 16.3815 67.0662 17.6295 67.0662H28.4021C30.0442 67.0662 31.4893 66.0152 31.9491 64.4387L51.5893 2.43088C51.9178 1.24853 51.0638 0.000488281 49.8158 0.000488281H39.0432C37.4011 0.000488281 35.956 1.05147 35.4962 2.62794Z" fill="#FF404E"/></g><defs><clipPath id="clip0_2440_612"><rect width="67" height="67" fill="white"/></clipPath></defs></svg>',
-            description:
-              "Реализация предложенных изменений, внедрение новых функций и оптимизация кода для повышения производительности",
-          },
-          {
-            id: 6,
-            number: "Шаг 6",
-            title: "Тестирование",
-            description:
-              "Проведение тестирования продукта после доработок для проверки его стабильности и соответствия ожиданиям",
-          },
-        ],
-        arcFooters: [
-          {
-            id: 1,
-            arcclass: "arc_3",
-            iconarc:
-              '<svg xmlns="http://www.w3.org/2000/svg" width="617" height="305" viewBox="0 0 617 305" fill="none"><path d="M12 37.6884C36.9262 69.0129 64.5987 98.3301 93.2693 126.136C130.072 161.829 169.071 190.051 213.354 215.505C278.313 252.843 345.333 287.611 421.228 292.282C462.906 294.847 515.486 291.742 549.045 262.953C572.69 242.669 592.786 208.263 598.474 177.27C608.234 124.08 603.022 66.8831 603.022 12.8126" stroke="url(#paint0_linear_2310_11592)" stroke-width="24" stroke-linecap="round"/><defs><linearGradient id="paint0_linear_2310_11592" x1="300" y1="309.5" x2="575.015" y2="96.0188" gradientUnits="userSpaceOnUse"><stop stop-color="#D3E1FC"/><stop offset="1" stop-color="#FF404E" stop-opacity="0"/></linearGradient></defs></svg>',
-          },
-          {
-            id: 2,
-            arcclass: "arc_4",
-            iconarc:
-              '<svg xmlns="http://www.w3.org/2000/svg" width="617" height="306" viewBox="0 0 617 306" fill="none"><path d="M12.5879 37.7294C37.5141 69.0539 65.1866 98.3711 93.8572 126.177C130.66 161.87 169.659 190.092 213.942 215.546C278.9 252.884 345.921 287.652 421.815 292.323C463.494 294.888 516.074 291.783 549.633 262.994C573.278 242.71 593.374 208.304 599.061 177.311C608.822 124.121 603.61 66.9241 603.61 12.8536" stroke="url(#paint0_linear_2310_11594)" stroke-width="24" stroke-linecap="round"/><defs><linearGradient id="paint0_linear_2310_11594" x1="359" y1="293" x2="595" y2="173.5" gradientUnits="userSpaceOnUse"><stop stop-color="#FCD6D8"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient></defs></svg>',
-          },
-        ],
-      },
-    };
-  },
-};
-</script>
-
 <template>
   <main class="modification">
     <PageTitle
@@ -112,7 +25,11 @@ export default {
     <div class="wrapper">
       <div class="content product_dev">
         <h4 class="product_h4">Интеллектуальное преобразование</h4>
-        <PageSteps :dataSteps="pageData" />
+        <PageSteps
+          :arcHeaders="dataMod.arcHeaders"
+          :stepsDev="dataMod.stepsDev"
+          :arcFooters="dataMod.arcFooters"
+        />
       </div>
 
       <div class="content">
