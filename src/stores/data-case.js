@@ -24,21 +24,11 @@ export const DataCase = defineStore("data-case", {
       // }
     ],
   }),
-  persist: {
-    enabled: true,
-    strategies: [
-      {
-        key: "devCases",
-        storage: localStorage,
-        paths: ["devCases"],
-      },
-    ],
-  },
   actions: {
     async getDevCase() {
       try {
         const response = await axios({
-          url: "http://localhost:1337/api/dev-cases",
+          url: "https://strapi.lymos.ru/api/dev-cases",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

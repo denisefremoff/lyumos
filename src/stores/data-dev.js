@@ -6,31 +6,11 @@ export const DataDev = defineStore("data-dev", {
     stepsDev: [],
     arcFooters: [],
   }),
-  persist: {
-    enabled: true,
-    strategies: [
-      {
-        key: "arcHeadersDev",
-        storage: localStorage,
-        paths: ["arcHeaders"],
-      },
-      {
-        key: "stepsDevDev",
-        storage: localStorage,
-        paths: ["stepsDev"],
-      },
-      {
-        key: "arcFootersDev",
-        storage: localStorage,
-        paths: ["arcFooters"],
-      },
-    ],
-  },
   actions: {
     async getDevData() {
       try {
         const respArcHeaders = await axios({
-          url: "http://localhost:1337/api/dev-arc-headers",
+          url: "https://strapi.lymos.ru/api/dev-arc-headers",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -38,7 +18,7 @@ export const DataDev = defineStore("data-dev", {
         });
         this.arcHeaders = respArcHeaders.data.data;
         const respStepsDev = await axios({
-          url: "http://localhost:1337/api/dev-steps-devs",
+          url: "https://strapi.lymos.ru/api/dev-steps-devs",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -46,7 +26,7 @@ export const DataDev = defineStore("data-dev", {
         });
         this.stepsDev = respStepsDev.data.data;
         const respArcFooters = await axios({
-          url: "http://localhost:1337/api/dev-arc-footers",
+          url: "https://strapi.lymos.ru/api/dev-arc-footers",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

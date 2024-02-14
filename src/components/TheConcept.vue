@@ -3,7 +3,7 @@ import { onMounted } from "vue";
 import { DataPremiumPipe } from "@/stores/data-premium-pipe.js";
 const dataConcept = DataPremiumPipe();
 onMounted(() => {
-  dataConcept.concepts == 0 ? dataConcept.getPermPipeConcepts() : "";
+  dataConcept.getPermPipeConcepts();
 });
 </script>
 

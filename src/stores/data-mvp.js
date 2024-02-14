@@ -6,31 +6,11 @@ export const DataMvp = defineStore("data-mvp", {
     stepsDev: [],
     arcFooters: [],
   }),
-  persist: {
-    enabled: true,
-    strategies: [
-      {
-        key: "arcHeadersMvp",
-        storage: localStorage,
-        paths: ["arcHeaders"],
-      },
-      {
-        key: "stepsDevMvp",
-        storage: localStorage,
-        paths: ["stepsDev"],
-      },
-      {
-        key: "arcFootersMvp",
-        storage: localStorage,
-        paths: ["arcFooters"],
-      },
-    ],
-  },
   actions: {
     async getMvpData() {
       try {
         const respArcHeaders = await axios({
-          url: "http://localhost:1337/api/mvp-arc-headers",
+          url: "https://strapi.lymos.ru/api/mvp-arc-headers",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -38,7 +18,7 @@ export const DataMvp = defineStore("data-mvp", {
         });
         this.arcHeaders = respArcHeaders.data.data;
         const respStepsDev = await axios({
-          url: "http://localhost:1337/api/mvp-steps-devs",
+          url: "https://strapi.lymos.ru/api/mvp-steps-devs",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -46,7 +26,7 @@ export const DataMvp = defineStore("data-mvp", {
         });
         this.stepsDev = respStepsDev.data.data;
         const respArcFooters = await axios({
-          url: "http://localhost:1337/api/mvp-arc-footers",
+          url: "https://strapi.lymos.ru/api/mvp-arc-footers",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

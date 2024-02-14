@@ -6,7 +6,7 @@ import { onMounted } from "vue";
 
 const dataServices = DataServices();
 onMounted(() => {
-  dataServices.applicationSers == 0 ? dataServices.getServices() : "";
+  dataServices.getServices();
 });
 </script>
 
@@ -44,7 +44,7 @@ onMounted(() => {
             </div>
           </div>
           <div class="footer_right_applications">
-            <p>{{ type.attributes.description }}</p>
+            <p>{{ type.attributes.descriprion }}</p>
             <span>от {{ type.attributes.price }} ₽</span>
           </div>
         </div>

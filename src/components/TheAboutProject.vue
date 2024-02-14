@@ -3,9 +3,7 @@ import { onMounted } from "vue";
 import { DataPremiumPipe } from "@/stores/data-premium-pipe.js";
 const detaAboutProject = DataPremiumPipe();
 onMounted(() => {
-  detaAboutProject.aboutProjects == 0
-    ? detaAboutProject.getPermPipeConcepts()
-    : "";
+  detaAboutProject.getPermPipeAbout();
 });
 </script>
 

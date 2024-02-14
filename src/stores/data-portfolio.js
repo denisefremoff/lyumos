@@ -130,7 +130,7 @@ export const DataPortfolio = defineStore("data-portfolio", {
     async getPortfolio() {
       try {
         const response = await axios({
-          url: "http://localhost:1337/api/portfolios",
+          url: "https://strapi.lymos.ru/api/portfolios",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

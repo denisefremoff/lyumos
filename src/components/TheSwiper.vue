@@ -110,7 +110,7 @@ const swipe = DataSwiper();
 
 import { onMounted } from "vue";
 onMounted(() => {
-  swipe.swiperData == 0 ? swipe.getSwiper() : "";
+  swipe.getSwiper();
 });
 </script>
 <style scoped>

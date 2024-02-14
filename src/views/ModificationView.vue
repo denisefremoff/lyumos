@@ -7,9 +7,7 @@ import { DataMod } from "@/stores/data-modification";
 import { onMounted } from "vue";
 const dataMod = DataMod();
 onMounted(() => {
-  dataMod.arcHeaders == 0 || dataMod.stepsDev == 0 || dataMod.arcFooters == 0
-    ? dataMod.getModData()
-    : "";
+  dataMod.getModData();
 });
 </script>
 <template>

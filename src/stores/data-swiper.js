@@ -4,21 +4,11 @@ export const DataSwiper = defineStore("data-swiper", {
   state: () => ({
     swiperData: [],
   }),
-  persist: {
-    enabled: true,
-    strategies: [
-      {
-        key: "swiperData",
-        storage: localStorage,
-        paths: ["swiperData"],
-      },
-    ],
-  },
   actions: {
     async getSwiper() {
       try {
         const response = await axios({
-          url: "http://localhost:1337/api/swipers",
+          url: "https://strapi.lymos.ru/api/swipers?sort=id",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

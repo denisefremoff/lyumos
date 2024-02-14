@@ -32,6 +32,11 @@ export const FormControl = defineStore("form-control", {
     getThanksFormState() {
       return this.thanksForm;
     },
+    getPhoneNumber() {
+      return this.phoneNumber.replace(/\D+/g, "").length > 11
+        ? this.phoneNumber.slice(0, -1)
+        : this.phoneNumber;
+    },
   },
   actions: {
     changActivForm() {
@@ -43,10 +48,11 @@ export const FormControl = defineStore("form-control", {
         servises: this.arrServises,
         description: this.description,
         name: this.name,
-        phoneNumber: this.phoneNumber,
+        phoneNumber: this.getPhoneNumber,
         email: this.email,
         company: this.company,
       };
+      console.log(formData);
       try {
         const resp = await fetch("email.php", {
           method: "POST",
@@ -70,7 +76,7 @@ export const FormControl = defineStore("form-control", {
       //регулярные выражения
       let regEmail =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      let regPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      let regPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{9}$/; //запомнить добавляет 11 цифру
       let regName = /^[a-zA-ZА-Яа-яЁё\s]+$/;
       let regCompany = /^[а-яА-ЯёЁa-zA-Z0-9\s]+$/;
       //проверка на заполнение формы "пора познакомиться"
@@ -84,7 +90,7 @@ export const FormControl = defineStore("form-control", {
         ? this.checkWrongName()
         : !regCompany.test(this.company)
         ? this.checkWrongCompany()
-        : !regPhone.test(this.phoneNumber)
+        : !regPhone.test(this.getPhoneNumber)
         ? this.checkWrongPhoneNumber()
         : !regEmail.test(this.email)
         ? this.checkWrongEmail()

@@ -7,9 +7,7 @@ import { DataMvp } from "@/stores/data-mvp";
 import { onMounted } from "vue";
 const dataMvp = DataMvp();
 onMounted(() => {
-  dataMvp.arcHeaders == 0 || dataMvp.stepsDev == 0 || dataMvp.arcFooters == 0
-    ? dataMvp.getMvpData()
-    : "";
+  dataMvp.getMvpData();
 });
 </script>
 <template>
@@ -47,6 +45,5 @@ onMounted(() => {
       </div>
     </div>
   </main>
-
   <TheFooter />
 </template>

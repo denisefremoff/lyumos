@@ -197,20 +197,6 @@ export const DataExpertise = defineStore("data-expertise", {
     },
   },
   actions: {
-    // async getCart1Data() {
-    //   try {
-    //     const respCart1 = await axios({
-    //       url: "http://localhost:1337/api/expertise-cart1s?populate=*",
-    //       method: "GET",
-    //       headers: {
-    //         "Content-Type": "application/x-www-form-urlencoded",
-    //       },
-    //     });
-    //     this.c1 = respCart1.data.data;
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // },
     changeCart1(i) {
       this.pageCart1 = i;
     },
