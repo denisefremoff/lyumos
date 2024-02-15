@@ -50,7 +50,7 @@ onMounted(() => {
       </div>
     </div>
     <div class="right_case">
-      <img :src="devCase.attributes.image" alt="case" />
+      <img :src="devCase.attributes.imag" alt="case" />
     </div>
   </div>
 </template>

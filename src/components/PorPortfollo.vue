@@ -5,14 +5,14 @@ import { RouterLink } from "vue-router";
 
 const dataPortfolio = DataPortfolio();
 </script>
-<style scoped>
-.portfolio_example_footer > p {
+<style>
+/* .portfolio_example_footer > p {
   color: #595959;
   font-size: 0.8333333vw;
   font-weight: 400;
   line-height: 120%;
   margin-top: 20px;
-}
+} */
 </style>
 <template>
   <RouterLink

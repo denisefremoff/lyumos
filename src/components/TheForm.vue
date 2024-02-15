@@ -2,32 +2,6 @@
 import { FormControl } from "@/stores/form-control.js";
 const form = FormControl();
 </script>
-
-<!-- <script>
-import { IMaskDirective } from "vue-imask";
-export default {
-  data() {
-    return {
-      mask: {
-        mask: "+7 (000) 000-00-00",
-        lazy: true,
-      },
-      onAccept(e) {
-        const maskRef = e.detail;
-        console.log("accept", maskRef.value);
-      },
-      onComplete(e) {
-        const maskRef = e.detail;
-        console.log("complete", maskRef.unmaskedValue);
-      },
-    };
-  },
-  directives: {
-    imask: IMaskDirective,
-  },
-};
-</script> -->
-
 <template>
   <div @click="form.changActivForm" class="dark-back">
     <div @click.stop class="form-wrapper">
@@ -199,7 +173,6 @@ export default {
                 autocomplete="off"
                 v-imask="{ mask: '+7 (000) 000-00-00' }"
               />
-              <!-- v-imask="{ mask: '+7 (000) 000-00-00' }" -->
             </div>
             <div class="input-wrapper">
               <p class="input-title">Моя почта</p>
