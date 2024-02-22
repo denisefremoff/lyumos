@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@unhead/vue": "^1.8.10",
     "pinia": "^2.1.7",
     "swiper": "^11.0.5",
     "vue": "^3.3.4",

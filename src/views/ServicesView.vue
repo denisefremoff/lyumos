@@ -1,8 +1,16 @@
 <script setup>
 import TheFooter from "@/components/TheFooter.vue";
 import TheSpots from "@/components/TheSpots.vue";
-
 import SerApplications from "@/components/SerApplications.vue";
+
+import {ref} from 'vue';
+import { useHead } from '@unhead/vue';
+const title = ref('Сервис');
+const descriptionContent = ref({ description: 'Моя страница сервиса' });
+useHead({
+  title,
+  meta: [{ name: 'description', content: () => descriptionContent.value.description },],
+})
 </script>
 
 <template>
