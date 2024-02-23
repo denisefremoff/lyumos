@@ -5,6 +5,22 @@ import PageTitle from "@/components/PageTitle.vue";
 import PageSteps from "@/components/PageSteps.vue";
 import { DataMod } from "@/stores/data-modification";
 import { onMounted } from "vue";
+
+import { ref } from "vue";
+import { useHead } from "@unhead/vue";
+
+const title = ref("Модификация");
+const descriptionContent = ref({ description: "Моя страница модификация" });
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: () => descriptionContent.value.description,
+    },
+  ],
+});
+
 const dataMod = DataMod();
 onMounted(() => {
   dataMod.getModData();

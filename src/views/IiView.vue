@@ -5,6 +5,21 @@ import PageTitle from "@/components/PageTitle.vue";
 import PageSteps from "@/components/PageSteps.vue";
 import { DataIi } from "@/stores/data-li";
 import { onMounted } from "vue";
+
+import { ref } from "vue";
+import { useHead } from "@unhead/vue";
+
+const title = ref("Ии");
+const descriptionContent = ref({ description: "Моя страница Ии" });
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: () => descriptionContent.value.description,
+    },
+  ],
+});
 const dataIi = DataIi();
 onMounted(() => {
   dataIi.arcHeaders == 0 || dataIi.stepsDev == 0 || dataIi.arcFooters == 0

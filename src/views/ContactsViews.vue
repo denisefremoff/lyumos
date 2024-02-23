@@ -2,6 +2,21 @@
 // import TheHeader from '@/components/TheHeader.vue';
 // import TheFooter from '@/components/TheFooter.vue';
 import TheSpots from "@/components/TheSpots.vue";
+import { ref } from "vue";
+import { useHead } from "@unhead/vue";
+
+const title = ref("Контакты");
+const descriptionContent = ref({ description: "Моя страница контакты" });
+
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: () => descriptionContent.value.description,
+    },
+  ],
+});
 </script>
 <template>
   <main>

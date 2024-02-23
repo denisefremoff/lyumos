@@ -21,16 +21,6 @@ export const DataPortfolio = defineStore("data-portfolio", {
     ],
     portfolioExample: [],
   }),
-  persist: {
-    enabled: true,
-    strategies: [
-      {
-        key: "portfolioExample",
-        storage: localStorage,
-        paths: ["portfolioExample"],
-      },
-    ],
-  },
   getters: {
     getCategory() {
       return this.category

@@ -5,6 +5,22 @@ import PageTitle from "@/components/PageTitle.vue";
 import PageSteps from "@/components/PageSteps.vue";
 import { DataMvp } from "@/stores/data-mvp";
 import { onMounted } from "vue";
+
+import { ref } from "vue";
+import { useHead } from "@unhead/vue";
+
+const title = ref("МВП");
+const descriptionContent = ref({ description: "Моя страница МВП" });
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: () => descriptionContent.value.description,
+    },
+  ],
+});
+
 const dataMvp = DataMvp();
 onMounted(() => {
   dataMvp.getMvpData();

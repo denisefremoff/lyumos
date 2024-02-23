@@ -3,14 +3,28 @@ import TheFooter from "@/components/TheFooter.vue";
 import TheSpots from "@/components/TheSpots.vue";
 import SerApplications from "@/components/SerApplications.vue";
 
-import {ref} from 'vue';
-import { useHead } from '@unhead/vue';
-const title = ref('Сервис');
-const descriptionContent = ref({ description: 'Моя страница сервиса' });
+import { ref } from "vue";
+import { useHead } from "@unhead/vue";
+
+import { onMounted } from "vue";
+import { TitleDescription } from "@/stores/title-description.js";
+
+const title = ref("Сервис");
+const descriptionContent = ref({ description: "Моя страница сервиса" });
 useHead({
   title,
-  meta: [{ name: 'description', content: () => descriptionContent.value.description },],
-})
+  meta: [
+    {
+      name: "description",
+      content: () => descriptionContent.value.description,
+    },
+  ],
+});
+
+const titleDesc = TitleDescription();
+onMounted(() => {
+  titleDesc.getTitleDescription();
+});
 </script>
 
 <template>

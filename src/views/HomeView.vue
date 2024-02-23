@@ -8,6 +8,21 @@ import TheSwiper from "@/components/TheSwiper.vue";
 
 //сервисы моб. версия
 import TheServMob from "@/components/TheServicesMobile.vue";
+
+import { ref } from "vue";
+import { useHead } from "@unhead/vue";
+
+const title = ref("Дом");
+const descriptionContent = ref({ description: "Моя страница дом" });
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: () => descriptionContent.value.description,
+    },
+  ],
+});
 </script>
 
 <style scoped>

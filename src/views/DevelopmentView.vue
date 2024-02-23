@@ -8,6 +8,21 @@ import DevCase from "@/components/DevCase.vue";
 
 import { DataDev } from "@/stores/data-dev";
 import { onMounted } from "vue";
+
+import { ref } from "vue";
+import { useHead } from "@unhead/vue";
+
+const title = ref("Дев");
+const descriptionContent = ref({ description: "Моя страница дев" });
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: () => descriptionContent.value.description,
+    },
+  ],
+});
 const dataDev = DataDev();
 onMounted(() => {
   dataDev.arcHeaders == 0 || dataDev.stepsDev == 0 || dataDev.arcFooters == 0

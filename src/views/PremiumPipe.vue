@@ -2,39 +2,57 @@
 import TheFooter from "@/components/TheFooter.vue";
 import TheAboutProject from "@/components/TheAboutProject.vue";
 import TheConceptVue from "../components/TheConcept.vue";
+
+import { ref } from "vue";
+import { useHead } from "@unhead/vue";
+
+import { onMounted } from "vue";
+import { DataPremiumPipe } from "@/stores/data-premium-pipe.js";
+
+const title = ref("Премиум-Пайп");
+const descriptionContent = ref({ description: "Моя страница Премиум пайп" });
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: () => descriptionContent.value.description,
+    },
+  ],
+});
+
+const dataPremiumPipe = DataPremiumPipe();
+
+onMounted(() => {
+  dataPremiumPipe.getPermiumPipe();
+});
 </script>
 
 <template>
   <main>
     <div class="swap_icons">
       <img
-        src="https://strapi.lymos.ru/uploads/swap_1_c851ec8d47.svg"
-        alt="swap-1"
-      />
-      <img
-        src="https://strapi.lymos.ru/uploads/swap_2_ec70e6b6f1.svg"
-        alt="swap-2"
-      />
-      <img
-        src="https://strapi.lymos.ru/uploads/swap_3_bfaf244211.svg"
-        alt="swap-3"
-      />
-      <img
-        src="https://strapi.lymos.ru/uploads/swap_4_8850135bbc.svg"
-        alt="swap-4"
-      />
-      <img
-        src="https://strapi.lymos.ru/uploads/swap_5_e340a86a36.svg"
-        alt="swap-5"
+        v-for="swapIcon in dataPremiumPipe.getSwapIcons"
+        :key="swapIcon.id"
+        :src="swapIcon.attributes.swapIcon"
+        :alt="swapIcon.attributes.swapAlt"
       />
     </div>
 
     <div class="wrapper">
-      <div class="content premium_pipe">
-        <h1>Система автоматизации для Premium Pipe</h1>
+      <div
+        v-for="contentPremiumPipe in dataPremiumPipe.getContentPremiumPipe"
+        :key="contentPremiumPipe.id"
+        class="content premium_pipe"
+      >
+        <h1>{{ contentPremiumPipe.attributes.h1 }}</h1>
         <ul>
-          <li>Разработка приложений для бизнеса</li>
-          <li>Система автоматизации</li>
+          <li
+            v-for="contentPremiumPipeUl in dataPremiumPipe.getContentPremiumPipeUl"
+            :key="contentPremiumPipeUl.id"
+          >
+            {{ contentPremiumPipeUl.attributes.li }}
+          </li>
         </ul>
 
         <TheAboutProject />
@@ -42,43 +60,32 @@ import TheConceptVue from "../components/TheConcept.vue";
         <TheConceptVue />
 
         <section class="we_used">
-          <h2>В работе мы использовали</h2>
+          <h2>{{ dataPremiumPipe.weUse }}</h2>
           <div class="technology_logos">
             <img
-              src="https://strapi.lymos.ru/uploads/Figma_baf0409f97.svg"
-              alt="Figma"
-            />
-            <img
-              src="https://strapi.lymos.ru/uploads/Laravel_71a867d6ac.svg"
-              alt="Laravel"
-            />
-            <img
-              src="https://strapi.lymos.ru/uploads/Vue_08349ec90f.svg"
-              alt="Vue"
-            />
-            <img
-              src="https://strapi.lymos.ru/uploads/Html_766eb02e10.svg"
-              alt="Html"
-            />
-            <img
-              src="https://strapi.lymos.ru/uploads/Css_f3e0f66b9c.svg"
-              alt="Css"
+              v-for="technologyLogo in dataPremiumPipe.getTechLogo"
+              :key="technologyLogo.id"
+              :src="technologyLogo.attributes.techLogo"
+              :alt="technologyLogo.attributes.techAlt"
             />
           </div>
         </section>
       </div>
     </div>
 
-    <section class="design_system">
-      <h2>Дизайн - система</h2>
+    <section
+      v-for="designSystem in dataPremiumPipe.getDesineSystem"
+      :key="designSystem.id"
+      class="design_system"
+    >
+      <h2>{{ designSystem.attributes.h2 }}</h2>
       <p>
-        Единая база компонентов и правила их использования значительно сократили
-        время разработки.
+        {{ designSystem.attributes.p }}
       </p>
 
       <img
-        src="https://strapi.lymos.ru/uploads/foto_concept_2_e2deadfbc6.webp"
-        alt="foto-concept-2"
+        :src="designSystem.attributes.fotoConcept2Img"
+        :alt="designSystem.attributes.fotoConcept2Alt"
       />
     </section>
   </main>
