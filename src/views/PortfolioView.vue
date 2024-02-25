@@ -58,12 +58,7 @@ export default {
     <TheSpots />
     <div class="wrapper">
       <div class="content portfolio">
-        <h1
-          v-for="title in dataPortfolio.getPageTitile"
-          class="title_portfolio"
-        >
-          {{ title.attributes.h1 }}
-        </h1>
+        <h1 class="title_portfolio">Портфолио</h1>
         <div class="nav_category">
           <ul>
             <SwiperNav v-if="isMobile" />

@@ -1,7 +1,7 @@
 <script setup>
 import TheFooter from "@/components/TheFooter.vue";
 import TheAboutProject from "@/components/TheAboutProject.vue";
-import TheConceptVue from "../components/TheConcept.vue";
+import TheConceptVue from "@/components/TheConcept.vue";
 
 import { ref } from "vue";
 import { useHead } from "@unhead/vue";

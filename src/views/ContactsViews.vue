@@ -1,9 +1,10 @@
 <script setup>
-// import TheHeader from '@/components/TheHeader.vue';
-// import TheFooter from '@/components/TheFooter.vue';
 import TheSpots from "@/components/TheSpots.vue";
 import { ref } from "vue";
 import { useHead } from "@unhead/vue";
+import { onMounted } from "vue";
+import { DataContact } from "@/stores/data-contacts.js";
+const datContact = DataContact();
 
 const title = ref("Контакты");
 const descriptionContent = ref({ description: "Моя страница контакты" });
@@ -17,6 +18,10 @@ useHead({
     },
   ],
 });
+
+onMounted(() => {
+  datContact.getContacts();
+});
 </script>
 <template>
   <main>
@@ -25,17 +30,13 @@ useHead({
       <div class="content contacts">
         <h1 class="title_contacts">Контакты</h1>
         <h3>Карта</h3>
-        <div class="map">
-          <!-- <iframe
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3A3bab022f05fe60f2e72c32d18155c71a3bd3ac31d8f6b3277fb4430915c8aa20&amp;source=constructor"
-            width="100%"
-            height="720"
-            frameborder="0"
-            
-          >
-          </iframe> -->
+        <div
+          v-for="contentContact in datContact.contentContacts"
+          :key="contentContact.id"
+          class="map"
+        >
           <iframe
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3A7444044631eb7962bb993ecaac2b3e4dbb46ef58a02c142702cb4fe7525525fb&amp;source=constructor"
+            :src="contentContact.attributes.iframe"
             width="100%"
             height="720"
             frameborder="0"
@@ -46,41 +47,47 @@ useHead({
           <div class="social_network">
             <h4>Социальные сети</h4>
             <ul>
-              <li>
-                <a href="https://vk.com/pro_technology" target="_blank"
-                  >ВКонтакте</a
-                >
-              </li>
-              <li>
-                <a href="https://tenchat.ru/akolomiec" target="_blank"
-                  >TenChat</a
-                >
+              <li
+                v-for="socialNetwork in datContact.socialNetworks"
+                :key="socialNetwork.id"
+              >
+                <a :href="socialNetwork.attributes.href" target="_blank">{{
+                  socialNetwork.attributes.a
+                }}</a>
               </li>
             </ul>
           </div>
           <div class="messengers">
             <h4>Мессенджеры</h4>
             <ul>
-              <li>
-                <a href="https://wa.me/79969241648" target="_blank">WhatsApp</a>
-              </li>
-              <li>
-                <a href="https://t.me/protechnologii56" target="_blank"
-                  >Telegram</a
-                >
+              <li
+                v-for="messenger in datContact.messengers"
+                :key="messenger.id"
+              >
+                <a :href="messenger.attributes.href" target="_blank">{{
+                  messenger.attributes.a
+                }}</a>
               </li>
             </ul>
           </div>
           <div class="phone_number">
             <h4>Номер</h4>
-            <a href="tel:+79969241648" target="_blank">+7 (996) 924-16-48</a>
+            <a
+              v-for="phoneNumber in datContact.phoneNumbers"
+              :key="phoneNumber.id"
+              :href="phoneNumber.attributes.href"
+              target="_blank"
+              >{{ phoneNumber.attributes.a }}</a
+            >
           </div>
           <div class="email">
             <h4>Почта</h4>
-            <a href="mailto:protechnologii22@yandex.ru"
-              >protechnologii22@yandex.ru</a
+            <a
+              v-for="email in datContact.emails"
+              :key="email.id"
+              :href="email.attributes.href"
+              >{{ email.attributes.a }}</a
             >
-            <!-- info@lymos.ru -->
           </div>
         </div>
       </div>

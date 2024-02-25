@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import img_1 from "@/assets/img/premium-pipe.webp";
 import axios from "axios";
 export const DataCase = defineStore("data-case", {
   state: () => ({
