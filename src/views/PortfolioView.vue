@@ -25,8 +25,9 @@ useHead({
 });
 
 const dataPortfolio = DataPortfolio();
+
 onMounted(() => {
-  dataPortfolio.portfolioExample == 0 ? dataPortfolio.getPortfolio() : "";
+  dataPortfolio.getPortfolio();
 });
 </script>
 
@@ -57,7 +58,12 @@ export default {
     <TheSpots />
     <div class="wrapper">
       <div class="content portfolio">
-        <h1 class="title_portfolio">Портфолио</h1>
+        <h1
+          v-for="title in dataPortfolio.getPageTitile"
+          class="title_portfolio"
+        >
+          {{ title.attributes.h1 }}
+        </h1>
         <div class="nav_category">
           <ul>
             <SwiperNav v-if="isMobile" />

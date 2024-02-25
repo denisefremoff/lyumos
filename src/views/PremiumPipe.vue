@@ -60,7 +60,7 @@ onMounted(() => {
         <TheConceptVue />
 
         <section class="we_used">
-          <h2>{{ dataPremiumPipe.weUse }}</h2>
+          <h2>{{ dataPremiumPipe.getWeUse }}</h2>
           <div class="technology_logos">
             <img
               v-for="technologyLogo in dataPremiumPipe.getTechLogo"

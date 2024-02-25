@@ -3,6 +3,7 @@ import axios from "axios";
 export const DataServices = defineStore("data-services", {
   state: () => ({
     applicationSers: [],
+    servicesViews: [],
   }),
 
   actions: {
@@ -17,6 +18,15 @@ export const DataServices = defineStore("data-services", {
         });
 
         this.applicationSers = response.data.data;
+        const responseServicesView = await axios({
+          url: "https://strapi.lymos.ru/api/services-views",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+
+        this.servicesViews = responseServicesView.data.data;
       } catch (err) {
         console.log(err);
       }

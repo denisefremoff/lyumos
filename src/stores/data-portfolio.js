@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import img_1 from "@/assets/img/premium-pipe.webp";
 import axios from "axios";
 export const DataPortfolio = defineStore("data-portfolio", {
   state: () => ({
@@ -20,8 +19,12 @@ export const DataPortfolio = defineStore("data-portfolio", {
       },
     ],
     portfolioExample: [],
+    pageTitle: [],
   }),
   getters: {
+    getPageTitile() {
+      return this.pageTitle;
+    },
     getCategory() {
       return this.category
         .map((value) => `"${value}"`)
@@ -71,6 +74,9 @@ export const DataPortfolio = defineStore("data-portfolio", {
         )
       );
       return modernizationExamples.length;
+    },
+    getPageTitle() {
+      return this.pageTitle.attributes.h1;
     },
   },
   actions: {
@@ -127,6 +133,14 @@ export const DataPortfolio = defineStore("data-portfolio", {
           },
         });
         this.portfolioExample = response.data.data;
+        const responsePortfolioPage = await axios({
+          url: "https://strapi.lymos.ru/api/portfolio-pages",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.pageTitle = responsePortfolioPage.data.data;
       } catch (err) {
         console.log(err);
       }

@@ -6,8 +6,7 @@ export const DataPremiumPipe = defineStore("data-premium-pipe", {
     aboutProjects: [],
     swapIcons: [],
     technologyLogos: [],
-    tmpWeUse: {},
-    weUse: "",
+    weUse: {},
     designSystems: [],
     contentPremiumPipe: [],
     contentPremiumPipeUl: [],
@@ -20,7 +19,7 @@ export const DataPremiumPipe = defineStore("data-premium-pipe", {
       return this.technologyLogos;
     },
     getWeUse() {
-      return (this.weUse = this.tmpWeUse.attributes.h2);
+      return this.weUse.attributes.h2;
     },
     getDesineSystem() {
       return this.designSystems;
@@ -85,7 +84,7 @@ export const DataPremiumPipe = defineStore("data-premium-pipe", {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         });
-        this.tmpWeUse = responseWeUse.data.data;
+        this.weUse = responseWeUse.data.data;
         const responseDesignSystems = await axios({
           url: "https://strapi.lymos.ru/api/design-systems",
           method: "GET",

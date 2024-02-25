@@ -5,6 +5,9 @@ export const DataMvp = defineStore("data-mvp", {
     arcHeaders: [],
     stepsDev: [],
     arcFooters: [],
+    pageTitle: [],
+    respSpotsFores: [],
+    mvpViews: [],
   }),
   actions: {
     async getMvpData() {
@@ -33,6 +36,30 @@ export const DataMvp = defineStore("data-mvp", {
           },
         });
         this.arcFooters = respArcFooters.data.data;
+        const respPageTitle = await axios({
+          url: "https://strapi.lymos.ru/api/mvp-page-titles",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.pageTitle = respPageTitle.data.data;
+        const respSpotsFores = await axios({
+          url: "https://strapi.lymos.ru/api/mvp-spots-fores",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.respSpotsFores = respSpotsFores.data.data;
+        const respMvpViews = await axios({
+          url: "https://strapi.lymos.ru/api/mvp-views",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.mvpViews = respMvpViews.data.data;
       } catch (err) {
         console.log(err);
       }

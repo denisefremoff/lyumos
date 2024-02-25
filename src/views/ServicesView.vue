@@ -2,13 +2,14 @@
 import TheFooter from "@/components/TheFooter.vue";
 import TheSpots from "@/components/TheSpots.vue";
 import SerApplications from "@/components/SerApplications.vue";
-
 import { ref } from "vue";
 import { useHead } from "@unhead/vue";
-
 import { onMounted } from "vue";
-import { TitleDescription } from "@/stores/title-description.js";
-
+import { DataServices } from "@/stores/data-services.js";
+const dataServices = DataServices();
+onMounted(() => {
+  dataServices.getServices();
+});
 const title = ref("Сервис");
 const descriptionContent = ref({ description: "Моя страница сервиса" });
 useHead({
@@ -20,23 +21,19 @@ useHead({
     },
   ],
 });
-
-const titleDesc = TitleDescription();
-onMounted(() => {
-  titleDesc.getTitleDescription();
-});
 </script>
-
 <template>
   <main>
     <TheSpots />
     <div class="wrapper">
-      <div class="content amenities">
-        <h1 class="title_amenities">Услуги</h1>
+      <div
+        v-for="servicesView in dataServices.servicesViews"
+        :key="servicesView.id"
+        class="content amenities"
+      >
+        <h1 class="title_amenities">{{ servicesView.attributes.h1 }}</h1>
         <h4 class="description_amenities">
-          Специализируемся на создании сложных веб- и мобильных продуктов. Мы
-          стоим на принципах дизайна, опирающегося на данные, аналитику и
-          удобство использования.
+          {{ servicesView.attributes.h4 }}
         </h4>
         <SerApplications />
       </div>

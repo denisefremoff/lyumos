@@ -2,12 +2,8 @@
 import { RouterLink } from "vue-router";
 import IconCard from "@/components/icons/IconCard.vue";
 import { DataServices } from "@/stores/data-services.js";
-import { onMounted } from "vue";
 
 const dataServices = DataServices();
-onMounted(() => {
-  dataServices.getServices();
-});
 </script>
 
 <template>

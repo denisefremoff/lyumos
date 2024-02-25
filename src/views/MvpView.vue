@@ -28,35 +28,31 @@ onMounted(() => {
 </script>
 <template>
   <main class="mvp">
-    <PageTitle
-      pageTitle="Создание MVP"
-      pageDescription="Быстро и эффективно выведем ваш проект на рынок с минимальными затратами и максимальной отдачей"
-    />
-
-    <TheSpotsFore pageSlogan="Быстрый старт, большие результаты" />
-
+    <PageTitle :pageTitles="dataMvp.pageTitle" />
+    <TheSpotsFore :pageSlogans="dataMvp.respSpotsFores" />
     <div class="wrapper">
-      <div class="content product_dev">
-        <h4 class="product_h4">От идеи к совершенству</h4>
+      <div
+        v-for="mvpView in dataMvp.mvpViews"
+        :key="mvpView.id"
+        class="content product_dev"
+      >
+        <h4 class="product_h4">{{ mvpView.attributes.h4 }}</h4>
         <PageSteps
           :arcHeaders="dataMvp.arcHeaders"
           :stepsDev="dataMvp.stepsDev"
           :arcFooters="dataMvp.arcFooters"
         />
-        <p class="p_description">
-          Мы оперативно разрабатываем MVP вашего проекта, затем систематически
-          совершенствуем его и внедряем новые функции для постоянного развития.
-        </p>
+        <p class="p_description">{{ mvpView.attributes.pDescription }}</p>
       </div>
 
       <div class="content">
-        <div class="service_description">
-          <h2>Партнерство на долгосрочной основе</h2>
-          <p>
-            Сопровождатем вас на пути постоянного развития продукта, обеспечивая
-            его успешное внедрение и эволюцию в соответствии с вашими
-            бизнес-целями
-          </p>
+        <div
+          v-for="mvpView in dataMvp.mvpViews"
+          :key="mvpView.id"
+          class="service_description"
+        >
+          <h2>{{ mvpView.attributes.h2 }}</h2>
+          <p>{{ mvpView.attributes.p }}</p>
         </div>
       </div>
     </div>
