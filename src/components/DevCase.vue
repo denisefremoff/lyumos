@@ -5,7 +5,7 @@ import { onMounted } from "vue";
 
 const dataCase = DataCase();
 onMounted(() => {
-  dataCase.devCases == 0 ? dataCase.getDevCase() : "";
+  dataCase.getDevCase();
 });
 </script>
 
@@ -18,11 +18,6 @@ onMounted(() => {
     <div class="left_case">
       <div class="left_case_header">
         <h4>{{ devCase.attributes.h4 }}</h4>
-        <!-- <ul>
-          <li v-for="(lip, index) in devCase.li" :key="index">
-            <p>{{ lip }}</p>
-          </li>
-        </ul> -->
         <p>{{ devCase.attributes.li }}</p>
         <h6>{{ devCase.attributes.h6 }}</h6>
         <p class="case_description">{{ devCase.attributes.p }}</p>
@@ -50,7 +45,7 @@ onMounted(() => {
       </div>
     </div>
     <div class="right_case">
-      <img :src="devCase.attributes.imag" alt="case" />
+      <img :src="devCase.attributes.image" alt="case" />
     </div>
   </div>
 </template>

@@ -5,6 +5,9 @@ export const DataMod = defineStore("data-mod", {
     arcHeaders: [],
     stepsDev: [],
     arcFooters: [],
+    pageTitle: [],
+    spotsFores: [],
+    modViews: [],
   }),
   actions: {
     async getModData() {
@@ -33,6 +36,30 @@ export const DataMod = defineStore("data-mod", {
           },
         });
         this.arcFooters = respArcFooters.data.data;
+        const respPageTitle = await axios({
+          url: "https://strapi.lymos.ru/api/mod-page-titles",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.pageTitle = respPageTitle.data.data;
+        const respSpotsFores = await axios({
+          url: "https://strapi.lymos.ru/api/mod-spots-fores",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.spotsFores = respSpotsFores.data.data;
+        const respModViews = await axios({
+          url: "https://strapi.lymos.ru/api/mod-views",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.modViews = respModViews.data.data;
       } catch (err) {
         console.log(err);
       }

@@ -5,6 +5,9 @@ export const DataDev = defineStore("data-dev", {
     arcHeaders: [],
     stepsDev: [],
     arcFooters: [],
+    pageTitle: [],
+    spotsFores: [],
+    devViews: [],
   }),
   actions: {
     async getDevData() {
@@ -33,6 +36,30 @@ export const DataDev = defineStore("data-dev", {
           },
         });
         this.arcFooters = respArcFooters.data.data;
+        const respPageTitle = await axios({
+          url: "https://strapi.lymos.ru/api/dev-page-titles",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.pageTitle = respPageTitle.data.data;
+        const respSpotsFores = await axios({
+          url: "https://strapi.lymos.ru/api/dev-spots-fores",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.spotsFores = respSpotsFores.data.data;
+        const respDevViews = await axios({
+          url: "https://strapi.lymos.ru/api/dev-views",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.devViews = respDevViews.data.data;
       } catch (err) {
         console.log(err);
       }

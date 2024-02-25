@@ -29,13 +29,9 @@ onMounted(() => {
 <template>
   <main class="mvp">
     <PageTitle :pageTitles="dataMvp.pageTitle" />
-    <TheSpotsFore :pageSlogans="dataMvp.respSpotsFores" />
-    <div class="wrapper">
-      <div
-        v-for="mvpView in dataMvp.mvpViews"
-        :key="mvpView.id"
-        class="content product_dev"
-      >
+    <TheSpotsFore :pageSlogans="dataMvp.spotsFores" />
+    <div v-for="mvpView in dataMvp.mvpViews" :key="mvpView.id" class="wrapper">
+      <div class="content product_dev">
         <h4 class="product_h4">{{ mvpView.attributes.h4 }}</h4>
         <PageSteps
           :arcHeaders="dataMvp.arcHeaders"
@@ -46,11 +42,7 @@ onMounted(() => {
       </div>
 
       <div class="content">
-        <div
-          v-for="mvpView in dataMvp.mvpViews"
-          :key="mvpView.id"
-          class="service_description"
-        >
+        <div class="service_description">
           <h2>{{ mvpView.attributes.h2 }}</h2>
           <p>{{ mvpView.attributes.p }}</p>
         </div>

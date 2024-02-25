@@ -6,7 +6,7 @@ export const DataMvp = defineStore("data-mvp", {
     stepsDev: [],
     arcFooters: [],
     pageTitle: [],
-    respSpotsFores: [],
+    spotsFores: [],
     mvpViews: [],
   }),
   actions: {
@@ -51,7 +51,7 @@ export const DataMvp = defineStore("data-mvp", {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         });
-        this.respSpotsFores = respSpotsFores.data.data;
+        this.spotsFores = respSpotsFores.data.data;
         const respMvpViews = await axios({
           url: "https://strapi.lymos.ru/api/mvp-views",
           method: "GET",

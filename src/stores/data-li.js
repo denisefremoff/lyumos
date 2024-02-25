@@ -5,6 +5,9 @@ export const DataIi = defineStore("data-li", {
     arcHeaders: [],
     stepsDev: [],
     arcFooters: [],
+    pageTitle: [],
+    spotsFores: [],
+    iiViews: [],
   }),
   actions: {
     async getIiData() {
@@ -33,6 +36,30 @@ export const DataIi = defineStore("data-li", {
           },
         });
         this.arcFooters = respArcFooters.data.data;
+        const respPageTitle = await axios({
+          url: "https://strapi.lymos.ru/api/ii-page-titles",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.pageTitle = respPageTitle.data.data;
+        const respSpotsFores = await axios({
+          url: "https://strapi.lymos.ru/api/ii-spots-fores",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.spotsFores = respSpotsFores.data.data;
+        const respIiViews = await axios({
+          url: "https://strapi.lymos.ru/api/ii-views",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        this.iiViews = respIiViews.data.data;
       } catch (err) {
         console.log(err);
       }
