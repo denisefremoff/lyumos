@@ -8,26 +8,35 @@ import SwiperNav from "@/components/TheSwiperNavCategory.vue";
 
 import { onMounted } from "vue";
 import { DataPortfolio } from "@/stores/data-portfolio.js";
+import { DataTitleDesc } from "@/stores/data-titleDesc.js";
 
-import { ref } from "vue";
 import { useHead } from "@unhead/vue";
 
-const title = ref("Портфолио");
-const descriptionContent = ref({ description: "Моя страница Портфолио" });
-useHead({
-  title,
-  meta: [
-    {
-      name: "description",
-      content: () => descriptionContent.value.description,
-    },
-  ],
-});
-
+const titleDesc = DataTitleDesc();
 const dataPortfolio = DataPortfolio();
 
 onMounted(() => {
   dataPortfolio.getPortfolio();
+  titleDesc.getPortfolioTitDecs();
+});
+
+// useHead({
+//   title: () => titleDesc.portfolioTitleDesc.title,
+//   meta: [
+//     {
+//       name: "description",
+//       content: () => titleDesc.portfolioTitleDesc.description,
+//     },
+//   ],
+// });
+useHead({
+  title: () => titleDesc.titleDesc.title,
+  meta: [
+    {
+      name: "description",
+      content: () => titleDesc.titleDesc.description,
+    },
+  ],
 });
 </script>
 

@@ -2,30 +2,42 @@
 import TheFooter from "@/components/TheFooter.vue";
 import TheSpotsFore from "@/components/TheSpotsFore.vue";
 import PageTitle from "@/components/PageTitle.vue";
+
 import PageSteps from "@/components/PageSteps.vue";
 import TheExpertise from "@/components/TheExpertise.vue";
 import DevCase from "@/components/DevCase.vue";
 
 import { DataDev } from "@/stores/data-dev";
 import { onMounted } from "vue";
-
-import { ref } from "vue";
 import { useHead } from "@unhead/vue";
 
-const title = ref("Дев");
-const descriptionContent = ref({ description: "Моя страница дев" });
+import { DataTitleDesc } from "@/stores/data-titleDesc.js";
+
+const titleDesc = DataTitleDesc();
+const dataDev = DataDev();
+
+onMounted(() => {
+  dataDev.getDevData();
+  titleDesc.getDevTitDesc();
+});
+
+// useHead({
+//   title: () => titleDesc.devTitleDesc.title,
+//   meta: [
+//     {
+//       name: "description",
+//       content: () => titleDesc.devTitleDesc.description,
+//     },
+//   ],
+// });
 useHead({
-  title,
+  title: () => titleDesc.titleDesc.title,
   meta: [
     {
       name: "description",
-      content: () => descriptionContent.value.description,
+      content: () => titleDesc.titleDesc.description,
     },
   ],
-});
-const dataDev = DataDev();
-onMounted(() => {
-  dataDev.getDevData();
 });
 </script>
 

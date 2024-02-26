@@ -2,28 +2,39 @@
 import TheFooter from "@/components/TheFooter.vue";
 import TheSpotsFore from "@/components/TheSpotsFore.vue";
 import PageTitle from "@/components/PageTitle.vue";
+
 import PageSteps from "@/components/PageSteps.vue";
 import { DataMvp } from "@/stores/data-mvp";
 import { onMounted } from "vue";
 
-import { ref } from "vue";
+import { DataTitleDesc } from "@/stores/data-titleDesc.js";
 import { useHead } from "@unhead/vue";
 
-const title = ref("МВП");
-const descriptionContent = ref({ description: "Моя страница МВП" });
+const titleDesc = DataTitleDesc();
+const dataMvp = DataMvp();
+
+onMounted(() => {
+  dataMvp.getMvpData();
+  titleDesc.getMvpTitDesc();
+});
+
+// useHead({
+//   title: () => titleDesc.mvpTitleDesc.title,
+//   meta: [
+//     {
+//       name: "description",
+//       content: () => titleDesc.mvpTitleDesc.description,
+//     },
+//   ],
+// });
 useHead({
-  title,
+  title: () => titleDesc.titleDesc.title,
   meta: [
     {
       name: "description",
-      content: () => descriptionContent.value.description,
+      content: () => titleDesc.titleDesc.description,
     },
   ],
-});
-
-const dataMvp = DataMvp();
-onMounted(() => {
-  dataMvp.getMvpData();
 });
 </script>
 <template>

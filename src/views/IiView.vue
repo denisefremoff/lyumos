@@ -2,27 +2,39 @@
 import TheFooter from "@/components/TheFooter.vue";
 import TheSpotsFore from "@/components/TheSpotsFore.vue";
 import PageTitle from "@/components/PageTitle.vue";
+
 import PageSteps from "@/components/PageSteps.vue";
 import { DataIi } from "@/stores/data-li";
 import { onMounted } from "vue";
 
-import { ref } from "vue";
+import { DataTitleDesc } from "@/stores/data-titleDesc.js";
 import { useHead } from "@unhead/vue";
 
-const title = ref("Ии");
-const descriptionContent = ref({ description: "Моя страница Ии" });
+const titleDesc = DataTitleDesc();
+const dataIi = DataIi();
+
+onMounted(() => {
+  dataIi.getIiData();
+  titleDesc.getIiTitDesc();
+});
+
+// useHead({
+//   title: () => titleDesc.iiTitleDesc.title,
+//   meta: [
+//     {
+//       name: "description",
+//       content: () => titleDesc.iiTitleDesc.description,
+//     },
+//   ],
+// });
 useHead({
-  title,
+  title: () => titleDesc.titleDesc.title,
   meta: [
     {
       name: "description",
-      content: () => descriptionContent.value.description,
+      content: () => titleDesc.titleDesc.description,
     },
   ],
-});
-const dataIi = DataIi();
-onMounted(() => {
-  dataIi.getIiData();
 });
 </script>
 <template>

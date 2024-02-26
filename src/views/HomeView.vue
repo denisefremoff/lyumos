@@ -2,24 +2,38 @@
 import TheFooter from "@/components/TheFooter.vue";
 import IconPrimaryBtn from "@/components/icons/IconPrimaryBtn.vue";
 import { RouterLink } from "vue-router";
+
 // import IconCard from "@/components/icons/IconCard.vue";
 //swiper
 import TheSwiper from "@/components/TheSwiper.vue";
-
 //сервисы моб. версия
 import TheServMob from "@/components/TheServicesMobile.vue";
 
-import { ref } from "vue";
 import { useHead } from "@unhead/vue";
+import { onMounted } from "vue";
+import { DataTitleDesc } from "@/stores/data-titleDesc.js";
 
-const title = ref("Дом");
-const descriptionContent = ref({ description: "Моя страница дом" });
+const titleDesc = DataTitleDesc();
+
+onMounted(() => {
+  titleDesc.getHomeTitDecs();
+});
+
+// useHead({
+//   title: () => titleDesc.homeTitleDesc.title,
+//   meta: [
+//     {
+//       name: "description",
+//       content: () => titleDesc.homeTitleDesc.description,
+//     },
+//   ],
+// });
 useHead({
-  title,
+  title: () => titleDesc.titleDesc.title,
   meta: [
     {
       name: "description",
-      content: () => descriptionContent.value.description,
+      content: () => titleDesc.titleDesc.description,
     },
   ],
 });

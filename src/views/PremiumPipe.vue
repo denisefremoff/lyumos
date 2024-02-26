@@ -3,31 +3,39 @@ import TheFooter from "@/components/TheFooter.vue";
 import TheAboutProject from "@/components/TheAboutProject.vue";
 import TheConceptVue from "@/components/TheConcept.vue";
 
-import { ref } from "vue";
 import { useHead } from "@unhead/vue";
-
 import { onMounted } from "vue";
 import { DataPremiumPipe } from "@/stores/data-premium-pipe.js";
 
-const title = ref("Премиум-Пайп");
-const descriptionContent = ref({ description: "Моя страница Премиум пайп" });
-useHead({
-  title,
-  meta: [
-    {
-      name: "description",
-      content: () => descriptionContent.value.description,
-    },
-  ],
-});
+import { DataTitleDesc } from "@/stores/data-titleDesc.js";
 
+const titleDesc = DataTitleDesc();
 const dataPremiumPipe = DataPremiumPipe();
 
 onMounted(() => {
   dataPremiumPipe.getPermiumPipe();
+  titleDesc.getPremPipeTitDecs();
+});
+
+// useHead({
+//   title: () => titleDesc.premPipeTitleDesc.title,
+//   meta: [
+//     {
+//       name: "description",
+//       content: () => titleDesc.premPipeTitleDesc.description,
+//     },
+//   ],
+// });
+useHead({
+  title: () => titleDesc.titleDesc.title,
+  meta: [
+    {
+      name: "description",
+      content: () => titleDesc.titleDesc.description,
+    },
+  ],
 });
 </script>
-
 <template>
   <main>
     <div class="swap_icons">

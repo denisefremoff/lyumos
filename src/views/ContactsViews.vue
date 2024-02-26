@@ -1,26 +1,36 @@
 <script setup>
 import TheSpots from "@/components/TheSpots.vue";
-import { ref } from "vue";
 import { useHead } from "@unhead/vue";
 import { onMounted } from "vue";
+
 import { DataContact } from "@/stores/data-contacts.js";
+import { DataTitleDesc } from "@/stores/data-titleDesc.js";
+
 const datContact = DataContact();
-
-const title = ref("Контакты");
-const descriptionContent = ref({ description: "Моя страница контакты" });
-
-useHead({
-  title,
-  meta: [
-    {
-      name: "description",
-      content: () => descriptionContent.value.description,
-    },
-  ],
-});
+const titleDesc = DataTitleDesc();
 
 onMounted(() => {
   datContact.getContacts();
+  titleDesc.getContactTitleDesc();
+});
+
+// useHead({
+//   title: () => titleDesc.contactTitleDesc.title,
+//   meta: [
+//     {
+//       name: "description",
+//       content: () => titleDesc.contactTitleDesc.description,
+//     },
+//   ],
+// });
+useHead({
+  title: () => titleDesc.titleDesc.title,
+  meta: [
+    {
+      name: "description",
+      content: () => titleDesc.titleDesc.description,
+    },
+  ],
 });
 </script>
 <template>

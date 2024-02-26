@@ -2,22 +2,36 @@
 import TheFooter from "@/components/TheFooter.vue";
 import TheSpots from "@/components/TheSpots.vue";
 import SerApplications from "@/components/SerApplications.vue";
-import { ref } from "vue";
+
 import { useHead } from "@unhead/vue";
 import { onMounted } from "vue";
 import { DataServices } from "@/stores/data-services.js";
+
+import { DataTitleDesc } from "@/stores/data-titleDesc.js";
+
 const dataServices = DataServices();
+const titleDesc = DataTitleDesc();
+
 onMounted(() => {
   dataServices.getServices();
+  titleDesc.getServTitleDesc();
 });
-const title = ref("Сервис");
-const descriptionContent = ref({ description: "Моя страница сервиса" });
+
+// useHead({
+//   title: () => titleDesc.mvpTitleDesc.title,
+//   meta: [
+//     {
+//       name: "description",
+//       content: () => titleDesc.mvpTitleDesc.description,
+//     },
+//   ],
+// });
 useHead({
-  title,
+  title: () => titleDesc.titleDesc.title,
   meta: [
     {
       name: "description",
-      content: () => descriptionContent.value.description,
+      content: () => titleDesc.titleDesc.description,
     },
   ],
 });

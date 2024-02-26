@@ -2,28 +2,39 @@
 import TheFooter from "@/components/TheFooter.vue";
 import TheSpotsFore from "@/components/TheSpotsFore.vue";
 import PageTitle from "@/components/PageTitle.vue";
+
 import PageSteps from "@/components/PageSteps.vue";
 import { DataMod } from "@/stores/data-modification";
 import { onMounted } from "vue";
 
-import { ref } from "vue";
+import { DataTitleDesc } from "@/stores/data-titleDesc.js";
 import { useHead } from "@unhead/vue";
 
-const title = ref("Модификация");
-const descriptionContent = ref({ description: "Моя страница модификация" });
+const titleDesc = DataTitleDesc();
+const dataMod = DataMod();
+
+onMounted(() => {
+  dataMod.getModData();
+  titleDesc.getModTitDesc();
+});
+
+// useHead({
+//   title: () => titleDesc.modTitleDesc.title,
+//   meta: [
+//     {
+//       name: "description",
+//       content: () => titleDesc.modTitleDesc.description,
+//     },
+//   ],
+// });
 useHead({
-  title,
+  title: () => titleDesc.titleDesc.title,
   meta: [
     {
       name: "description",
-      content: () => descriptionContent.value.description,
+      content: () => titleDesc.titleDesc.description,
     },
   ],
-});
-
-const dataMod = DataMod();
-onMounted(() => {
-  dataMod.getModData();
 });
 </script>
 <template>
