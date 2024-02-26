@@ -1626,7 +1626,8 @@ section {
   color: #abc6fd;
   position: relative;
   z-index: 1000;
-  transition: transform 0.3s, color 0.3s;
+  transition: 0.3s;
+  margin-bottom: 0;
 }
 
 .active-right-side .footer__links a:last-child {
@@ -1637,6 +1638,7 @@ section {
   -webkit-transform: translateY(-20px);
   transform: translateY(-20px);
   color: #fff;
+  margin-bottom: -20px;
 }
 
 .active-divider {
@@ -3734,6 +3736,13 @@ main {
 .technology_logos img {
   height: 10.4166667vw;
   width: 10.4166667vw;
+  filter: grayscale(100%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.technology_logos img:hover {
+  filter: none;
 }
 
 .design_system h2,
