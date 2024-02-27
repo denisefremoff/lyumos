@@ -9,27 +9,27 @@ const dataServices = DataServices();
 <template>
   <section
     class="applications"
-    v-for="applicationSer in dataServices.applicationSers"
-    :key="applicationSer.id"
+    v-for="applicationServ in dataServices.getApplicationServs"
+    :key="applicationServ.id"
   >
     <div class="left_applications">
-      <h2>{{ applicationSer.attributes.heading }}</h2>
-      <p>{{ applicationSer.attributes.subtitle }}</p>
+      <h2>{{ applicationServ.attributes.heading }}</h2>
+      <p>{{ applicationServ.attributes.subtitle }}</p>
       <div
-        v-if="applicationSer.attributes.sectionicon"
+        v-if="applicationServ.attributes.sectionicon"
         class="icon_left_applications"
-        v-html="applicationSer.attributes.sectionicon"
+        v-html="applicationServ.attributes.sectionicon"
       ></div>
     </div>
     <div
       class="right_applications"
-      :class="applicationSer.attributes.gridclass"
+      :class="applicationServ.attributes.gridclass"
     >
       <RouterLink
         :to="`/services/${type.attributes.url}`"
         class="border_right_applications"
-        :class="applicationSer.attributes.colorclass"
-        v-for="(type, index) in applicationSer.attributes.service_types.data"
+        :class="applicationServ.attributes.colorclass"
+        v-for="(type, index) in applicationServ.attributes.service_types.data"
         :key="index"
       >
         <div class="box_right_applications">

@@ -6,10 +6,10 @@ export const DataPremiumPipe = defineStore("data-premium-pipe", {
     aboutProjects: [],
     swapIcons: [],
     technologyLogos: [],
-    weUse: {},
+    weUseH2: "",
     designSystems: [],
-    contentPremiumPipe: [],
     contentPremiumPipeUl: [],
+    premiumPipeH1: "",
   }),
   getters: {
     getSwapIcons() {
@@ -19,13 +19,13 @@ export const DataPremiumPipe = defineStore("data-premium-pipe", {
       return this.technologyLogos;
     },
     getWeUse() {
-      return this.weUse.attributes.h2;
+      return this.weUseH2;
     },
     getDesineSystem() {
       return this.designSystems;
     },
     getContentPremiumPipe() {
-      return this.contentPremiumPipe;
+      return this.premiumPipeH1;
     },
     getContentPremiumPipeUl() {
       return this.contentPremiumPipeUl;
@@ -61,22 +61,22 @@ export const DataPremiumPipe = defineStore("data-premium-pipe", {
     },
     async getPermiumPipe() {
       try {
-        const responseSwapIcons = await axios({
+        const respSwapIcons = await axios({
           url: "https://strapi.lymos.ru/api/swap-icons",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         });
-        this.swapIcons = responseSwapIcons.data.data;
-        const responseTechnologyLogos = await axios({
+        this.swapIcons = respSwapIcons.data.data;
+        const respTechnologyLogos = await axios({
           url: "https://strapi.lymos.ru/api/technologies",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         });
-        this.technologyLogos = responseTechnologyLogos.data.data;
+        this.technologyLogos = respTechnologyLogos.data.data;
         const responseWeUse = await axios({
           url: "https://strapi.lymos.ru/api/we-uses/1",
           method: "GET",
@@ -84,7 +84,8 @@ export const DataPremiumPipe = defineStore("data-premium-pipe", {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         });
-        this.weUse = responseWeUse.data.data;
+        let tmpWeUse = responseWeUse.data.data;
+        this.weUseH2 = tmpWeUse.attributes.h2;
         const responseDesignSystems = await axios({
           url: "https://strapi.lymos.ru/api/design-systems",
           method: "GET",
@@ -93,14 +94,15 @@ export const DataPremiumPipe = defineStore("data-premium-pipe", {
           },
         });
         this.designSystems = responseDesignSystems.data.data;
-        const responseContentPremiumPipe = await axios({
-          url: "https://strapi.lymos.ru/api/content-premium-pipes",
+        const respContentPremiumPipe = await axios({
+          url: "https://strapi.lymos.ru/api/content-premium-pipes/1",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         });
-        this.contentPremiumPipe = responseContentPremiumPipe.data.data;
+        let tmpPpcontent = respContentPremiumPipe.data.data;
+        this.premiumPipeH1 = tmpPpcontent.attributes.h1;
         const responseContentPremiumPipeUl = await axios({
           url: "https://strapi.lymos.ru/api/content-premium-pipe-uls",
           method: "GET",

@@ -40,14 +40,10 @@ useHead({
   <main>
     <TheSpots />
     <div class="wrapper">
-      <div
-        v-for="servicesView in dataServices.servicesViews"
-        :key="servicesView.id"
-        class="content amenities"
-      >
-        <h1 class="title_amenities">{{ servicesView.attributes.h1 }}</h1>
+      <div class="content amenities">
+        <h1 class="title_amenities">{{ dataServices.getH1 }}</h1>
         <h4 class="description_amenities">
-          {{ servicesView.attributes.h4 }}
+          {{ dataServices.getH4 }}
         </h4>
         <SerApplications />
       </div>

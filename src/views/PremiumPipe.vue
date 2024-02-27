@@ -48,12 +48,8 @@ useHead({
     </div>
 
     <div class="wrapper">
-      <div
-        v-for="contentPremiumPipe in dataPremiumPipe.getContentPremiumPipe"
-        :key="contentPremiumPipe.id"
-        class="content premium_pipe"
-      >
-        <h1>{{ contentPremiumPipe.attributes.h1 }}</h1>
+      <div class="content premium_pipe">
+        <h1>{{ dataPremiumPipe.getContentPremiumPipe }}</h1>
         <ul>
           <li
             v-for="contentPremiumPipeUl in dataPremiumPipe.getContentPremiumPipeUl"

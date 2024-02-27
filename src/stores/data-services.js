@@ -2,10 +2,21 @@ import { defineStore } from "pinia";
 import axios from "axios";
 export const DataServices = defineStore("data-services", {
   state: () => ({
-    applicationSers: [],
-    servicesViews: [],
+    applicationServ: [],
+    servicesViewH1: "",
+    servicesViewH4: "",
   }),
-
+  getters: {
+    getH1() {
+      return this.servicesViewH1;
+    },
+    getH4() {
+      return this.servicesViewH4;
+    },
+    getApplicationServs() {
+      return this.applicationServ;
+    },
+  },
   actions: {
     async getServices() {
       try {
@@ -17,16 +28,17 @@ export const DataServices = defineStore("data-services", {
           },
         });
 
-        this.applicationSers = response.data.data;
-        const responseServicesView = await axios({
-          url: "https://strapi.lymos.ru/api/services-views",
+        this.applicationServ = response.data.data;
+        const respServicesView = await axios({
+          url: "https://strapi.lymos.ru/api/services-views/1 ",
           method: "GET",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         });
-
-        this.servicesViews = responseServicesView.data.data;
+        let tmp = respServicesView.data.data;
+        this.servicesViewH1 = tmp.attributes.h1;
+        this.servicesViewH4 = tmp.attributes.h4;
       } catch (err) {
         console.log(err);
       }

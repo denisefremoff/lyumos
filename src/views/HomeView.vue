@@ -8,15 +8,18 @@ import { RouterLink } from "vue-router";
 import TheSwiper from "@/components/TheSwiper.vue";
 //сервисы моб. версия
 import TheServMob from "@/components/TheServicesMobile.vue";
-
 import { useHead } from "@unhead/vue";
+
 import { onMounted } from "vue";
 import { DataTitleDesc } from "@/stores/data-titleDesc.js";
+import { DataHome } from "@/stores/data-home.js";
 
 const titleDesc = DataTitleDesc();
+const dataHome = DataHome();
 
 onMounted(() => {
   titleDesc.getHomeTitDecs();
+  dataHome.getHomePage();
 });
 
 // useHead({
@@ -99,31 +102,26 @@ useHead({
       <div class="wrapper">
         <h1>
           <!-- <span data-text="{Строим}">{Строим}</span> будущее ИТ-развития вместе -->
-          <span>{Разработка}</span> ИТ-решений для бизнеса
+          <span>{{ dataHome.introH1Span }}</span> {{ dataHome.introH1 }}
         </h1>
 
         <h4>
-          Создаем технологические решения, нацеленные на ваш успех. Доверьте нам
-          свои идеи, и мы сделаем их работающей частью вашего бизнеса.
+          {{ dataHome.introH4 }}
         </h4>
       </div>
     </section>
 
     <section class="services">
       <div class="wrapper">
-        <h4>Мы занимаемся</h4>
+        <h4>{{ dataHome.servicesH4 }}</h4>
 
         <div class="services__container">
           <div class="services__pre">
             <RouterLink to="/services" class="services__btn primary-btn"
-              >Все услуги
+              >{{ dataHome.servicesRouterLink }}
               <IconPrimaryBtn />
             </RouterLink>
-            <p class="services__text">
-              Наш подход основан на детальном анализе, полном погружении в вашу
-              компанию и инструментах, которые помогут решить ваши задачи и
-              привлечь клиентов
-            </p>
+            <p class="services__text">{{ dataHome.servicesP }}</p>
           </div>
           <div class="services__slider-container swiper-container">
             <TheSwiper />
@@ -138,49 +136,56 @@ useHead({
     <section class="benefits">
       <div class="wrapper">
         <h2>
-          <span>Нас выбирают</span>
-          потому что
+          <span>{{ dataHome.benefitsSpan }}</span>
+          {{ dataHome.benefitsH2 }}
         </h2>
         <span class="divider"></span>
-        <h4>Создаем индивидуальные решения</h4>
-        <h4>Ведем полную документацию</h4>
-        <h4>Понимаем ваши цели</h4>
+        <h4 v-for="benefith4 in dataHome.benefitsh4" :key="benefith4.id">
+          {{ benefith4.attributes.h4 }}
+        </h4>
       </div>
     </section>
 
     <section class="about">
       <div class="wrapper">
-        <h4>Немного о нас</h4>
+        <h4>{{ dataHome.aboutH4 }}</h4>
         <div class="about__container">
           <div class="about__pre">
             <!-- <button class="about__btn primary-btn">
               О компании
               <IconPrimaryBtn />
             </button> -->
+            <!-- aboutPs -->
             <div>
-              <p class="about__text">
-                Наш продукт, зарегистрирован в реестре Российского ПО
-              </p>
-              <p class="about__text">
-                Имеем аккредитацию в Министерстве цифрового развития, связи и
-                массовых коммуникаций
+              <p
+                v-for="aboutP in dataHome.aboutPs"
+                :key="aboutP.id"
+                class="about__text"
+              >
+                {{ aboutP.attributes.p }}
               </p>
             </div>
           </div>
           <div class="about__blocks">
             <div class="about__block">
-              <span class="about__block-num">5+</span>
-              <p>Лет опыта</p>
+              <span class="about__block-num">{{
+                dataHome.aboutBlockSpan1
+              }}</span>
+              <p>{{ dataHome.aboutBlockP1 }}</p>
             </div>
             <div class="about__divider"></div>
             <div class="about__block">
-              <span class="about__block-num">20+</span>
-              <p>Профессионалов</p>
+              <span class="about__block-num">
+                {{ dataHome.aboutBlockSpan2 }}</span
+              >
+              <p>{{ dataHome.aboutBlockP2 }}</p>
             </div>
             <div class="about__divider"></div>
             <div class="about__block">
-              <span class="about__block-num">50+</span>
-              <p>Выполенных проектов</p>
+              <span class="about__block-num">{{
+                dataHome.aboutBlockSpan3
+              }}</span>
+              <p>{{ dataHome.aboutBlockP3 }}</p>
             </div>
           </div>
         </div>
