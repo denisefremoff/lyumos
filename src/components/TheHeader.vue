@@ -2,9 +2,19 @@
 import { RouterLink } from "vue-router";
 import IconOrderProject from "@/components/icons/IconOrderProject.vue";
 import { FormControl } from "@/stores/form-control.js";
+
 import TheForm from "@/components/TheForm.vue";
 import TheFormThanks from "@/components/TheFormThanks.vue";
+import { DataHeader } from "@/stores/data-header.js";
+
+import { onMounted } from "vue";
+
 const form = FormControl();
+const dataHeader = DataHeader();
+
+onMounted(() => {
+  dataHeader.getHeader();
+});
 </script>
 
 <script>
@@ -41,31 +51,26 @@ export default {
         <div class="left-part">
           <nav>
             <ul>
-              <li>
-                <RouterLink to="/portfolio" @click="closeDropdown"
-                  >Портфолио</RouterLink
-                >
-              </li>
-              <li>
-                <RouterLink to="/contacts" @click="closeDropdown"
-                  >Контакты</RouterLink
-                >
-              </li>
-              <li>
-                <RouterLink to="/services" @click="closeDropdown"
-                  >Услуги</RouterLink
+              <li
+                v-for="navigation in dataHeader.navigations"
+                :key="navigation.id"
+              >
+                <RouterLink
+                  :to="`/${navigation.attributes.routerLink_to}`"
+                  @click="closeDropdown"
+                  >{{ navigation.attributes.routerLink }}</RouterLink
                 >
               </li>
             </ul>
           </nav>
-          <p>IT-компания lumos.ru, 2024 © Все права защищены</p>
+          <p>{{ dataHeader.copyrightP }}</p>
         </div>
         <div class="right-part">
           <nav>
             <ul>
               <li>
                 <a class="btn-order" @click="form.changActivForm"
-                  >Заказать проект
+                  >{{ dataHeader.a_orderProject }}
                   <svg
                     width="70"
                     height="70"
@@ -86,11 +91,9 @@ export default {
           </nav>
 
           <div class="right-contacts">
-            <a href="tel:+79969241648">+7 (996) 924-16-48</a>
+            <a :href="dataHeader.a_href_tel">{{ dataHeader.a_tel }}</a>
             <span class="dropdown__divider"></span>
-            <a href="mailto:protechnologii22@yandex.ru"
-              >protechnologii22@yandex.ru</a
-            >
+            <a :href="dataHeader.a_href_mail">{{ dataHeader.a_mail }}</a>
           </div>
         </div>
       </div>
@@ -100,7 +103,7 @@ export default {
           <ul>
             <li>
               <a class="btn-order" @click="form.changActivForm"
-                >Заказать проект
+                >{{ dataHeader.a_orderProject }}
                 <svg
                   width="70"
                   height="70"
@@ -117,34 +120,27 @@ export default {
                 </svg>
               </a>
             </li>
-            <li class="mobile_li">
-              <RouterLink to="/portfolio" @click="closeDropdown"
-                >Портфолио</RouterLink
-              >
-            </li>
-            <li class="mobile_li">
-              <RouterLink to="/contacts" @click="closeDropdown"
-                >Контакты</RouterLink
-              >
-            </li>
-            <li class="mobile_li">
-              <RouterLink to="/services" @click="closeDropdown"
-                >Услуги</RouterLink
+            <li
+              v-for="navigation in dataHeader.navigations"
+              :key="navigation.id"
+              class="mobile_li"
+            >
+              <RouterLink
+                :to="`/${navigation.attributes.routerLink_to}`"
+                @click="closeDropdown"
+                >{{ navigation.attributes.routerLink }}</RouterLink
               >
             </li>
           </ul>
         </nav>
-
         <div class="left-mobile-contacts">
-          <a href="tel:+79969241648">+7 (996) 924-16-48</a>
-          <a href="mailto:protechnologii22@yandex.ru"
-            >protechnologii22@yandex.ru</a
-          >
+          <a :href="dataHeader.a_href_tel">{{ dataHeader.a_tel }}</a>
+          <a :href="dataHeader.a_href_mail">{{ dataHeader.a_mail }}</a>
           <!-- info@lymos.ru -->
         </div>
 
         <p class="left-mobile-rights lmr-601">
-          IT-компания lumos.ru, 2024 © Все права защищены
+          {{ dataHeader.copyrightP }}
         </p>
       </div>
       <div class="right">
@@ -152,15 +148,18 @@ export default {
           <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
         </button>
         <div class="dropdown__links">
-          <a href="https://vk.com/pro_technology " target="_blank">ВКонтакте</a>
-          <a href="https://wa.me/79969241648" target="_blank">WhatsApp</a>
-          <a href="https://t.me/protechnologii56" target="_blank">Telegram</a>
-          <a href="https://tenchat.ru/akolomiec" target="_blank">TenChat</a>
+          <a
+            v-for="social in dataHeader.socials"
+            :key="social.id"
+            :href="social.attributes.a_href"
+            target="_blank"
+            >{{ social.attributes.a_social }}</a
+          >
         </div>
       </div>
 
       <p class="left-mobile-rights lmr-600">
-        IT-компания lumos.ru, 2024 © Все права защищены
+        {{ dataHeader.copyrightP }}
       </p>
     </div>
 
@@ -168,16 +167,20 @@ export default {
     <div class="wrapper">
       <ul class="header__left-side">
         <li class="header__menu" @click="toggleDropdown">
-          <p>Меню</p>
+          <p>{{ dataHeader.menuButtonP }}</p>
           <button>
             <span></span>
           </button>
         </li>
         <li class="header__left-item">
-          <RouterLink to="/services">Услуги</RouterLink>
+          <RouterLink :to="`/${dataHeader.servicesRout}`">{{
+            dataHeader.services
+          }}</RouterLink>
         </li>
         <li class="header__left-item">
-          <RouterLink to="/portfolio">Портфолио</RouterLink>
+          <RouterLink :to="`/${dataHeader.portfolioRout}`">{{
+            dataHeader.portfolio
+          }}</RouterLink>
         </li>
       </ul>
       <div class="header__logo">
@@ -187,11 +190,11 @@ export default {
       </div>
       <ul class="header__right-side">
         <li class="header__right-item">
-          <a href="tel:+79969241648">+7 (996) 924-16-48</a>
+          <a :href="dataHeader.a_href_tel">{{ dataHeader.a_tel }}</a>
         </li>
         <li>
           <a class="btn-order" @click="form.changActivForm"
-            >Заказать проект
+            >{{ dataHeader.a_orderProject }}
             <IconOrderProject />
           </a>
         </li>
@@ -228,3 +231,4 @@ export default {
   display: flex;
 }
 </style>
+`/services/${SwData.attributes.url}`
