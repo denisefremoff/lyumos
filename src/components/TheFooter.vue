@@ -1,5 +1,8 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import { DataHeader } from "@/stores/data-header.js";
+
+const dataFooter = DataHeader();
 </script>
 
 <template>
@@ -53,22 +56,20 @@ import { RouterLink } from "vue-router";
       >
         <nav @mouseenter="hoverLeftAbsolute" @mouseleave="noHover">
           <ul>
-            <li>
-              <RouterLink to="/portfolio">Портфолио</RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/contacts">Контакты</RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/services">Услуги</RouterLink>
+            <li
+              v-for="navigation in dataFooter.navigations"
+              :key="navigation.id"
+            >
+              <RouterLink :to="`/${navigation.attributes.routerLink_to}`">{{
+                navigation.attributes.routerLink
+              }}</RouterLink>
             </li>
           </ul>
         </nav>
         <p class="footer__rights">
-          IT-компания lumos.ru, 2024 © Все права защищены
+          {{ dataFooter.copyrightP }}
         </p>
       </div>
-
       <div
         @mouseenter="hoverRightAbsolute"
         @mouseleave="noHover"
@@ -79,26 +80,27 @@ import { RouterLink } from "vue-router";
         }"
       >
         <div class="footer__contacts">
-          <a href="tel:+79969241648" class="footer__phone"
-            >+7 (996) 924-16-48</a
-          >
-          <a href="mailto:protechnologii22@yandex.ru" class="footer__mail"
-            >Наша почта</a
-          >
+          <a :href="dataFooter.a_href_tel" class="footer__phone">{{
+            dataFooter.a_tel
+          }}</a>
+          <a :href="dataFooter.a_href_mail" class="footer__phone">Наша почта</a>
           <!-- info@lymos.ru -->
         </div>
         <div class="footer__links">
-          <a href="https://vk.com/pro_technology" target="_blank">ВКонтакте</a>
-          <a href="https://wa.me/79969241648" target="_blank">WhatsApp</a>
-          <a href="https://t.me/protechnologii56" target="_blank">Telegram</a>
-          <a href="https://tenchat.ru/akolomiec" target="_blank">TenChat</a>
+          <a
+            v-for="social in dataFooter.socials"
+            :key="social.id"
+            :href="social.attributes.a_href"
+            target="_blank"
+            >{{ social.attributes.a_social }}</a
+          >
         </div>
       </div>
     </div>
 
     <div class="footer_tel_rights">
-      <a href="tel:+79969241648">+7 (996) 924-16-48</a>
-      <p>IT-компания lumos.ru, 2024 © Все права защищены</p>
+      <a :href="dataFooter.a_href_tel">{{ dataFooter.a_tel }}</a>
+      <p>{{ dataFooter.copyrightP }}</p>
     </div>
   </footer>
 </template>
