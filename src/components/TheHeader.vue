@@ -231,4 +231,3 @@ export default {
   display: flex;
 }
 </style>
-`/services/${SwData.attributes.url}`

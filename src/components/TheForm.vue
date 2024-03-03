@@ -1,6 +1,14 @@
 <script setup>
 import { FormControl } from "@/stores/form-control.js";
+import { DataForm } from "@/stores/data-form.js";
+import { onMounted } from "vue";
+
 const form = FormControl();
+const dataForm = DataForm();
+
+onMounted(() => {
+  dataForm.getFormData();
+});
 </script>
 <template>
   <div @click="form.changActivForm" class="dark-back">
@@ -15,7 +23,7 @@ const form = FormControl();
           class="form form-1 active-slide-form"
         >
           <div class="top">
-            <p>Какие услуги вам необходимы</p>
+            <p>{{ dataForm.sevicesTitle }}</p>
             <button @click="form.changActivForm" class="close-form-mobile">
               <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
             </button>
@@ -133,7 +141,7 @@ const form = FormControl();
             </div>
           </div>
           <div class="description">
-            <p>Опишите проект, не забудьте уточнить сроки</p>
+            <p>{{ dataForm.description }}</p>
             <textarea
               v-model="form.description"
               name="description"
@@ -145,7 +153,7 @@ const form = FormControl();
 
         <div v-else data-num="3" class="form form-3">
           <div class="top">
-            <p>Пора знакомиться</p>
+            <p>{{ dataForm.meetTitle }}</p>
             <button class="close-form-mobile">
               <img src="@/assets/img/icons/icons.svg#x" alt="Закрыть" />
             </button>
@@ -196,7 +204,7 @@ const form = FormControl();
               @click="form.changePageBack"
               :disabled="form.getPageNumber < 2"
             >
-              Назад
+              {{ dataForm.buttonBack }}
             </button>
             <button
               v-if="form.getPageNumber === 1"
@@ -206,7 +214,7 @@ const form = FormControl();
                 { wrong: form.getWrong },
               ]"
             >
-              Следующий шаг
+              {{ dataForm.buttonNext }}
             </button>
             <button
               v-else
@@ -216,7 +224,7 @@ const form = FormControl();
                 { wrong: form.getWrong },
               ]"
             >
-              Отправить
+              {{ dataForm.buttonSend }}
             </button>
           </div>
           <!-- незаполненные поля -->

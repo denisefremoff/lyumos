@@ -62,5 +62,3 @@ export const DataHeader = defineStore("data-header", {
     },
   },
 });
-
-// /api/header-navs
